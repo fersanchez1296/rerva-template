@@ -61,7 +61,7 @@ function Presentation() {
         <PresentationHeader/>
         <Components />
         <BasicComponents />
-        {/* <Cards /> */}
+        <Cards />
         <Content />
         <Sections /> 
         {/* <Examples /> */}

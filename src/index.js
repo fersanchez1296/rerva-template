@@ -40,29 +40,43 @@ import ProductPage from "views/examples/ProductPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Sections from "views/Sections.js";
 import SignupPage from "views/examples/SignupPage.js";
+import { Suspense } from "react";
+import { Provider } from "react-redux";
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { store } from "./redux/store";
+import { apiSlice } from "./api/api.slice";
+import { SnackbarProvider } from 'notistack';
 // others
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/blog-post" element={<BlogPost />} />
-      <Route path="/blog-posts" element={<BlogPosts />} />
-      <Route path="/contact-us" element={<ContactUs />} />
-      <Route path="/e-commerce" element={<Ecommerce />} />
-      <Route path="/index" element={<Index />} />
-      <Route path="/landing-page" element={<LandingPage />} />
-      <Route path="/login-page" element={<LoginPage />} />
-      <Route path="/nucleo-icons" element={<NucleoIcons />} />
-      <Route path="/" element={<Presentation />} />
-      <Route path="/pricing" element={<Pricing />} />
-      <Route path="/product-page" element={<ProductPage />} />
-      <Route path="/profile-page" element={<ProfilePage />} />
-      <Route path="/sections" element={<Sections />} />
-      <Route path="/sign-up" element={<SignupPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  </BrowserRouter>
+  <Suspense fallback={<>Cargando...</>}>
+    <SnackbarProvider maxSnack={2}>
+      <Provider store={store}>
+        <ApiProvider api={apiSlice}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/blog-post" element={<BlogPost />} />
+              <Route path="/blog-posts" element={<BlogPosts />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/e-commerce" element={<Ecommerce />} />
+              <Route path="/index" element={<Index />} />
+              <Route path="/landing-page" element={<LandingPage />} />
+              <Route path="/login-page" element={<LoginPage />} />
+              <Route path="/nucleo-icons" element={<NucleoIcons />} />
+              <Route path="/" element={<Presentation />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/product-page" element={<ProductPage />} />
+              <Route path="/profile-page" element={<ProfilePage />} />
+              <Route path="/sections" element={<Sections />} />
+              <Route path="/sign-up" element={<SignupPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </BrowserRouter>
+        </ApiProvider>
+      </Provider>
+    </SnackbarProvider>
+  </Suspense>
 );
