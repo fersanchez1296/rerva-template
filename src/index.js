@@ -56,13 +56,13 @@ root.render(
       <Route path="/landing-page" element={<LandingPage />} />
       <Route path="/login-page" element={<LoginPage />} />
       <Route path="/nucleo-icons" element={<NucleoIcons />} />
-      <Route path="/presentation" element={<Presentation />} />
+      <Route path="/" element={<Presentation />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/product-page" element={<ProductPage />} />
       <Route path="/profile-page" element={<ProfilePage />} />
       <Route path="/sections" element={<Sections />} />
       <Route path="/sign-up" element={<SignupPage />} />
-      <Route path="*" element={<Navigate to="/presentation" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   </BrowserRouter>
 );

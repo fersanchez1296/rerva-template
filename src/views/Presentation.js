@@ -61,15 +61,15 @@ function Presentation() {
         <PresentationHeader/>
         <Components />
         <BasicComponents />
-        <Cards />
+        {/* <Cards /> */}
         <Content />
-        <Sections />
-        <Examples />
-        <FreeDemo />
-        <Icons />
-        <Image />
-        <Testimonials />
-        <Pricing />
+        <Sections /> 
+        {/* <Examples /> */}
+        {/* <FreeDemo /> */}
+        {/* <Icons /> */}
+        {/* <Image /> */}
+        {/* <Testimonials /> */}
+        {/* <Pricing /> */}
         <FooterBlack />
       </div>
     </>

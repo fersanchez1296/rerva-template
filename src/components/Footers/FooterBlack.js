@@ -15,14 +15,6 @@ function FooterBlack() {
             <ul>
               <li>
                 <a
-                  href="https://www.creative-tim.com?ref=nuk-pro-react-footer-black"
-                  target="_blank"
-                >
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a
                   href="http://presentation.creative-tim.com?ref=nuk-pro-react-footer-black"
                   target="_blank"
                 >
@@ -41,19 +33,7 @@ function FooterBlack() {
           </nav>
           <div className="copyright" id="copyright">
             © {new Date().getFullYear()}, Designed by{" "}
-            <a
-              href="https://www.invisionapp.com?ref=creativetim"
-              target="_blank"
-            >
-              Invision
-            </a>
-            . Coded by{" "}
-            <a
-              href="https://www.creative-tim.com?ref=nuk-pro-react-footer-black"
-              target="_blank"
-            >
-              Creative Tim
-            </a>
+            Universidad de Guadalajara | CUValles
             .
           </div>
         </Container>

@@ -50,12 +50,7 @@ function Sections() {
                   alt="..."
                   src={require("assets/img/presentation-page/header3.jpg")}
                 ></img>
-                <img
-                  alt="..."
-                  className="rellax"
-                  data-rellax-speed="4"
-                  src={require("assets/img/presentation-page/pricing5.jpg")}
-                ></img>
+                
               </Col>
               <Col md="3">
                 <img
@@ -96,12 +91,7 @@ function Sections() {
                   alt="..."
                   src={require("assets/img/presentation-page/features5.jpg")}
                 ></img>
-                <img
-                  alt="..."
-                  className="rellax"
-                  data-rellax-speed="5"
-                  src={require("assets/img/presentation-page/features2.jpg")}
-                ></img>
+                
               </Col>
               <Col md="3">
                 <img
@@ -172,12 +162,7 @@ function Sections() {
                   alt="..."
                   src={require("assets/img/presentation-page/team3.jpg")}
                 ></img>
-                <img
-                  alt="..."
-                  className="rellax"
-                  data-rellax-speed="5"
-                  src={require("assets/img/presentation-page/contact1.jpg")}
-                ></img>
+                
               </Col>
             </Row>
             <Row>
