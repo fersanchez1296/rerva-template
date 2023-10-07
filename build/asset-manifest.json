@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.80172763.css",
-    "main.js": "/static/js/main.67c0a834.js",
+    "main.js": "/static/js/main.1b2a8b65.js",
     "static/media/nuk-pro-buildings.png": "/static/media/nuk-pro-buildings.651576abe1c7e8380b97.png",
     "static/media/project24.jpg": "/static/media/project24.9447fc56f55d7ad6ba05.jpg",
     "static/media/project4.jpg": "/static/media/project4.e2c5e920e77291a584bc.jpg",
@@ -184,6 +184,6 @@
   },
   "entrypoints": [
     "static/css/main.80172763.css",
-    "static/js/main.67c0a834.js"
+    "static/js/main.1b2a8b65.js"
   ]
 }

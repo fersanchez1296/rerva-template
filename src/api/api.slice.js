@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/api'}),
+    baseUrl: 'http://localhost:4000/api'}),
     
   endpoints: (builder) => ({
     getDocuments: builder.query({
@@ -14,7 +14,7 @@ export const apiSlice = createApi({
     }),
     getCountries: builder.query({
       query: () => ({
-        url : `/countries`,
+        url : `/countriesDataCount`,
         method : "GET"
       })
     }),

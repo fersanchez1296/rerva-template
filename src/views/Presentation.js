@@ -20,6 +20,8 @@ import Icons from "./presentation-sections/Icons.js";
 import Image from "./presentation-sections/Image.js";
 import Testimonials from "./presentation-sections/Testimonials.js";
 import Pricing from "./presentation-sections/Pricing.js";
+import VectorMaps from "./Maps/VectorMap.js";
+import {Visualitations} from '../components/visualitations/Visualitations'
 
 function Presentation() {
   React.useEffect(() => {
@@ -70,6 +72,7 @@ function Presentation() {
         {/* <Image /> */}
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
+        <Visualitations/>
         <FooterBlack />
       </div>
     </>
