@@ -4,6 +4,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://rerva-backend-production.up.railway.app/api/'}),
+    // baseUrl: 'https://rerva-backend-production.up.railway.app/api/'}),
     
   endpoints: (builder) => ({
     getDocuments: builder.query({

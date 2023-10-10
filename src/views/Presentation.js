@@ -62,7 +62,7 @@ function Presentation() {
       <div className="wrapper">
         <PresentationHeader/>
         <Components />
-        <Visualitations title={"Publicaciones por Año"} endpoint={"countriesAndYears"}/>
+        <Visualitations title={"Publicaciones por Año"} endpoint={"countriesAndDecades"}/>
         <BasicComponents />
         <Cards />
         <Content />
