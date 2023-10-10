@@ -36,19 +36,18 @@ export const options = {
 };
 
 interface Props {
-    countriesData: any;
+    XLabels: any;
+    YLabels: any;
   }
 
-export const Graphics = ({countriesData} : Props) => {
-const info = countriesData.map((countrie) => countrie.name_es)
+export const Graphics = ({XLabels,YLabels} : Props) => {
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 const data = {
-    labels : info,
+    labels : YLabels,
     datasets: [
       {
-        label: 'Dataset 1',
-        data: info.map(() => faker.number.int({ min: 0, max: 1500 })),
+        label: 'Cantidad de publicaciones',
+        data: XLabels,
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },

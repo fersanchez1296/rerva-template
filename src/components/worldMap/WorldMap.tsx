@@ -78,7 +78,7 @@ export const WorldMap = ({ data, countriesData }: Props) => {
     countries
       .attr("class", "country")
       .attr("fill", (d: any) => {
-        const country = countriesData.find(
+        const country = countriesData?.find(
           (country: any) => country.name_es === d.properties.name_es
         );
         return country ? "#da256aeb" : "#bdbdbdbb";

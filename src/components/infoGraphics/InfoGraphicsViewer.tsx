@@ -4,9 +4,10 @@ interface Props {
 }
 
 export const InfoGraphicsViewer = ({ countriesDataCount }: Props) => {
+  
   return (
     <Grid container spacing={2}>
-      {countriesDataCount.map((data) => {
+      {countriesDataCount?.map((data) => {
         return (
           <Grid item xs={4} sx={{ fontSize: { xs: "10px", md : "unset" } }}>
             <p>
