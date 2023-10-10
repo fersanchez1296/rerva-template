@@ -63,6 +63,11 @@ function Presentation() {
         <PresentationHeader/>
         <Components />
         <Visualitations title={"Publicaciones por Año"} endpoint={"countriesAndDecades"}/>
+        <Visualitations title={"Publicaciones por Áreas"} endpoint={"countriesAndAreas"}/>
+        <Visualitations title={"Publicaciones por Disciplinas"} endpoint={"countriesAndDisciplines"}/>
+        <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"}/>
+        <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"}/>
+        <Visualitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"}/>
         <BasicComponents />
         <Cards />
         <Content />

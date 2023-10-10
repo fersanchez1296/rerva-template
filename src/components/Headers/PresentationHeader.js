@@ -32,7 +32,7 @@ function PresentationHeader() {
           
         </div>
         <h3 className="h3-description rellax-text" data-rellax-speed="-1">
-          Repositorio de Estudios sobre la Región Valles en Jálisco
+          Repositorio de Estudios sobre la Región Valles
         </h3>
         <h6
           className="category category-absolute rellax-text"
