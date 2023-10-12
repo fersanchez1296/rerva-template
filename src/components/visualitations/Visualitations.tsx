@@ -48,7 +48,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
       <Grid
         item
         xs={12}
-        sx={{ display: "flex", justifyContent: "center", margin: "0.5rem" }}
+        sx={{ display: "flex", justifyContent: "center",alignItems : "center", margin: "0.5rem" }}
       >
         <h2>{title}</h2>
       </Grid>
@@ -57,7 +57,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
           <WorldMap data={data} countriesData={dt[0]} />
         </div>
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "center",alignItems : "center" }}>
         <InfoGraphicsViewer countriesDataCount={dt[1]} />
       </Grid>
       <Grid item xs={12} md={6}>
