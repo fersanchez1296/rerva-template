@@ -10,7 +10,8 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { faker } from '@faker-js/faker';
+//TODO
+//CAMBIAR NOMBRE A ESTE COMPONENTE
 
 ChartJS.register(
   CategoryScale,
@@ -39,6 +40,7 @@ interface Props {
     XLabels: any;
     YLabels: any;
   }
+  
 
 export const Graphics = ({XLabels,YLabels} : Props) => {
 

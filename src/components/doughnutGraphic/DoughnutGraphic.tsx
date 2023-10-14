@@ -10,47 +10,82 @@ interface Props {
 }
 
 export const DoughnutGraphic = ({ XLabels, YLabels }: Props) => {
-    const labels = YLabels?.map((label, index) => {
-      const percentage = (
-        (XLabels[index] / XLabels.reduce((a, b) => a + b, 0)) * 100
-      ).toFixed(2);
-      return `${label}: ${percentage}%`;
-    });
-  
-    const data = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Cantidad",
-          data: XLabels,
+  const labels = YLabels?.map((label, index) => {
+    const percentage = (
+      (XLabels[index] / XLabels.reduce((a, b) => a + b, 0)) *
+      100
+    ).toFixed(2);
+    return `${label}: ${percentage}%`;
+  });
+
+  let legendPosition = "left"
+  if(XLabels.length >= 30 ) {
+    legendPosition = "bottom"
+  }
+
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Cantidad",
+        data: XLabels,
         backgroundColor: [
-            "#1f77b4", // Azul
-            "#ff7f0e", // Naranja
-            "#2ca02c", // Verde
-            "#d62728", // Rojo
-            "#9467bd", // Púrpura
-            "#8c564b", // Marrón
-            "#e377c2", // Rosa
-            "#7f7f7f", // Gris
-            "#bcbd22", // Amarillo
-            "#17becf"  // Turquesa
+          "#1f77b4", // Azul
+          "#ff7f0e", // Naranja
+          "#2ca02c", // Verde
+          "#d62728", // Rojo
+          "#9467bd", // Púrpura
+          "#8c564b", // Marrón
+          "#e377c2", // Rosa
+          "#7f7f7f", // Gris
+          "#bcbd22", // Amarillo
+          "#17becf", // Turquesa
         ],
         borderColor: [
-            "#1f77b4", // Azul
-            "#ff7f0e", // Naranja
-            "#2ca02c", // Verde
-            "#d62728", // Rojo
-            "#9467bd", // Púrpura
-            "#8c564b", // Marrón
-            "#e377c2", // Rosa
-            "#7f7f7f", // Gris
-            "#bcbd22", // Amarillo
-            "#17becf"  // Turquesa            
+          "#1f77b4", // Azul
+          "#ff7f0e", // Naranja
+          "#2ca02c", // Verde
+          "#d62728", // Rojo
+          "#9467bd", // Púrpura
+          "#8c564b", // Marrón
+          "#e377c2", // Rosa
+          "#7f7f7f", // Gris
+          "#bcbd22", // Amarillo
+          "#17becf", // Turquesa
         ],
         borderWidth: 1,
       },
     ],
   };
-
-  return <Doughnut data={data} />;
+  const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: "Distribución de Frutas",
+        font: {
+          size: 18,
+          weight: "bold",
+        },
+      },
+      legend: {
+        display: true,
+        position: legendPosition,
+        align : "center",
+        labels: {
+          font: {
+            size: 9,
+          },
+        },
+      },
+    },
+    animation: {
+      duration: 2000, // Duración de la animación en milisegundos
+      easing: "easeInOutCubic", // Tipo de animación
+    },
+  };
+  return (
+    <div className="chart-legend">
+    <Doughnut data={data} options={options} />
+  </div>
+  );
 };

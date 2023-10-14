@@ -8,6 +8,9 @@ import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
 import { Graphics } from "components/graphics/Graphics";
 import { DoughnutGraphic } from "components/doughnutGraphic/DoughnutGraphic";
+import { Charts } from "components/charts/Charts";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 
 interface Props {
   title: string;
@@ -42,30 +45,62 @@ export const Visualitations = ({ title, endpoint }: Props) => {
       </>
     );
 
-
   return (
     <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Divider />
+      </Grid>
       <Grid
         item
         xs={12}
-        sx={{ display: "flex", justifyContent: "center",alignItems : "center", margin: "0.5rem" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0.5rem",
+        }}
       >
-        <h2>{title}</h2>
+        <Typography
+          variant="h3"
+          gutterBottom
+          sx={{ display: "flex", alignItems: "center", gap: "1rem" }}
+        >
+          {title}
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Divider />
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Charts />
+      </Grid>
+      <Grid item xs={12}>
+        <Divider />
       </Grid>
       <Grid item xs={12} md={6}>
         <div className="wrapper">
           <WorldMap data={data} countriesData={dt[0]} />
         </div>
       </Grid>
-      <Grid item xs={12} md={6} sx={{ display: "flex", justifyContent: "center",alignItems : "center" }}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
         <InfoGraphicsViewer countriesDataCount={dt[1]} />
       </Grid>
-      <Grid item xs={12} md={6}>
+
+      {/* <Grid item xs={12} md={12}>
         <Graphics YLabels={dt[2]} XLabels={dt[3]} />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} md={12}>
         <DoughnutGraphic YLabels={dt[2]} XLabels={dt[3]} />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

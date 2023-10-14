@@ -42,3 +42,16 @@
     z-index:999;
     white-space: nowrap;
   }
+
+
+  /* Aplicar estilo a la leyenda */
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  max-height: 500vh;
+  width: 100%;
+  background-color: #4caf50;
+  overflow-y: scroll;
+}
+
