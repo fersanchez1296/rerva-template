@@ -43,6 +43,8 @@ interface Props {
   
 
 export const Graphics = ({XLabels,YLabels} : Props) => {
+  console.log(YLabels)
+  console.log(XLabels)
 
 const data = {
     labels : YLabels,

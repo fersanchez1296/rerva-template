@@ -6,8 +6,6 @@ import { ServerError } from "../../components/serverError/ServerError";
 import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
 import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
-import { Graphics } from "components/graphics/Graphics";
-import { DoughnutGraphic } from "components/doughnutGraphic/DoughnutGraphic";
 import { Charts } from "components/charts/Charts";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -76,7 +74,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
         xs={12}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <Charts />
+        <Charts YLabels={dt[2]} XLabels={dt[3]}/>
       </Grid>
       <Grid item xs={12}>
         <Divider />

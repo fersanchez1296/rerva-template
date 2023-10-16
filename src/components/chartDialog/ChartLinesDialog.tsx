@@ -12,8 +12,11 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { Graphics } from "../graphics/Graphics";
 
 interface Props {
+  XLabels : any,
+  YLabels : any,
   open: boolean;
   handleCloseDialog: () => void;
 }
@@ -27,7 +30,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="left" ref={ref} {...props} />;
 });
 
-export const ChartDialog = ({ open, handleCloseDialog }: Props) => {
+export const ChartLinesDialog = ({ XLabels,YLabels,open, handleCloseDialog }: Props) => {
   return (
     <div>
       <Dialog
@@ -54,18 +57,7 @@ export const ChartDialog = ({ open, handleCloseDialog }: Props) => {
             </Button>
           </Toolbar>
         </AppBar>
-        <List>
-          <ListItem button>
-            <ListItemText primary="Phone ringtone" secondary="Titania" />
-          </ListItem>
-          <Divider />
-          <ListItem button>
-            <ListItemText
-              primary="Default notification ringtone"
-              secondary="Tethys"
-            />
-          </ListItem>
-        </List>
+          <Graphics XLabels={XLabels} YLabels={YLabels}/>
       </Dialog>
     </div>
   );

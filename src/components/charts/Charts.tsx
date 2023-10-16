@@ -6,17 +6,32 @@ import DataSaverOffIcon from "@mui/icons-material/DataSaverOff";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { ChartDialog } from "components/chartDialog/ChartDialog";
+import { ChartLinesDialog } from "components/chartDialog/ChartLinesDialog";
+import { ChartDoDialog } from "components/chartDoDialog/ChartDoDialog";
 
-export const Charts = () => {
+interface Props {
+  XLabels : any,
+  YLabels : any
+}
+
+export const Charts = ({XLabels,YLabels} : Props) => {
   const [openDialog, setOpenDialog] = useState(false);
+  const [openDoDialog, setOpenDoDialog] = useState(false);
 
   const handleOpenDialog = () => {
     setOpenDialog(true);
   };
 
+  const handleOpenDoDialog = () => {
+    setOpenDoDialog(true);
+  };
+
   const handleCloseDialog = () => {
     setOpenDialog(false);
+  };
+
+  const handleCloseDoDialog = () => {
+    setOpenDoDialog(false);
   };
 
   return (
@@ -40,11 +55,14 @@ export const Charts = () => {
             >
               Análisis Numérico
             </Button>
-            <Button startIcon={<DataSaverOffIcon/>}>Análisis Porcentual</Button>
+            <Button startIcon={<DataSaverOffIcon />} onClick={handleOpenDoDialog}>
+              Análisis Porcentual
+            </Button>
           </Stack>
         </Grid>
       </Grid>
-      <ChartDialog open={openDialog} handleCloseDialog={handleCloseDialog} />
+      <ChartLinesDialog open={openDialog} handleCloseDialog={handleCloseDialog} XLabels={XLabels} YLabels={YLabels}/>
+      <ChartDoDialog open={openDoDialog} handleCloseDialog={handleCloseDoDialog} XLabels={XLabels} YLabels={YLabels}/>
     </>
   );
 };
