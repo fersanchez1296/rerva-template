@@ -20,11 +20,17 @@ import { SnackBar } from "../../components/snackBar/SnackBar";
 //api request
 import { useGetDataForQuery } from "../../api/api.slice";
 
-function Ecommerce() {
+function DocumentsViewerMap() {
   //parametros
   const {url,request} = useParams()
-  const title = url.replace(/-/g," ");
-  const subtitle = request;
+  const [collapses, setCollapses] = React.useState([1]);
+  const changeCollapse = (collapse) => {
+    if (collapses.includes(collapse)) {
+      setCollapses(collapses.filter((prop) => prop !== collapse));
+    } else {
+      setCollapses([...collapses, collapse]);
+    }
+  };
 
   //api hook
     const {
@@ -34,7 +40,7 @@ function Ecommerce() {
        error,
      } = useGetDataForQuery({url,request});
   React.useEffect(() => {
-    document.title = `${subtitle} - ${title}`;
+    
 
     document.body.classList.add("ecommerce-page");
     document.body.classList.add("sidebar-collapse");
@@ -66,13 +72,11 @@ function Ecommerce() {
         <ServerError />
       </>
     );
-    console.log(dt)
-    const cantidad = dt.length
   return (
     <>
       <ScrollTransparentNavbar />
       <div className="wrapper">
-        <EcommerceHeader title={title} subtitle={subtitle} cantidad={cantidad}/>
+        <EcommerceHeader />
         <div className="main">
           <div className="section" >
             <Container >
@@ -91,4 +95,4 @@ function Ecommerce() {
   );
 }
 
-export default Ecommerce;
+export default DocumentsViewerMap;

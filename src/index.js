@@ -1,19 +1,4 @@
-/*!
 
-=========================================================
-* Now UI Kit PRO React - v1.5.2
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-kit-pro-react
-* Copyright 2023 Creative Tim (http://www.creative-tim.com)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
@@ -31,6 +16,7 @@ import BlogPost from "views/examples/BlogPost.js";
 import BlogPosts from "views/examples/BlogPosts.js";
 import ContactUs from "views/examples/ContactUs.js";
 import Ecommerce from "views/examples/Ecommerce.js";
+import DocumentsViewerMap from "./views/examples/DocumentsViewerMap";
 import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
 import LoginPage from "views/examples/LoginPage.js";
@@ -41,6 +27,7 @@ import ProductPage from "views/examples/ProductPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Sections from "views/Sections.js";
 import SignupPage from "views/examples/SignupPage.js";
+import PDocuments from "./views/PDocuments";
 import { Suspense } from "react";
 import { Provider } from "react-redux";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
@@ -58,7 +45,7 @@ root.render(
         <ApiProvider api={apiSlice}>
           <BrowserRouter>
             <Routes>
-              <Route path="/about-us" element={<AboutUs />} />
+              {/* <Route path="/Publicaciones-por-municipio" element={<PDocuments />} /> */}
               <Route path="/blog-post" element={<BlogPost />} />
               <Route path="/blog-posts" element={<BlogPosts />} />
               <Route path="/contact-us" element={<ContactUs />} />
@@ -73,6 +60,9 @@ root.render(
               <Route path="/profile-page" element={<ProfilePage />} />
               <Route path="/sections" element={<Sections />} />
               <Route path="/sign-up" element={<SignupPage />} />
+              <Route path="/:url/:request" element={<Ecommerce />} />
+              <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} />
+              <Route path="/map/:url/:request" element={<DocumentsViewerMap />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>

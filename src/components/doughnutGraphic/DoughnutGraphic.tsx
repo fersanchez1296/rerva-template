@@ -61,7 +61,7 @@ export const DoughnutGraphic = ({ XLabels, YLabels }: Props) => {
     plugins: {
       title: {
         display: true,
-        text: "Distribución de Frutas",
+        text: "Distribución Porcentual",
         font: {
           size: 18,
           weight: "bold",

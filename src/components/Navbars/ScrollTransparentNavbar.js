@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 
 function ScrollTransparentNavbar() {
+  const url = "Publicaciones-por-municipio"
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [navbarColor, setNavbarColor] = React.useState(
     (document.documentElement.scrollTop > 499 || document.body.scrollTop) > 499
@@ -90,37 +91,6 @@ function ScrollTransparentNavbar() {
                   color="default"
                   data-toggle="dropdown"
                   href="#pablo"
-                  id="navbarDropdownMenuLink1"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <i className="now-ui-icons design_app"></i>
-                  <p>Components</p>
-                </DropdownToggle>
-                <DropdownMenu aria-labelledby="navbarDropdownMenuLink1" right>
-                  <DropdownItem to="/" tag={Link}>
-                    <i className="now-ui-icons design_image"></i>
-                    Presentation
-                  </DropdownItem>
-                  <DropdownItem to="/index" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    All components
-                  </DropdownItem>
-                  <DropdownItem
-                    href="https://demos.creative-tim.com/now-ui-kit-pro-react/#/documentation/introduction?ref=nuk-pro-react-scroll-transparent-navbar"
-                    target="_blank"
-                  >
-                    <i className="now-ui-icons design_bullet-list-67"></i>
-                    Documentation
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
                   id="navbarDropdownMenuLink"
                   nav
                   onClick={(e) => e.preventDefault()}
@@ -129,40 +99,40 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons files_paper"
                   ></i>
-                  <p>Sections</p>
+                  <p>Secciones</p>
                 </DropdownToggle>
                 <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
-                  <DropdownItem to="/sections#headers" tag={Link}>
-                    <i className="now-ui-icons shopping_box"></i>
-                    Headers
+                  <DropdownItem to="/Publicaciones-por-municipio/all" tag={Link}>
+                    <i className="now-ui-icons location_pin"></i>
+                    Publicaciones por municipio
                   </DropdownItem>
                   <DropdownItem to="/sections#features" tag={Link}>
-                    <i className="now-ui-icons ui-2_settings-90"></i>
-                    Features
+                    <i className="now-ui-icons ui-1_calendar-60"></i>
+                    Publicaciones por decadas
                   </DropdownItem>
                   <DropdownItem to="/sections#blogs" tag={Link}>
-                    <i className="now-ui-icons text_align-left"></i>
-                    Blogs
+                    <i className="now-ui-icons education_paper"></i>
+                    Publicaciones por Área
                   </DropdownItem>
                   <DropdownItem to="/sections#teams" tag={Link}>
-                    <i className="now-ui-icons sport_user-run"></i>
-                    Teams
+                    <i className="now-ui-icons education_glasses"></i>
+                    Publicaciones por Disciplina
                   </DropdownItem>
                   <DropdownItem to="/sections#projects" tag={Link}>
-                    <i className="now-ui-icons education_paper"></i>
-                    Projects
+                    <i className="now-ui-icons education_atom"></i>
+                    Publicaciones por Campo de Estudio
                   </DropdownItem>
                   <DropdownItem to="/sections#pricing" tag={Link}>
-                    <i className="now-ui-icons business_money-coins"></i>
-                    Pricing
+                    <i className="now-ui-icons education_agenda-bookmark"></i>
+                    Publicaciones por Tipo de Documento
                   </DropdownItem>
                   <DropdownItem to="/sections#testimonials" tag={Link}>
-                    <i className="now-ui-icons ui-2_chat-round"></i>
-                    Testimonials
+                    <i className="now-ui-icons education_hat"></i>
+                    Publicaciones por Editorial
                   </DropdownItem>
                   <DropdownItem to="/sections#contact-us" tag={Link}>
-                    <i className="now-ui-icons tech_mobile"></i>
-                    Contact Us
+                    <i className="now-ui-icons objects_globe"></i>
+                    Publicaciones por País
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -180,7 +150,7 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons design_image"
                   ></i>
-                  <p>Examples</p>
+                  <p>Contribuir</p>
                 </DropdownToggle>
                 <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
                   <DropdownItem tag={Link} to="/about-us">

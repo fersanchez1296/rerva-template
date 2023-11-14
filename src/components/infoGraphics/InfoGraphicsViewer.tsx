@@ -1,12 +1,13 @@
 import { Pagination } from "components/pagination/Pagination";
 interface Props {
   cuntriesDataCount: any;
+  url : string
 }
 //TODO
 //eliminar este componente
-export const InfoGraphicsViewer = ({ countriesDataCount }: Props) => {
+export const InfoGraphicsViewer = ({url, countriesDataCount }: Props) => {
   
   return (
-    <Pagination data={countriesDataCount}/>
+    <Pagination url={url} data={countriesDataCount}/>
   );
 };

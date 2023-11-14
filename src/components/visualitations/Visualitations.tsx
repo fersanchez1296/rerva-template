@@ -1,7 +1,6 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import { WorldMap } from "../../components/worldMap/WorldMap";
 import { InfoGraphicsViewer } from "components/infoGraphics/InfoGraphicsViewer";
-import data from "../../assets/maps/world.geo.json";
 import { ServerError } from "../../components/serverError/ServerError";
 import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
 import { Spiner } from "../../components/spiner/Spiner";
@@ -13,9 +12,10 @@ import Divider from "@mui/material/Divider";
 interface Props {
   title: string;
   endpoint: string;
+  mapa: any;
 }
 
-export const Visualitations = ({ title, endpoint }: Props) => {
+export const Visualitations = ({ title, endpoint,mapa }: Props) => {
   const {
     data: dt,
     isError,
@@ -43,6 +43,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
       </>
     );
 
+  const url = title.replace(/\s+/g, '-')
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -81,7 +82,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
       </Grid>
       <Grid item xs={12} md={6}>
         <div className="wrapper">
-          <WorldMap data={data} countriesData={dt[0]} />
+          <WorldMap data={mapa} countriesData={dt[0]} url={url}/>
         </div>
       </Grid>
       <Grid
@@ -90,7 +91,7 @@ export const Visualitations = ({ title, endpoint }: Props) => {
         md={6}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <InfoGraphicsViewer countriesDataCount={dt[1]} />
+        <InfoGraphicsViewer url={url} countriesDataCount={dt[1]} />
       </Grid>
 
       {/* <Grid item xs={12} md={12}>

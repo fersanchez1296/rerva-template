@@ -6,62 +6,88 @@ import {
   Col,
   Carousel,
   CarouselItem,
-  CarouselIndicators
+  CarouselIndicators,
 } from "reactstrap";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-// core components
-const items = [
-  {
-    src: "url(" + require("assets/img/bg40.jpg") + ")",
-    content: (
-      <Row>
-        <Col className="ml-auto mr-auto" md="8">
-          <h1 className="title">Finding the Perfect.</h1>
-          <h4 className="description text-white">
-            The haute couture crowds make stylish statements between shows
-            during couture season in Paris...
-          </h4>
-        </Col>
-      </Row>
-    ),
-    altText: "",
-    caption: ""
+export const data = {
+  labels: [],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+const options = {
+  plugins: {
+    title: {
+      display: true,
+      text: "Distribución Porcentual",
+      position: "bottom",
+      font: {
+        size: 9,
+      },
+    },
+    legend: {
+      display: true,
+      position: "bottom",
+      align : "center",
+      labels: {
+        font: {
+          size: 9,
+        },
+      },
+    },
   },
-  {
-    src: "url(" + require("assets/img/bg41.jpg") + ")",
-    content: (
-      <Row>
-        <Col className="ml-auto mr-auto text-center" md="8">
-          <h1 className="title">Street Style: Couture.</h1>
-          <h4 className="description text-white">
-            See what Karlie Kloss, Tracee Ellis Ross and others wore between the
-            shows...
-          </h4>
-        </Col>
-      </Row>
-    ),
-    altText: "",
-    caption: ""
+  animation: {
+    duration: 2000, // Duración de la animación en milisegundos
+    easing: "easeInOutCubic", // Tipo de animación
   },
-  {
-    src: "url(" + require("assets/img/bg29.jpg") + ")",
-    content: (
-      <Row>
-        <Col className="ml-auto mr-auto" md="8">
-          <h1 className="title">For Men With Style.</h1>
-          <h4 className="description text-white">
-            Shirts that actually fit? Check. Linen shorts? Yup. Those wider
-            pants suddenly in style? Got them, too....
-          </h4>
-        </Col>
-      </Row>
-    ),
-    altText: "",
-    caption: ""
-  }
-];
+};
 
-function EcommerceHeader() {
+function EcommerceHeader({ title, subtitle, cantidad }) {
+  // core components
+  const items = [
+    {
+      src: "url(" + require("assets/img/cuvalles.jpg") + ")",
+      content: (
+        <Row>
+          <Col className="ml-auto mr-auto" md="8">
+            <h1 className="title">{subtitle}</h1>
+            <h2 className="description">{cantidad} documentos relacionados</h2>
+            <Col className="ml-5  d-flex" md="3">
+              <Doughnut data={data} options={options}/>
+              <Doughnut data={data} options={options}/>
+              <Doughnut data={data} options={options}/>
+              <Doughnut data={data} options={options}/>
+            </Col>
+          </Col>
+        </Row>
+      ),
+      altText: "",
+      caption: "",
+    },
+  ];
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
@@ -103,7 +129,7 @@ function EcommerceHeader() {
                 <div
                   className="page-header-image"
                   style={{
-                    backgroundImage: item.src
+                    backgroundImage: item.src,
                   }}
                 ></div>
                 <div className="content-center text-center">{item.content}</div>

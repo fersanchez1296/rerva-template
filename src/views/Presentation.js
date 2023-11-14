@@ -21,6 +21,8 @@ import Image from "./presentation-sections/Image.js";
 import Testimonials from "./presentation-sections/Testimonials.js";
 import Pricing from "./presentation-sections/Pricing.js";
 import VectorMaps from "./Maps/VectorMap.js";
+import country from "../assets/maps/world.geo.json";
+import polity from '../assets/maps/jalisco.geo.json'
 import {Visualitations} from '../components/visualitations/Visualitations'
 
 function Presentation() {
@@ -62,12 +64,13 @@ function Presentation() {
       <div className="wrapper">
         <PresentationHeader/>
         <Components />
-        <Visualitations title={"Publicaciones por Año"} endpoint={"countriesAndDecades"}/>
-        <Visualitations title={"Publicaciones por Áreas"} endpoint={"countriesAndAreas"}/>
-        <Visualitations title={"Publicaciones por Disciplinas"} endpoint={"countriesAndDisciplines"}/>
-        <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"}/>
-        <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"}/>
-        <Visualitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"}/>
+        <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
+        {/* <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/> */}
+        {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
+        {/* <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/> */}
+        {/* <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"} map={country}/> */}
+        {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
+        {/* <Visualitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
         <BasicComponents />
         <Cards />
         <Content />
@@ -78,7 +81,7 @@ function Presentation() {
         {/* <Image /> */}
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
-        <Visualitations title={"Publicaciones por País"} endpoint={"countriesDataCount"}/>
+        {/* <Visualitations title={"Publicaciones por País"} endpoint={"countriesDataCount"} mapa={country}/> */}
         <FooterBlack />
       </div>
     </>

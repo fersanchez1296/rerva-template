@@ -12,19 +12,20 @@ import {
 import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
 import Footer from "components/Footers/Footer.js";
-import { CardWithIcons } from "../../components/Card/CardWithIcons";
-import { ServerError } from "../../components/serverError/ServerError";
-import { Spiner } from "../../components/spiner/Spiner";
-import { SnackBar } from "../../components/snackBar/SnackBar";
+import { CardWithIcons } from "../components/Card/CardWithIcons";
+import { ServerError } from "../components/serverError/ServerError";
+import { Spiner } from "../components/spiner/Spiner";
+import { SnackBar } from "../components/snackBar/SnackBar";
 
 //api request
-import { useGetDataForQuery } from "../../api/api.slice";
+import { useGetDataForQuery } from "../api/api.slice";
 
-function Ecommerce() {
+function PDocuments() {
   //parametros
   const {url,request} = useParams()
-  const title = url.replace(/-/g," ");
-  const subtitle = request;
+  console.log(url)
+//   const title = url.replace(/-/g," ");
+//   const subtitle = request;
 
   //api hook
     const {
@@ -34,7 +35,7 @@ function Ecommerce() {
        error,
      } = useGetDataForQuery({url,request});
   React.useEffect(() => {
-    document.title = `${subtitle} - ${title}`;
+    // document.title = `${subtitle} - ${title}`;
 
     document.body.classList.add("ecommerce-page");
     document.body.classList.add("sidebar-collapse");
@@ -63,7 +64,7 @@ function Ecommerce() {
           }
           variant={"error"}
         />
-        <ServerError />
+        
       </>
     );
     console.log(dt)
@@ -91,4 +92,4 @@ function Ecommerce() {
   );
 }
 
-export default Ecommerce;
+export default PDocuments;
