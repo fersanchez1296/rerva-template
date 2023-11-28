@@ -1,9 +1,17 @@
 import React from "react";
-
+// react plugin used to create DropdownMenu for selecting items
+import Select from "react-select";
+import {selectPaises} from '../../utilities/selectPaises.utilities'
+import {selectMunicipio} from '../../utilities/selectMunicipios.utilities'
+import {tipoDocumento} from '../../utilities/selectTipoDocumento.utilities'
+import {selectArea} from '../../utilities/selectAreas.utilities'
+import {selectCampo} from '../../utilities/selectCampos.utilities'
+import {selectDisciplina} from '../../utilities/selectDisciplina.utilities'
+import {selectClasificacion} from '../../utilities/selectClasificacion.utilities'
+import generateYearList from '../../utilities/selectYears.utilities'
 // reactstrap components
 import {
   Button,
-  FormGroup,
   Form,
   Input,
   InputGroupAddon,
@@ -15,131 +23,26 @@ import {
 } from "reactstrap";
 
 // core components
-import DropdownWhiteNavbar from "components/Navbars/DropdownWhiteNavbar.js";
+import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
 import ContactUsHeader from "components/Headers/ContactUsHeader.js";
 import Footer from "components/Footers/Footer.js";
 
-const MapWrapper = () => {
-  const mapRef = React.useRef(null);
-  React.useEffect(() => {
-    let google = window.google;
-    let map = mapRef.current;
-    let lat = "40.748817";
-    let lng = "-73.985428";
-    const myLatlng = new google.maps.LatLng(lat, lng);
-    const mapOptions = {
-      zoom: 13,
-      center: myLatlng,
-      scrollwheel: false,
-      zoomControl: true,
-      styles: [
-        {
-          featureType: "water",
-          elementType: "geometry",
-          stylers: [{ color: "#e9e9e9" }, { lightness: 17 }],
-        },
-        {
-          featureType: "landscape",
-          elementType: "geometry",
-          stylers: [{ color: "#f5f5f5" }, { lightness: 20 }],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#ffffff" }, { lightness: 17 }],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#ffffff" }, { lightness: 29 }, { weight: 0.2 }],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "geometry",
-          stylers: [{ color: "#ffffff" }, { lightness: 18 }],
-        },
-        {
-          featureType: "road.local",
-          elementType: "geometry",
-          stylers: [{ color: "#ffffff" }, { lightness: 16 }],
-        },
-        {
-          featureType: "poi",
-          elementType: "geometry",
-          stylers: [{ color: "#f5f5f5" }, { lightness: 21 }],
-        },
-        {
-          featureType: "poi.park",
-          elementType: "geometry",
-          stylers: [{ color: "#dedede" }, { lightness: 21 }],
-        },
-        {
-          elementType: "labels.text.stroke",
-          stylers: [
-            { visibility: "on" },
-            { color: "#ffffff" },
-            { lightness: 16 },
-          ],
-        },
-        {
-          elementType: "labels.text.fill",
-          stylers: [
-            { saturation: 36 },
-            { color: "#333333" },
-            { lightness: 40 },
-          ],
-        },
-        { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-        {
-          featureType: "transit",
-          elementType: "geometry",
-          stylers: [{ color: "#f2f2f2" }, { lightness: 19 }],
-        },
-        {
-          featureType: "administrative",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#fefefe" }, { lightness: 20 }],
-        },
-        {
-          featureType: "administrative",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#fefefe" }, { lightness: 17 }, { weight: 1.2 }],
-        },
-      ],
-    };
-
-    map = new google.maps.Map(map, mapOptions);
-
-    const marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      animation: google.maps.Animation.DROP,
-      title: "Now UI Kit PRO React!",
-    });
-
-    const contentString =
-      '<div class="info-window-content"><h2>Now UI Kit PRO React</h2>' +
-      "<p>A premium Admin for React, Reactstrap, and React Hooks.</p></div>";
-
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    });
-
-    google.maps.event.addListener(marker, "click", function () {
-      infowindow.open(map, marker);
-    });
-  });
-  return (
-    <>
-      <div style={{ height: `100%` }} ref={mapRef}></div>
-    </>
-  );
-};
 
 function ContactUs() {
   const [nameFocus, setNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [numberFocus, setNumberFocus] = React.useState(false);
+  const [autoriaSelect, setAutoriaSelect] = React.useState(null);
+  const [paisSelect, setPaisSelect] = React.useState(null);
+  const [paisAutorSelect, setPaisAutorSelect] = React.useState(null);
+  const [municipioSelect, setMunicipioSelect] = React.useState(null);
+  const [tipoDocumentoSelect, setTipoDocumentoSelect] = React.useState(null);
+  const [areaSelect, setAreaSelect] = React.useState(null);
+  const [campoSelect, setCampoSelect] = React.useState(null);
+  const [disciplinaSelect, setDisciplinaSelect] = React.useState(null);
+  const [clasificacionSelect, setClasificacionSelect] = React.useState(null);
+  const [yearSelect, setYearSelect] = React.useState(null);
+  const years = generateYearList();
   React.useEffect(() => {
     document.body.classList.add("contact-page");
     document.body.classList.add("sidebar-collapse");
@@ -153,22 +56,39 @@ function ContactUs() {
   }, []);
   return (
     <>
-      <DropdownWhiteNavbar />
+      <ScrollTransparentNavbar />
       <div className="wrapper">
         <ContactUsHeader />
         <div className="main">
           <div className="contact-content">
             <Container>
               <Row>
-                <Col className="ml-auto mr-auto" md="5">
-                  <h2 className="title">Send us a message</h2>
-                  <p className="description">
-                    You can contact us with anything related to our Products.
-                    We'll get in touch with you as soon as possible. <br></br>
+                <Col className="ml-auto mr-auto" md="12">
+                  <h2 className="title">Colabora con nosotros</h2>
+                  <p className="">
+                    Por medio de los siguiente campos puedes hacer que 
+                    tu trabajo referente a la región de los valles
+                    sea visible en esta plataforma. <br></br>
                     <br></br>
                   </p>
                   <Form id="contact-form" method="post" role="form">
-                    <label>Your name</label>
+                  <h4 className="title">Datos del autor o  autores:</h4>
+                  <label>Aportación:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name=""
+                      onChange={(value) => setAutoriaSelect(value)}
+                      options={[
+                        { value: "1", label: "Individual" },
+                        { value: "2", label: "Coautoria" },
+                      ]}
+                      placeholder="Selecciona el tipo de autoria"
+                      value={autoriaSelect}
+                    ></Select>
+                    <h6 className="title">Si el documento está escrito en cooautoria, 
+                    en el campo nombre, separe cada autor mediante una coma.</h6>
+                    <label>Nombre :</label>
                     <InputGroup
                       className={nameFocus ? "input-group-focus" : ""}
                     >
@@ -178,58 +98,325 @@ function ContactUs() {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        aria-label="Your Name..."
+                        aria-label="Nombre..."
                         autoComplete="name"
-                        placeholder="Your Name..."
+                        placeholder="Nombre..."
                         type="text"
                         onFocus={() => setNameFocus(true)}
                         onBlur={() => setNameFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Email address</label>
+                    <label>Institución :</label>
                     <InputGroup
                       className={emailFocus ? "input-group-focus" : ""}
                     >
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="now-ui-icons ui-1_email-85"></i>
+                          <i className="now-ui-icons travel_istanbul"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        aria-label="Email Here..."
-                        autoComplete="email"
-                        placeholder="Email Here..."
+                        aria-label="institucion"
+                        autoComplete="institucion"
+                        placeholder="Institución"
                         type="email"
                         onFocus={() => setEmailFocus(true)}
                         onBlur={() => setEmailFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Phone</label>
+                    <label>País de origen :</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="pais de origen autor"
+                      onChange={(value) => setPaisAutorSelect(value)}
+                      options={selectPaises.map(pais => ({
+                        label: pais.label,
+                        value: pais.value
+                      }))}
+                      placeholder="Selecciona el país de origen del autor"
+                      value={paisAutorSelect}
+                    ></Select>
+
+                    <h4 className="title">Datos del documento:</h4>
+                    <label>Título:</label>
+                    <InputGroup
+                      className={nameFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons text_caps-small"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        aria-label="Nombre..."
+                        autoComplete="name"
+                        placeholder="Nombre..."
+                        type="text"
+                        onFocus={() => setNameFocus(true)}
+                        onBlur={() => setNameFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Link del documento:</label>
+                    <InputGroup
+                      className={nameFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons shopping_tag-content"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        aria-label="Link"
+                        autoComplete="link"
+                        placeholder="Link del documento"
+                        type="text"
+                        onFocus={() => setNameFocus(true)}
+                        onBlur={() => setNameFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Año de publicación:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="año"
+                      onChange={(value) => setYearSelect(value)}
+                      options={years.map(year => ({
+                        label: year.label,
+                        value: year.value
+                      }))}
+                      placeholder="Selecciona el año de publicación"
+                      value={yearSelect}
+                    ></Select>
+                    <label>Idioma:</label>
                     <InputGroup
                       className={numberFocus ? "input-group-focus" : ""}
                     >
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="now-ui-icons tech_mobile"></i>
+                          <i className="now-ui-icons location_world"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
-                        autoComplete="number"
-                        placeholder="Number Here..."
+                        autoComplete="idioma"
+                        placeholder="Idioma"
+                        type="text"
+                        
+                      ></Input>
+                    </InputGroup>
+                    <label>País de publicación:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="pais"
+                      onChange={(value) => setPaisSelect(value)}
+                      options={selectPaises.map(pais => ({
+                        label: pais.label,
+                        value: pais.value
+                      }))}
+                      placeholder="Selecciona el país de publicación"
+                      value={paisSelect}
+                    ></Select>
+                    <label>Municipio de Estudio:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="municipio"
+                      onChange={(value) => setMunicipioSelect(value)}
+                      options={selectMunicipio.map(municipio => ({
+                        label: municipio.label,
+                        value: municipio.value
+                      }))}
+                      placeholder="Selecciona el muncipio de estudio"
+                      value={municipioSelect}
+                    ></Select>
+                    <label>Tipo de documento:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="tipo de documento"
+                      onChange={(value) => setTipoDocumentoSelect(value)}
+                      options={tipoDocumento.map(tipo => ({
+                        label: tipo.label,
+                        value: tipo.value
+                      }))}
+                      placeholder="Selecciona el tipo de documento"
+                      value={tipoDocumentoSelect}
+                    ></Select>
+                    <label>Revista o libro:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons education_agenda-bookmark"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="revista"
+                        placeholder="Revista o libro"
                         type="text"
                         onFocus={() => setNumberFocus(true)}
                         onBlur={() => setNumberFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <FormGroup>
-                      <label>Your message</label>
+                    <label>Compilador,editor,coordinador o libro:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons travel_info"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
                       <Input
-                        id="message"
-                        name="message"
-                        rows="6"
-                        type="textarea"
+                        autoComplete="compilador"
+                        placeholder="Compilador/editor/coordinador/libro"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
                       ></Input>
-                    </FormGroup>
+                    </InputGroup>
+                    <label>Institución:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons travel_istanbul"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="institucion"
+                        placeholder="Institución"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Número de páginas:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons files_single-copy-04"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="numero paginas"
+                        placeholder="Número de páginas (100-130)"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Palabras cláve:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons text_bold"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="palabras clave"
+                        placeholder="Palabras clave (desarrollo,cultura)"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
+                      ></Input>
+                    </InputGroup>
+
+                  <h4 className="title">Temática:</h4>
+                  <label>Área:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="area"
+                      onChange={(value) => setAreaSelect(value)}
+                      options={selectArea.map(area => ({
+                        label: area.label,
+                        value: area.value
+                      }))}
+                      placeholder="Selecciona el área de estudio"
+                      value={areaSelect}
+                    ></Select>
+                    <label>Campo:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name=""
+                      onChange={(value) => setCampoSelect(value)}
+                      options={selectCampo.map(campo => ({
+                        label: campo.label,
+                        value: campo.value
+                      }))}
+                      placeholder="Selecciona el campo de estudio"
+                      value={campoSelect}
+                    ></Select>
+                    <label>Disciplina:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name="disciplina"
+                      onChange={(value) => setDisciplinaSelect(value)}
+                      options={selectDisciplina.map(disciplina => ({
+                        label: disciplina.label,
+                        value: disciplina.value
+                      }))}
+                      placeholder="Selecciona la disciplina de estudio"
+                      value={disciplinaSelect}
+                    ></Select>
+                    <label>Temática:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons education_paper"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="tematica"
+                        placeholder="Ingresa la temática del documento"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Editorial:</label>
+                    <InputGroup
+                      className={numberFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons business_bulb-63"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="number"
+                        placeholder="Ingresa la editorial"
+                        type="text"
+                        onFocus={() => setNumberFocus(true)}
+                        onBlur={() => setNumberFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>Clasificación:</label>
+                    <Select
+                      className="react-select"
+                      classNamePrefix="react-select"
+                      name=""
+                      onChange={(value) => setClasificacionSelect(value)}
+                      options={selectClasificacion.map(clasificacion => ({
+                        label: clasificacion.label,
+                        value: clasificacion.value
+                      }))}
+                      placeholder="Selecciona la clasificación"
+                      value={clasificacionSelect}
+                    ></Select>
+
                     <div className="submit text-center">
                       <Button
                         className="btn-raised btn-round"
@@ -237,59 +424,15 @@ function ContactUs() {
                         defaultValue="Contact Us"
                         type="submit"
                       >
-                        Contact Us
+                        Colaborar
                       </Button>
                     </div>
                   </Form>
                 </Col>
-                <Col className="ml-auto mr-auto" md="5">
-                  <div className="info info-horizontal mt-5">
-                    <div className="icon icon-info">
-                      <i className="now-ui-icons location_pin"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Find us at the office</h4>
-                      <p>
-                        Bld Mihail Kogalniceanu, nr. 8, <br></br>
-                        7652 Bucharest, <br></br>
-                        Romania
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-info">
-                      <i className="now-ui-icons tech_mobile"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Give us a ring</h4>
-                      <p>
-                        Michael Jordan <br></br>
-                        +40 762 321 762 <br></br>
-                        Mon - Fri, 8:00-22:00
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-info">
-                      <i className="business_briefcase-24 now-ui-icons"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Legal Information</h4>
-                      <p>
-                        Creative Tim Ltd. <br></br>
-                        VAT · EN2341241 <br></br>
-                        IBAN · EN8732ENGB2300099123 <br></br>
-                        Bank · Great Britain Bank
-                      </p>
-                    </div>
-                  </div>
-                </Col>
+                
               </Row>
             </Container>
           </div>
-        </div>
-        <div className="big-map" id="contactUs2Map">
-          <MapWrapper />
         </div>
         <Footer />
       </div>
