@@ -138,13 +138,12 @@ function ScrollTransparentNavbar() {
               </UncontrolledDropdown>
               <UncontrolledDropdown nav>
                 <DropdownToggle
-                  caret
                   color="default"
                   data-toggle="dropdown"
                   href="#pablo"
                   id="navbarDropdownMenuLink"
                   nav
-                  onClick={(e) => e.preventDefault()}
+                  tag={Link} to="/contribuir"
                 >
                   <i
                     aria-hidden={true}
@@ -152,52 +151,6 @@ function ScrollTransparentNavbar() {
                   ></i>
                   <p>Contribuir</p>
                 </DropdownToggle>
-                <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
-                  <DropdownItem tag={Link} to="/about-us">
-                    <i className="now-ui-icons business_bulb-63"></i>
-                    About-us
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/blog-post">
-                    <i className="now-ui-icons text_align-left"></i>
-                    Blog Post
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/blog-posts">
-                    <i className="now-ui-icons design_bullet-list-67"></i>
-                    Blog Posts
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/contact-us">
-                    <i className="now-ui-icons location_pin"></i>
-                    Contact Us
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/landing-page">
-                    <i className="now-ui-icons education_paper"></i>
-                    Landing Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/login-page">
-                    <i className="now-ui-icons users_circle-08"></i>
-                    Login Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/pricing">
-                    <i className="now-ui-icons business_money-coins"></i>
-                    Pricing
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/e-commerce">
-                    <i className="now-ui-icons shopping_shop"></i>
-                    Ecommerce Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/product-page">
-                    <i className="now-ui-icons shopping_bag-16"></i>
-                    Product Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/profile-page">
-                    <i className="now-ui-icons users_single-02"></i>
-                    Profile Page
-                  </DropdownItem>
-                  <DropdownItem tag={Link} to="/sign-up">
-                    <i className="now-ui-icons tech_mobile"></i>
-                    Signup Page
-                  </DropdownItem>
-                </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>

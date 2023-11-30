@@ -48,7 +48,7 @@ root.render(
               {/* <Route path="/Publicaciones-por-municipio" element={<PDocuments />} /> */}
               <Route path="/blog-post" element={<BlogPost />} />
               <Route path="/blog-posts" element={<BlogPosts />} />
-              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/contribuir" element={<ContactUs />} />
               <Route path="/e-commerce" element={<Ecommerce />} />
               <Route path="/index" element={<Index />} />
               <Route path="/landing-page" element={<LandingPage />} />

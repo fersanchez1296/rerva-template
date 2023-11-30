@@ -1,8 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { select, geoPath, geoMercator } from "d3";
 import useResizeObserver from "../useResizeObserver/useResizeObserver";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 interface Props {
   data: any;
@@ -12,7 +10,6 @@ interface Props {
 }
 
 export const WorldMap = ({ data, countriesData,url }: Props) => {
-  const navigate = useNavigate()
   const svgRef = useRef<SVGSVGElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const dimensions = useResizeObserver(wrapperRef);
@@ -76,8 +73,8 @@ countries
     );
     return country ? "#da256aeb" : "#bdbdbdbb";
   })
+  .attr("stroke-width", 0.5)
   .attr("d", (feature: any) => pathGenerator(feature));
-// ...
   }, []);
 
   return (
