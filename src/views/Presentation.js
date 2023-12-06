@@ -64,16 +64,16 @@ function Presentation() {
       <div className="wrapper">
         <PresentationHeader/>
         <Components />
-        <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
-        {/* <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/> */}
+        <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/>
+        
         {/* <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"} map={country}/> */}
         {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
+        {/* <Visuxalitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
         <BasicComponents />
+        <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
         <Cards />
-        <Content />
+        {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
+        <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/>
         <Sections /> 
         {/* <Examples /> */}
         {/* <FreeDemo /> */}

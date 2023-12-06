@@ -54,7 +54,7 @@ function Components() {
               <div className="space-50"></div>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col md="3">
               <div className="card-container first-card">
                 <div className="card-component">
@@ -111,7 +111,7 @@ function Components() {
                 </div>
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </div>
     </>

@@ -18,11 +18,13 @@ import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
 
 //api request
-import { useGetDataForQuery } from "../../api/api.slice";
+import { useMapGetDataForQuery } from "../../api/api.slice";
 
 function DocumentsViewerMap() {
   //parametros
   const {url,request} = useParams()
+  const title = url.replace(/-/g," ");
+  const subtitle = request;
   const [collapses, setCollapses] = React.useState([1]);
   const changeCollapse = (collapse) => {
     if (collapses.includes(collapse)) {
@@ -38,9 +40,9 @@ function DocumentsViewerMap() {
     isError,
     isLoading,
        error,
-     } = useGetDataForQuery({url,request});
+     } = useMapGetDataForQuery({url,request});
   React.useEffect(() => {
-    
+    document.title = `${subtitle} - ${title}`;
 
     document.body.classList.add("ecommerce-page");
     document.body.classList.add("sidebar-collapse");
@@ -72,11 +74,12 @@ function DocumentsViewerMap() {
         <ServerError />
       </>
     );
+    const cantidad = dt.length
   return (
     <>
       <ScrollTransparentNavbar />
       <div className="wrapper">
-        <EcommerceHeader />
+      <EcommerceHeader title={title} subtitle={subtitle} cantidad={cantidad}/>
         <div className="main">
           <div className="section" >
             <Container >

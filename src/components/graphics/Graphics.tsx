@@ -5,11 +5,13 @@ import {
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { Bar } from 'react-chartjs-2';
 //TODO
 //CAMBIAR NOMBRE A ESTE COMPONENTE
 
@@ -18,6 +20,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend
@@ -31,7 +34,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Producción por país",
+      text: "Producción académica",
     },
   },
 };
@@ -57,5 +60,5 @@ const data = {
       },
     ],
   };
-  return <Line options={options} data={data} />
+  return <Bar options={options} data={data} />;
 };

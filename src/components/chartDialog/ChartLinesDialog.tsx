@@ -48,13 +48,12 @@ export const ChartLinesDialog = ({ XLabels,YLabels,open, handleCloseDialog }: Pr
               aria-label="close"
             >
               <CloseIcon />
+              
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Sound
+              Cerrar
             </Typography>
-            <Button autoFocus color="inherit" onClick={handleCloseDialog}>
-              save
-            </Button>
+           
           </Toolbar>
         </AppBar>
           <Graphics XLabels={XLabels} YLabels={YLabels}/>
