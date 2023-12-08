@@ -39,6 +39,12 @@ export const apiSlice = createApi({
         method: "GET",
       }),
     }),
+    chartsDocumentsInfo: builder.query({
+      query: ({ url, request }) => ({
+        url: `/charts/${url}?search=${request}`,
+        method: "GET",
+      }),
+    }),
   }),
   keepUnusedDataFor: 300, // Tiempo en segundos para mantener los datos en caché sin usar
 });
@@ -48,5 +54,6 @@ export const {
   useGetVisualitationsDataQuery,
   useGetCountriesDataQuery,
   useGetDataForQuery,
-  useMapGetDataForQuery
+  useMapGetDataForQuery,
+  useChartsDocumentsInfoQuery
 } = apiSlice;

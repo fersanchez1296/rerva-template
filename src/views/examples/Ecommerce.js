@@ -66,7 +66,7 @@ function Ecommerce() {
         <ServerError />
       </>
     );
-    console.log(dt)
+    
     const cantidad = dt.length
   return (
     <>

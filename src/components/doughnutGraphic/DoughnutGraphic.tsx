@@ -73,7 +73,7 @@ export const DoughnutGraphic = ({ XLabels, YLabels }: Props) => {
         align : "center",
         labels: {
           font: {
-            size: 9,
+            size: 16,
           },
         },
       },
