@@ -54,3 +54,15 @@
   overflow-y: scroll;
 }
 
+.error {
+  color: #fc8181;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.10rem;
+  display: block;
+}
+
+.input-error {
+  border-color: red;
+}
+

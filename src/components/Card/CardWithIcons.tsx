@@ -22,22 +22,25 @@ interface Props {
 export const CardWithIcons = ({ data }: Props) => {
   const [activeTabs, setActiveTabs] = React.useState(data.map(() => "1"));
 
-  const gridStyles = {display : "flex", justifyContent : "flex-start",textAlign : "justify"}
+  const gridStyles = {
+    display: "flex",
+    justifyContent: "flex-start",
+    textAlign: "justify",
+  };
 
   const handleTabClick = (index, tab) => {
     const newActiveTabs = [...activeTabs];
     newActiveTabs[index] = tab;
     setActiveTabs(newActiveTabs);
   };
-  console.log(data)
   return (
     <>
-      <div className="section section-tabs">
+      <div className="section section-tabs bg-light">
         <Row>
           {data.map((el, index) => {
             return (
               <Col className="ml-auto mr-auto" md="10" xl="6">
-                <Card>
+                <Card className="min-vh-100">
                   <CardHeader>
                     <Nav
                       className="nav-tabs-neutral justify-content-center"
@@ -94,13 +97,31 @@ export const CardWithIcons = ({ data }: Props) => {
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink
-                          className={activeTabs[index] === "5" ? "active" : ""}
-                          href={el["Link de acceso"]}
-                          target="blank"
-                        >
-                          Ver Documento
-                        </NavLink>
+                        {el["Link de acceso"].includes("https://") ||
+                        el["Link de acceso"].includes("http://") ? (
+                          <NavLink
+                            className={
+                              activeTabs[index] === "5" ? "active" : ""
+                            }
+                            href={el["Link de acceso"]}
+                            target="blank"
+                          >
+                            Ver Documento
+                          </NavLink>
+                        ) : (
+                          <NavLink
+                            className={
+                              activeTabs[index] === "5" ? "active" : ""
+                            }
+                            href="#pablo"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleTabClick(index, "5");
+                            }}
+                          >
+                            Información
+                          </NavLink>
+                        )}
                       </NavItem>
                     </Nav>
                   </CardHeader>
@@ -110,7 +131,7 @@ export const CardWithIcons = ({ data }: Props) => {
                       activeTab={"tabs" + activeTabs[index]}
                     >
                       <TabPane tabId="tabs1">
-                        <Grid container spacing={2} >
+                        <Grid container spacing={2}>
                           <Grid xs={12} sx={gridStyles}>
                             <Typography variant="subtitle2" gutterBottom>
                               <b>Título:</b> {el["Título"]}
@@ -133,17 +154,20 @@ export const CardWithIcons = ({ data }: Props) => {
                           </Grid>
                           <Grid xs={12} sx={gridStyles}>
                             <Typography variant="subtitle2" gutterBottom>
-                              <b>Município de estudio:</b> {el["Municipios de estudio"]}
+                              <b>Município de estudio:</b>{" "}
+                              {el["Municipios de estudio"]}
                             </Typography>
                           </Grid>
                           <Grid xs={12} sx={gridStyles}>
                             <Typography variant="subtitle2" gutterBottom>
-                              <b>Típo de documento:</b> {el["Tipo de documento"]}
+                              <b>Típo de documento:</b>{" "}
+                              {el["Tipo de documento"]}
                             </Typography>
                           </Grid>
                           <Grid xs={12} sx={gridStyles}>
                             <Typography variant="subtitle2" gutterBottom>
-                              <b>Revista o libro:</b> {el["Nombre de la revista/libro"]}
+                              <b>Revista o libro:</b>{" "}
+                              {el["Nombre de la revista/libro"]}
                             </Typography>
                           </Grid>
                           <Grid xs={12} sx={gridStyles}>
@@ -153,13 +177,14 @@ export const CardWithIcons = ({ data }: Props) => {
                           </Grid>
                           <Grid xs={12} sx={gridStyles}>
                             <Typography variant="subtitle2" gutterBottom>
-                              <b>Número de páginas:</b> {el["Número de páginas"]}
+                              <b>Número de páginas:</b>{" "}
+                              {el["Número de páginas"]}
                             </Typography>
                           </Grid>
                         </Grid>
                       </TabPane>
                       <TabPane tabId="tabs2">
-                      <Grid container spacing={2}>
+                        <Grid container spacing={2}>
                           <Grid xs={12}>
                             <Typography variant="subtitle2" gutterBottom>
                               <b>Tipo de autoria:</b> {el["Tipo de autoría"]}
@@ -173,13 +198,13 @@ export const CardWithIcons = ({ data }: Props) => {
                         </Grid>
                       </TabPane>
                       <TabPane tabId="tabs3">
-                      <Grid container spacing={2} >
+                        <Grid container spacing={2}>
                           <Grid xs={12}>
                             <Typography variant="subtitle2" gutterBottom>
                               <b>Área:</b> {el["Área"]}
                             </Typography>
                           </Grid>
-                          <Grid xs={12} >
+                          <Grid xs={12}>
                             <Typography variant="subtitle2" gutterBottom>
                               <b>Campo:</b> {el["Campo"]}
                             </Typography>
@@ -207,10 +232,17 @@ export const CardWithIcons = ({ data }: Props) => {
                         </Grid>
                       </TabPane>
                       <TabPane tabId="tabs4">
-                        <p>
-                          {el["Palabras Clave"]}
-                        </p>
+                        <p>{el["Palabras Clave"]}</p>
                       </TabPane>
+                      {el["Link de acceso"].includes("https") ? null : (
+                        <TabPane tabId="tabs5">
+                          <p>
+                            {el["Link de acceso"] === "No aplica"
+                              ? "Lo sentimos, no tenemos información de este documento"
+                              : el["Link de acceso"]}
+                          </p>
+                        </TabPane>
+                      )}
                     </TabContent>
                   </CardBody>
                 </Card>

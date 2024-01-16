@@ -14,6 +14,7 @@ import Slide from "@mui/material/Slide";
 import DialogContent from "@mui/material/DialogContent";
 import { TransitionProps } from "@mui/material/transitions";
 import { DoughnutGraphic } from "../doughnutGraphic/DoughnutGraphic";
+import Container from "@mui/material/Container";
 
 interface Props {
   XLabels: any;
@@ -45,7 +46,7 @@ export const ChartDoDialog = ({
         onClose={handleCloseDialog}
         TransitionComponent={Transition}
       >
-        <AppBar sx={{ position: "relative"}}>
+        <AppBar sx={{ position: "relative" }}>
           <Toolbar>
             <IconButton
               edge="start"
@@ -61,7 +62,9 @@ export const ChartDoDialog = ({
           </Toolbar>
         </AppBar>
         <DialogContent>
-          <DoughnutGraphic XLabels={XLabels} YLabels={YLabels} />
+          <Container fixed>
+            <DoughnutGraphic XLabels={XLabels} YLabels={YLabels} />
+          </Container>
         </DialogContent>
       </Dialog>
     </>
