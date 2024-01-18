@@ -17,6 +17,7 @@ import {
 } from "reactstrap";
 import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
+import {PaginationAlternative} from "../../components/pagination/PaginationAlternative"
 import Footer from "components/Footers/Footer.js";
 import { CardWithIcons } from "../../components/Card/CardWithIcons";
 import { ServerError } from "../../components/serverError/ServerError";
@@ -33,7 +34,7 @@ function Ecommerce() {
   const [selectedArea, setSelectedArea] = useState(null);
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
   const [selectedCampo, setSelectedCampo] = useState("");
-  const [selectedClasificacion, setSelectedClasificacion] = useState("");
+  const [selectedPClave, setSelectedPClave] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedIdioma, setSelectedIdioma] = useState("");
   const [selectedPais, setSelectedPais] = useState("");
@@ -85,14 +86,14 @@ function Ecommerce() {
     }));
   };
 
-  const handleCheckboxChangeClasificacion = (clasificacion) => {
-    setSelectedClasificacion(
-      selectedClasificacion === clasificacion ? null : clasificacion
+  const handleCheckboxChangePClave = (pClave) => {
+    setSelectedPClave(
+      selectedPClave === pClave ? null : pClave
     );
     setFilters((prevFilters) => ({
       ...prevFilters,
-      clasificacion:
-        prevFilters.clasificacion === clasificacion ? "" : clasificacion,
+      pClave:
+        prevFilters.pClave === pClave ? "" : pClave,
     }));
   };
 
@@ -184,24 +185,32 @@ function Ecommerce() {
     .filter((campo) => campo !== undefined && campo !== null)
     .map((campo) => ({ key: campo.trim(), label: campo }));
 
-  const filterOptionsClasificacion = Array.from(
-    new Set(dt.map((el) => el["Clasificación"]))
+  const filterOptionsPClave = Array.from(
+    new Set(dt.map((el) => el["Palabras Clave"]))
   )
     .filter(
-      (clasificacion) => clasificacion !== undefined && clasificacion !== null
+      (pClave) => pClave !== undefined && pClave !== null
     )
-    .map((clasificacion) => ({
-      key: clasificacion.trim(),
-      label: clasificacion,
+    .map((pClave) => ({
+      key: pClave,
+      label: pClave,
     }));
 
-  // const filterOptionsYear = Array.from(new Set(dt.map((el) => el["Año"])))
-  // .filter((year) => year !== undefined && year !== null)
-  // .map((year) => ({ key: year.trim(), label: year }));
+    const filterOptionsYear = Array.from(new Set(dt.map((el) => el["Año"])))
+    .filter((year) => year !== undefined && year !== null)
+    .map((year) => ({ key: year, label: year }))
+    .sort((a, b) => b.key - a.key);
+  
 
-  // const filterOptionsIdioma = Array.from(new Set(dt.map((el) => el["Idioma"])))
-  // .filter((idioma) => typeof idioma === 'string' && idioma.trim() !== '')
-  // .map((idioma) => ({ key: idioma, label: idioma }));
+    const filterOptionsIdioma = Array.from(
+      new Set(
+        dt
+          .map((el) => el["Idioma"])
+          .filter((idioma) => idioma !== undefined && idioma !== null)
+      )
+    ).map((idioma) => ({ key: idioma, label: idioma }));
+    
+  
 
   const filterOptionsPais = Array.from(
     new Set(dt.map((el) => el["País de la Publicación"]))
@@ -209,16 +218,9 @@ function Ecommerce() {
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
 
-  const filterOptionsTipoDocumento = Array.from(
-    new Set(dt.map((el) => el["Tipo de documento"]))
-  )
-    .filter(
-      (tipoDocumento) => tipoDocumento !== undefined && tipoDocumento !== null
-    )
-    .map((tipoDocumento) => ({
-      key: tipoDocumento.trim(),
-      label: tipoDocumento,
-    }));
+  const filterOptionsTipoDocumento = Array.from(new Set(dt.map((el) => el["Tipo de documento"])))
+  .filter((tipo) => tipo !== undefined && tipo !== null)
+  .map((tipo) => ({ key: tipo.trim(), label: tipo }));
 
   const filteredData = dt.filter((item) => {
     return (
@@ -229,7 +231,9 @@ function Ecommerce() {
         item["Clasificación"] === filters.clasificacion) &&
       (!filters.pais || item["País de la Publicación"] === filters.pais) &&
       (!filters.tipo || item["Tipo de documento"] === filters.tipo) &&
-      (!filters.idioma || item["Idioma"] === filters.idioma)
+      (!filters.idioma || item["Idioma"] === filters.idioma) &&
+      (!filters.pClave || item["Palabras Clave"] === filters.pClave) &&
+      (!filters.year || item["Año"] === filters.year)
     );
   });
 
@@ -382,7 +386,7 @@ function Ecommerce() {
                         </Collapse>
                       </Card>
 
-                      {/* Collapse para Clasificación */}
+                      {/* Collapse para Palabras Clave */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
                           <h6 className="mb-0">
@@ -390,32 +394,32 @@ function Ecommerce() {
                               className="text-info"
                               aria-expanded={collapses.includes(4)}
                               data-toggle="collapse"
-                              href="#collapseClasificacion"
+                              href="#collapsePClave"
                               onClick={(e) => {
                                 e.preventDefault();
                                 changeCollapse(4);
                               }}
                             >
-                              Clasificación{" "}
+                              Palabras Clave{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
                         </CardHeader>
                         <Collapse
                           isOpen={collapses.includes(4)}
-                          id="collapseClasificación"
+                          id="collapsePClave"
                         >
                           <CardBody>
-                            {filterOptionsClasificacion.map((option) => (
+                            {filterOptionsPClave.map((option) => (
                               <FormGroup key={option.key} check>
                                 <Label check>
                                   <Input
                                     type="checkbox"
                                     checked={
-                                      selectedClasificacion === option.key
+                                      selectedPClave === option.key
                                     }
                                     onChange={() =>
-                                      handleCheckboxChangeClasificacion(
+                                      handleCheckboxChangePClave(
                                         option.key
                                       )
                                     }
@@ -473,7 +477,7 @@ function Ecommerce() {
                       </Card>
 
                       {/* Collapse para tipo de documento */}
-                      <Card className="card-refine card-plain">
+                      {/* <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
                           <h6 className="mb-0">
                             <a
@@ -517,12 +521,12 @@ function Ecommerce() {
                             ))}
                           </CardBody>
                         </Collapse>
-                      </Card>
+                      </Card> */}
 
                       {/* Collapse para Idioma */}
-                      {/* <Card className="card-refine card-plain">
+                      <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
-                          <h4 className="mb-0">
+                          <h6 className="mb-0">
                             <a
                               className="text-info"
                               aria-expanded={collapses.includes(7)}
@@ -536,7 +540,7 @@ function Ecommerce() {
                               Idioma{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
-                          </h4>
+                          </h6>
                         </CardHeader>
                         <Collapse
                           isOpen={collapses.includes(7)}
@@ -564,12 +568,59 @@ function Ecommerce() {
                             ))}
                           </CardBody>
                         </Collapse>
-                      </Card> */}
+                      </Card>
+
+                      {/* Collapse para Año */}
+                      <Card className="card-refine card-plain">
+                        <CardHeader id="headingOne" role="tab">
+                          <h6 className="mb-0">
+                            <a
+                              className="text-info"
+                              aria-expanded={collapses.includes(8)}
+                              data-toggle="collapse"
+                              href="#collapseYear"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                changeCollapse(8);
+                              }}
+                            >
+                              Año{" "}
+                              <i className="now-ui-icons arrows-1_minimal-down"></i>
+                            </a>
+                          </h6>
+                        </CardHeader>
+                        <Collapse
+                          isOpen={collapses.includes(8)}
+                          id="collapseYear"
+                        >
+                          <CardBody>
+                            {filterOptionsYear.map((option) => (
+                              <FormGroup key={option.key} check>
+                                <Label check>
+                                  <Input
+                                    type="checkbox"
+                                    checked={
+                                      selectedYear === option.key
+                                    }
+                                    onChange={() =>
+                                      handleCheckboxChangeYear(
+                                        option.key
+                                      )
+                                    }
+                                  />
+                                  <span className="form-check-sign"></span>
+                                  {option.label}
+                                </Label>
+                              </FormGroup>
+                            ))}
+                          </CardBody>
+                        </Collapse>
+                      </Card>
                     </CardBody>
                   </div>
                 </Col>
                 <Col md="9">
-                  <CardWithIcons data={filteredData} />
+                  <PaginationAlternative data={filteredData} />
                 </Col>
               </Row>
               <Row>

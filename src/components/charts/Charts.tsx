@@ -53,10 +53,10 @@ export const Charts = ({XLabels,YLabels} : Props) => {
               startIcon={<StackedLineChartIcon />}
               onClick={handleOpenDialog}
             >
-              Análisis Numérico
+              Numeralia
             </Button>
             <Button startIcon={<DataSaverOffIcon />} onClick={handleOpenDoDialog}>
-              Análisis Porcentual
+              Numeralia porcentual
             </Button>
           </Stack>
         </Grid>
