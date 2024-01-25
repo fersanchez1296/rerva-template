@@ -7,7 +7,7 @@ export const ServerError = () => {
     const navigate = useNavigate()
     useEffect(() => {
         setTimeout(() => {
-            navigate("/")
+            //navigate("/")
         },5000)   
     },[])
 

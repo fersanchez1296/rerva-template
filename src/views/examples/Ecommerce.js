@@ -27,7 +27,6 @@ import { useGetDataForQuery } from "../../api/api.slice";
 
 function Ecommerce() {
   let { url, request } = useParams();
-  console.log(request)
   request = request.replace(/-/g, "/")
   const title = url.replace(/-/g, " ");
   const subtitle = request;
@@ -387,7 +386,7 @@ function Ecommerce() {
                       </Card>
 
                       {/* Collapse para Palabras Clave */}
-                      <Card className="card-refine card-plain">
+                      {/* <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
                           <h6 className="mb-0">
                             <a
@@ -431,7 +430,7 @@ function Ecommerce() {
                             ))}
                           </CardBody>
                         </Collapse>
-                      </Card>
+                      </Card> */}
 
                       {/* Collapse para País */}
                       <Card className="card-refine card-plain">

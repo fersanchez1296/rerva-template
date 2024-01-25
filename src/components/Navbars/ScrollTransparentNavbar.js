@@ -85,7 +85,7 @@ function ScrollTransparentNavbar() {
           </div>
           <Collapse isOpen={collapseOpen} navbar>
             <Nav className="ml-auto" id="ceva" navbar>
-              <UncontrolledDropdown nav>
+              {/* <UncontrolledDropdown nav>
                 <DropdownToggle
                   caret
                   color="default"
@@ -135,7 +135,7 @@ function ScrollTransparentNavbar() {
                     Publicaciones por País
                   </DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   color="default"

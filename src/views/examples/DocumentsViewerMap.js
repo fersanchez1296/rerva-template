@@ -387,7 +387,7 @@ function Ecommerce() {
                       </Card>
 
                       {/* Collapse para Palabras Clave */}
-                      <Card className="card-refine card-plain">
+                      {/* <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
                           <h6 className="mb-0">
                             <a
@@ -431,7 +431,7 @@ function Ecommerce() {
                             ))}
                           </CardBody>
                         </Collapse>
-                      </Card>
+                      </Card> */}
 
                       {/* Collapse para País */}
                       <Card className="card-refine card-plain">

@@ -155,7 +155,7 @@ function EcommerceHeader({ title, subtitle, cantidad }) {
               md="4"
             >
               {chartData.map((data, index) => (
-                <Doughnut data={data} options={chartOptions(["Áreas de estudio", "País", "Clasificación"], index)} />              ))}
+                <Doughnut data={data} options={chartOptions(["Áreas de conocimiento", "País de publicación", "Clasificación"], index)} />              ))}
             </Col>
           </Col>
         </Row>

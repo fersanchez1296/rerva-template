@@ -66,7 +66,7 @@ function Presentation() {
         <Components />
         <BasicComponents />
         <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
-        
+        <Visualitations title={"Publicaciones por pais"} endpoint={"countriesDataCount"} mapa={country}/>
 
         {/* <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"} map={country}/> */}
         {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
@@ -84,7 +84,7 @@ function Presentation() {
         {/* <Image /> */}
         {/* <Testimonials /> */}
         {/* <Pricing /> */}
-        {/* <Visualitations title={"Publicaciones por País"} endpoint={"countriesDataCount"} mapa={country}/> */}
+        
         <FooterBlack />
       </div>
     </>
