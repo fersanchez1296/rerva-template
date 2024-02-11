@@ -31,43 +31,9 @@ function DropdownFixedNavbar() {
       ) : null}
       <Navbar className="navbar-absolute navbar-transparent" expand="lg">
         <Container>
-          <UncontrolledDropdown className="button-dropdown">
-            <DropdownToggle
-              caret
-              tag="a"
-              data-toggle="dropdown"
-              href="#pablo"
-              id="navbarDropdown"
-              onClick={(e) => e.preventDefault()}
-            >
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-              <span className="button-bar"></span>
-            </DropdownToggle>
-            <DropdownMenu aria-labelledby="navbarDropdown">
-              <DropdownItem header>Dropdown header</DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                Action
-              </DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                Another action
-              </DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                Something else here
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                Separated link
-              </DropdownItem>
-              <DropdownItem divider></DropdownItem>
-              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
-                One more separated link
-              </DropdownItem>
-            </DropdownMenu>
-          </UncontrolledDropdown>
           <div className="navbar-translate">
             <NavbarBrand to="/" tag={Link} id="navbar-brand">
-              Now Ui Kit PRO React
+              INICIO
             </NavbarBrand>
             <UncontrolledTooltip target="navbar-brand">
               Designed by Invision. Coded by Creative Tim
@@ -232,16 +198,7 @@ function DropdownFixedNavbar() {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavItem>
-                <Button
-                  className="nav-link btn-default"
-                  color="neutral"
-                  href="https://www.creative-tim.com/product/now-ui-kit-pro-react?ref=nuk-pro-react-dropdown-fixed-navbar"
-                  target="_blank"
-                >
-                  <p>Buy Now</p>
-                </Button>
-              </NavItem>
+              
             </Nav>
           </Collapse>
         </Container>

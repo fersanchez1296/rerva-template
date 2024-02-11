@@ -1,7 +1,7 @@
 import React from "react";
 // react plugin used to create DropdownMenu for selecting items
 import Select from "react-select";
-
+import { NavLink } from "react-router-dom";
 // reactstrap components
 import {
   Badge,
@@ -18,7 +18,7 @@ import {
   InputGroup,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 // core components
@@ -47,70 +47,18 @@ function AboutUs() {
       <div className="wrapper">
         <AboutUsHeader />
         <div className="section">
-          <div className="about-description text-center">
-            <div className="features-3">
-              <Container>
-                <Row>
-                  <Col className="mr-auto ml-auto" md="8">
-                    <h2 className="title">Simpler. Smarter. Faster.</h2>
-                    <h4 className="description">
-                      The CloudCheckr Cloud Management Platform (CMP) provides
-                      full visibility and control to reduce costs, improve
-                      cybersecurity posture, and automate critical tasks.
-                    </h4>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md="4">
-                    <div className="info info-hover">
-                      <div className="icon icon-success icon-circle">
-                        <i className="now-ui-icons objects_globe"></i>
-                      </div>
-                      <h4 className="info-title">Asset Management</h4>
-                      <p className="description">
-                        Cross-account dashboards provide sophisticated reporting
-                        for enterprise.
-                      </p>
-                    </div>
-                  </Col>
-                  <Col md="4">
-                    <div className="info info-hover">
-                      <div className="icon icon-info icon-circle">
-                        <i className="now-ui-icons education_atom"></i>
-                      </div>
-                      <h4 className="info-title">Resource Utilization</h4>
-                      <p className="description">
-                        CloudCheckr provides summary and detailed usage
-                        statistics for resources.
-                      </p>
-                    </div>
-                  </Col>
-                  <Col md="4">
-                    <div className="info info-hover">
-                      <div className="icon icon-primary icon-circle">
-                        <i className="now-ui-icons tech_watch-time"></i>
-                      </div>
-                      <h4 className="info-title">Self-Healing</h4>
-                      <p className="description">
-                        CloudCheckr enables users to save money, time, and
-                        effort.
-                      </p>
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-          </div>
           <div className="separator-line bg-info"></div>
           <div className="projects-5">
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">We have many advantages</h2>
-                  <h4 className="description">
-                    This is the paragraph where you can write more details about
-                    your projects. Keep you user engaged by providing meaningful
-                    information.
+                  <h2 className="title">Nuestra Misión</h2>
+                  <h4 className="text-justify">
+                    Nuestra misión es poder generar un espacio donde se
+                    aglomeren todos los documentos, publicaciones y trabajos
+                    relacionados con la región de los valles y con el área de
+                    atención pertinentes el Centro Universitario de los Valles
+                    (CUValles), partiendo de 6 puntos:
                   </h4>
                   <div className="section-space"></div>
                 </Col>
@@ -121,58 +69,70 @@ function AboutUs() {
                     className="card-background card-background-product card-raised"
                     style={{
                       backgroundImage:
-                        "url(" + require("assets/img/project8.jpg") + ")"
+                        "url(" + require("assets/img/cuvalles-3.jpg") + ")",
+                      opacity: 0.7,
                     }}
                   >
                     <CardBody>
-                      <CardTitle tag="h2">Social Analytics</CardTitle>
-                      <p className="card-description">
-                        Insight to help you create, connect, and convert.
-                        Understand Your Audience's Interests, Influence,
-                        Interactions, and Intent. Discover emerging topics and
-                        influencers to reach new audiences.
+                      <CardTitle tag="h2">
+                        Plataforma de Almacenamiento y Promoción Académica
+                      </CardTitle>
+                      <p className="card-description text-justify text-white">
+                        Plataforma integral para la vinculación, exhibición y
+                        promoción de trabajos académicos relacionados con la
+                        región y el Centro Universitario de los Valles
+                        (CUValles), abarcando una amplia variedad de formatos y
+                        disciplinas. Además, facilita la celebración de la
+                        diversidad cultural y promueve la interacción
+                        comunitaria a través de eventos y talleres.
                       </p>
-                      <Badge className="badge-neutral">Analytics</Badge>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col className="mr-auto" md="5">
                   <div className="info info-horizontal">
                     <div className="icon icon-danger">
-                      <i className="now-ui-icons ui-2_chat-round"></i>
+                      <i className="now-ui-icons education_agenda-bookmark"></i>
+                    </div>
+                    <div className="description">
+                      <h4 className="info-title">Vinculación y exhibición:</h4>
+                      <p className="info-title text-justify">
+                        Proporcionar un espacio digital para que el público en
+                        general pueda depositar y exhibir sus trabajos
+                        relacionados con la región de los valles o con el Centro
+                        Universitario de los Valles (CUValles).
+                      </p>
+                    </div>
+                  </div>
+                  <div className="info info-horizontal">
+                    <div className="icon icon-danger">
+                      <i className="now-ui-icons design_palette"></i>
                     </div>
                     <div className="description">
                       <h4 className="info-title">
-                        Listen to Social Conversations
+                        Promoción de la cultura local:
                       </h4>
-                      <p className="description">
-                        Gain access to the demographics, psychographics, and
-                        location of unique people who talk about your brand.
+                      <p className="info-title text-justify">
+                        Promover la cultura local al facilitar la difusión de
+                        obras que resalten la importancia y diversidad de la
+                        región de los valles, incluyendo aspectos históricos,
+                        antropológicos, científicos y culturales que contribuyan
+                        a enriquecer el conocimiento sobre esta área geográfica.
                       </p>
                     </div>
                   </div>
                   <div className="info info-horizontal">
                     <div className="icon icon-danger">
-                      <i className="now-ui-icons business_chart-pie-36"></i>
+                      <i className="now-ui-icons business_globe"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Performance Analyze</h4>
-                      <p className="description">
-                        Unify data from Facebook, Instagram, Twitter, LinkedIn,
-                        and Youtube to gain rich insights from easy-to-use
-                        reports.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-danger">
-                      <i className="now-ui-icons design-2_ruler-pencil"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Social Conversions</h4>
-                      <p className="description">
-                        Track actions taken on your website that originated from
-                        social, and understand the impact on your bottom line.
+                      <h4 className="info-title">
+                        Fomento de la participación comunitaria:
+                      </h4>
+                      <p className="info-title text-justify">
+                        Promover la participación activa de la comunidad,
+                        permitiendo que los creadores interactúen entre sí y
+                        compartan ideas y trabajos.
                       </p>
                     </div>
                   </div>
@@ -183,37 +143,45 @@ function AboutUs() {
                 <Col className="ml-auto mt-5" md="5">
                   <div className="info info-horizontal">
                     <div className="icon icon-warning">
-                      <i className="now-ui-icons users_single-02"></i>
+                      <i className="now-ui-icons location_world"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Work With Any Team</h4>
-                      <p className="description">
-                        Whether it’s for work or even the next family vacation,
-                        Trello helps your team.
+                      <h4 className="info-title">
+                        Colaboración local, nacional e internacional:
+                      </h4>
+                      <p className="info-title text-justify">
+                        Colaborar con instituciones educativas, bibliotecas y
+                        organizaciones locales, nacionales e internacionales
+                        para promover el acceso a la información y la
+                        investigación sobre la región.
                       </p>
                     </div>
                   </div>
                   <div className="info info-horizontal">
                     <div className="icon icon-warning">
-                      <i className="now-ui-icons business_chart-bar-32"></i>
+                      <i className="now-ui-icons tech_laptop"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">A Productivity Platform</h4>
-                      <p className="description">
-                        Integrate the apps your team already uses directly into
-                        your workflow.
+                      <h4 className="info-title">Presencia digital:</h4>
+                      <p className="info-title text-justify">
+                        Presencia digital a través de una plataforma web donde
+                        los creadores puedan cargar sus obras de manera virtual
+                        permitiendo que un público más amplio pueda acceder a
+                        ellas desde cualquier lugar del mundo, amplificando así
+                        su alcance y accesibilidad.
                       </p>
                     </div>
                   </div>
                   <div className="info info-horizontal">
                     <div className="icon icon-warning">
-                      <i className="now-ui-icons arrows-1_refresh-69"></i>
+                      <i className="now-ui-icons education_hat"></i>
                     </div>
-                    <div className="description">
-                      <h4 className="info-title">Always In Sync</h4>
-                      <p className="description">
-                        No matter where you are, Trello stays in sync across all
-                        of your devices.
+                    <div className="">
+                      <h4 className="info-title">Punto de encuentro :</h4>
+                      <p className="info-title text-justify">
+                        Punto de encuentro para la comunidad académica y
+                        cultural interesada en explorar y celebrar la riqueza y
+                        diversidad de esta región.
                       </p>
                     </div>
                   </div>
@@ -223,17 +191,22 @@ function AboutUs() {
                     className="card-background card-background-product card-raised"
                     style={{
                       backgroundImage:
-                        "url(" + require("assets/img/project9.jpg") + ")"
+                        "url(" + require("assets/img/cuvalles-4.jpg") + ")",
                     }}
                   >
                     <CardBody>
-                      <CardTitle tag="h2">Trello lets you work.</CardTitle>
-                      <p className="card-description text-white">
-                        Trello’s boards, lists, and cards enable you to organize
-                        and prioritize your projects in a fun, flexible and
-                        rewarding way.
+                      <CardTitle tag="h2">
+                        Hub de Colaboración Institucional y Difusión Global
+                      </CardTitle>
+                      <p className="card-description text-white text-justify">
+                        Hub dinámico que promueve la colaboración entre
+                        instituciones educativas, bibliotecas y organizaciones
+                        locales, fortaleciendo el acceso a la información y la
+                        investigación sobre los valles. Además, establece una
+                        presencia digital global, permitiendo que las obras
+                        depositadas sean vistas y compartidas por un público
+                        amplio desde cualquier lugar del mundo.
                       </p>
-                      <Badge className="badge-neutral">Trello</Badge>
                     </CardBody>
                   </Card>
                 </Col>
@@ -244,11 +217,13 @@ function AboutUs() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">We are nerd rockstars</h2>
-                  <h4 className="description">
-                    This is the paragraph where you can write more details about
-                    your team. Keep you user engaged by providing meaningful
-                    information.
+                  <h2 className="title">Nuestro equipo de Trabajo</h2>
+                  <h4 className="text-justify">
+                    Nuestros colaboradores conforman un equipo
+                    multidisciplinario que abarca las áreas de Ingeniería,
+                    Ciencias Sociales y Humanidades. Esta combinación de
+                    disciplinas permite una sinergia que resulta en la
+                    realización exitosa del presente proyecto.
                   </h4>
                 </Col>
               </Row>
@@ -269,38 +244,10 @@ function AboutUs() {
                       </Col>
                       <Col md="7">
                         <CardBody>
-                          <CardTitle tag="h4">Ella Evelyn</CardTitle>
-                          <h6 className="category">Air Crew Member</h6>
-                          <p className="card-description">
-                            Think in the morning. Act in the noon. Eat in the
-                            evening. Sleep in the night......
-                          </p>
-                          <CardFooter>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="twitter"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-twitter"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="facebook"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-facebook-square"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="google"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-google"></i>
-                            </Button>
-                          </CardFooter>
+                          <CardTitle tag="h4">Dr. Alvaro Mora Maciel</CardTitle>
+                          <h6 className="category">Doctor en Urbanismo</h6>
+                          <p className="">alvaro.mora@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
                         </CardBody>
                       </Col>
                     </Row>
@@ -315,53 +262,19 @@ function AboutUs() {
                             <img
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/emily.jpg")}
+                              src={require("assets/img/cuvalles-felix.jpg")}
                             ></img>
                           </a>
                         </div>
                       </Col>
                       <Col md="7">
                         <CardBody>
-                          <CardTitle tag="h4">Mila Skylar</CardTitle>
-                          <h6 className="category">Architect</h6>
-                          <p className="card-description">
-                            Love cures people - both the ones who give it and
-                            the ones who receive it...
-                          </p>
-                          <CardFooter>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="linkedin"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-linkedin"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="facebook"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-facebook-square"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="dribbble"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-dribbble"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="google"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-google"></i>
-                            </Button>
-                          </CardFooter>
+                          <CardTitle tag="h4">
+                            Mtro. Félix Alberto Barrera Osuna
+                          </CardTitle>
+                          <h6 className="category">Secretario Técnico</h6>
+                          <p className="">felix.barrera@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
                         </CardBody>
                       </Col>
                     </Row>
@@ -376,45 +289,19 @@ function AboutUs() {
                             <img
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/james.jpg")}
+                              src={require("assets/img/cuvalles-rectora.jpg")}
                             ></img>
                           </a>
                         </div>
                       </Col>
                       <Col md="7">
                         <CardBody>
-                          <CardTitle tag="h4">Daniel Carter</CardTitle>
-                          <h6 className="category">Aviation Inspector</h6>
-                          <p className="card-description">
-                            Keep your face always toward the sunshine - and
-                            shadows will fall behind you...
-                          </p>
-                          <CardFooter>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="youtube"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fa fab-youtube"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="twitter"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-twitter"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="instagram"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-instagram"></i>
-                            </Button>
-                          </CardFooter>
+                          <CardTitle tag="h4">
+                            Dra. María Luisa García Bátiz
+                          </CardTitle>
+                          <h6 className="category">Rectora de Centro</h6>
+                          <p className="">mluisa.garcia@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
                         </CardBody>
                       </Col>
                     </Row>
@@ -436,38 +323,126 @@ function AboutUs() {
                       </Col>
                       <Col md="7">
                         <CardBody>
-                          <CardTitle tag="h4">Dylan Wyatt</CardTitle>
-                          <h6 className="category">Conservation Scientist</h6>
-                          <p className="card-description">
-                            There is only one corner of the universe you can be
-                            certain of improving, and that's your own self...
+                          <CardTitle tag="h4">
+                            Dra. Karla Viridiana Rosales Valenzuela
+                          </CardTitle>
+                          <h6 className="category">Doctora en Urbanismo</h6>
+                          <p className="">karla.rosales@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/olivia.jpg")}
+                            ></img>
+                          </a>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <CardTitle tag="h4">
+                            Stefany Hernández Sánchez
+                          </CardTitle>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">
+                            stefany.hernandez6508@alumnos.udg.mx
                           </p>
-                          <CardFooter>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="linkedin"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-linkedin"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="facebook"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-facebook-square"></i>
-                            </Button>
-                            <Button
-                              className="btn-icon btn-neutral"
-                              color="google"
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              <i className="fab fa-google"></i>
-                            </Button>
-                          </CardFooter>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/emily.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <CardTitle tag="h4">
+                            Fernando Sánchez Plascencia
+                          </CardTitle>
+                          <h6 className="category">
+                            Ing. Electrónica y Computación
+                          </h6>
+                          <p className="">
+                            fernando.sanchez3411@alumnos.udg.mx
+                          </p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/james.jpg")}
+                            ></img>
+                          </a>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <CardTitle tag="h4">
+                            César Uriel Torres Vallarta
+                          </CardTitle>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">cesar.torres5377@alumnos.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/michael.jpg")}
+                            ></img>
+                          </a>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <CardTitle tag="h4">
+                            Enrique Jesús Fregoso Gutiérrez
+                          </CardTitle>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">enrique.fregoso4189@alumnos.udg.mx</p>
+                          <CardFooter></CardFooter>
                         </CardBody>
                       </Col>
                     </Row>
@@ -480,11 +455,14 @@ function AboutUs() {
             <Container>
               <Row className="text-center">
                 <Col className="ml-auto mr-auto" md="8">
-                  <h2 className="title">Our office is our second home</h2>
-                  <h4 className="description">
-                    Here are some pictures from our office. You can see the
-                    place looks like a palace and is fully equiped with
-                    everything you need to get the job done.
+                  <h2 className="title">Nuestra Visión</h2>
+                  <h4 className="text-justify">
+                    Ser reconocido como un centro de referencia y difusión de
+                    conocimiento sobre la región de los valles y el Centro
+                    Universitario de los Valles (CUValles), promoviendo la
+                    investigación interdisciplinaria, la preservación de la
+                    cultura local y la colaboración comunitaria a nivel local y
+                    global.
                   </h4>
                 </Col>
               </Row>
@@ -493,125 +471,36 @@ function AboutUs() {
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/bg27.jpg")}
+                    src={require("assets/img/cuvalles-3.jpg")}
                   ></img>
                 </Col>
                 <Col md="4">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/bg24.jpg")}
+                    src={require("assets/img/cuvalles-4.jpg")}
                   ></img>
                 </Col>
                 <Col md="4">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/bg28.jpg")}
+                    src={require("assets/img/universidad-de-guadalajara-3.jpg")}
                   ></img>
                 </Col>
                 <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/project6.jpg")}
+                    src={require("assets/img/region-valles-3.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/project14.jpg")}
+                    src={require("assets/img/region-valles-2.jpeg")}
                   ></img>
-                </Col>
-              </Row>
-            </Container>
-          </div>
-          <div className="about-contact">
-            <Container>
-              <Row>
-                <Col className="mr-auto ml-auto" md="8">
-                  <h2 className="text-center title">Want to work with us?</h2>
-                  <h4 className="text-center description">
-                    Divide details about your product or agency work into parts.
-                    Write a few lines about each one and contact us about any
-                    further collaboration. We will get back to you in a couple
-                    of hours.
-                  </h4>
-                  <Form className="contact-form">
-                    <Row>
-                      <Col md="4">
-                        <label>First name</label>
-                        <InputGroup
-                          className={firstFocus ? "input-group-focus" : ""}
-                        >
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="now-ui-icons users_circle-08"></i>
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            autoComplete="firstname"
-                            placeholder="First Name..."
-                            type="text"
-                            onFocus={() => setFirstFocus(true)}
-                            onBlur={() => setFirstFocus(false)}
-                          ></Input>
-                        </InputGroup>
-                      </Col>
-                      <Col md="4">
-                        <label>Your email</label>
-                        <InputGroup
-                          className={emailFocus ? "input-group-focus" : ""}
-                        >
-                          <InputGroupAddon addonType="prepend">
-                            <InputGroupText>
-                              <i className="now-ui-icons ui-1_email-85"></i>
-                            </InputGroupText>
-                          </InputGroupAddon>
-                          <Input
-                            autoComplete="email"
-                            placeholder="Email Name..."
-                            type="text"
-                            onFocus={() => setEmailFocus(true)}
-                            onBlur={() => setEmailFocus(false)}
-                          ></Input>
-                        </InputGroup>
-                      </Col>
-                      <Col md="4">
-                        <FormGroup>
-                          <label className="control-label">Speciality</label>
-                          <Select
-                            className="react-select react-select-primary"
-                            onChange={(value) => setSpecialitySelect(value)}
-                            classNamePrefix="react-select"
-                            placeholder="Speciality"
-                            value={specialitySelect}
-                            name=""
-                            options={[
-                              {
-                                value: "1",
-                                label: "I'm a Designer"
-                              },
-                              { value: "2", label: "I'm a Developer" },
-                              { value: "3", label: "I'm a Hero" }
-                            ]}
-                          ></Select>
-                        </FormGroup>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="ml-auto mr-auto text-center" md="4">
-                        <Button
-                          className="btn-round mt-4"
-                          color="info"
-                          size="lg"
-                        >
-                          Let's talk
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Form>
                 </Col>
               </Row>
             </Container>

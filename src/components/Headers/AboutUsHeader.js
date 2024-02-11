@@ -22,22 +22,24 @@ function AboutUsHeader() {
   });
   return (
     <>
-      <div className="page-header page-header-small">
+      <div className="page-header page-header-medium">
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg32.jpg") + ")"
+            backgroundImage: "url(" + require("assets/img/cuvalles-2.jpg") + ")",
+            
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h1 className="title">About Us</h1>
-              <h4>
-                Meet the amazing team behind this project and find out more
-                about how we work.
-              </h4>
+              <h1 className="title">Acerca de nosotros</h1>
+              <h5>
+                Somos un equipo multidisciplinarios
+                interesados en dar visibilidad a la Región
+                de los Valles en Jalisco.
+              </h5>
             </Col>
           </Row>
         </div>

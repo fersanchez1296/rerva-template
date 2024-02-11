@@ -14,18 +14,20 @@ import {
   Nav,
   Container,
   UncontrolledTooltip,
+  InputGroup,
+  Input, // Agregar Input de reactstrap
 } from "reactstrap";
 
 function ScrollTransparentNavbar() {
-  const url = "Publicaciones-por-municipio"
+  const url = "Publicaciones-por-municipio";
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [navbarColor, setNavbarColor] = React.useState(
-    (document.documentElement.scrollTop > 499 || document.body.scrollTop) > 499
+    document.documentElement.scrollTop > 499 || document.body.scrollTop > 499
       ? ""
       : " navbar-transparent"
   );
   const [buyButtonColor, setBuyButtonColor] = React.useState(
-    (document.documentElement.scrollTop > 499 || document.body.scrollTop) > 499
+    document.documentElement.scrollTop > 499 || document.body.scrollTop > 499
       ? "info"
       : "neutral"
   );
@@ -37,10 +39,7 @@ function ScrollTransparentNavbar() {
       ) {
         setNavbarColor("");
         setBuyButtonColor("info");
-      } else if (
-        document.documentElement.scrollTop < 500 ||
-        document.body.scrollTop < 500
-      ) {
+      } else {
         setNavbarColor(" navbar-transparent");
         setBuyButtonColor("neutral");
       }
@@ -49,7 +48,7 @@ function ScrollTransparentNavbar() {
     return function cleanup() {
       window.removeEventListener("scroll", updateNavbarColor);
     };
-  });
+  }, []);
   return (
     <>
       {collapseOpen ? (
@@ -64,12 +63,8 @@ function ScrollTransparentNavbar() {
       <Navbar className={"fixed-top" + navbarColor} color="white" expand="lg">
         <Container>
           <div className="navbar-translate">
-            <NavbarBrand to="/" tag={Link} id="navbar-brand">
-              
-            </NavbarBrand>
-            <UncontrolledTooltip target="navbar-brand">
-              
-            </UncontrolledTooltip>
+            <NavbarBrand to="/" tag={Link} id="navbar-brand"></NavbarBrand>
+            <UncontrolledTooltip target="navbar-brand"></UncontrolledTooltip>
             <button
               onClick={() => {
                 document.documentElement.classList.toggle("nav-open");
@@ -85,57 +80,12 @@ function ScrollTransparentNavbar() {
           </div>
           <Collapse isOpen={collapseOpen} navbar>
             <Nav className="ml-auto" id="ceva" navbar>
-              {/* <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  id="navbarDropdownMenuLink"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <i
-                    aria-hidden={true}
-                    className="now-ui-icons files_paper"
-                  ></i>
-                  <p>Secciones</p>
-                </DropdownToggle>
-                <DropdownMenu aria-labelledby="navbarDropdownMenuLink" right>
-                  <DropdownItem to="/Publicaciones-por-municipio/all" tag={Link}>
-                    <i className="now-ui-icons location_pin"></i>
-                    Publicaciones por municipio
-                  </DropdownItem>
-                  <DropdownItem to="/sections#features" tag={Link}>
-                    <i className="now-ui-icons ui-1_calendar-60"></i>
-                    Publicaciones por decadas
-                  </DropdownItem>
-                  <DropdownItem to="/sections#blogs" tag={Link}>
-                    <i className="now-ui-icons education_paper"></i>
-                    Publicaciones por Área
-                  </DropdownItem>
-                  <DropdownItem to="/sections#teams" tag={Link}>
-                    <i className="now-ui-icons education_glasses"></i>
-                    Publicaciones por Disciplina
-                  </DropdownItem>
-                  <DropdownItem to="/sections#projects" tag={Link}>
-                    <i className="now-ui-icons education_atom"></i>
-                    Publicaciones por Campo de Estudio
-                  </DropdownItem>
-                  <DropdownItem to="/sections#pricing" tag={Link}>
-                    <i className="now-ui-icons education_agenda-bookmark"></i>
-                    Publicaciones por Tipo de Documento
-                  </DropdownItem>
-                  <DropdownItem to="/sections#testimonials" tag={Link}>
-                    <i className="now-ui-icons education_hat"></i>
-                    Publicaciones por Editorial
-                  </DropdownItem>
-                  <DropdownItem to="/sections#contact-us" tag={Link}>
-                    <i className="now-ui-icons objects_globe"></i>
-                    Publicaciones por País
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
+              <NavItem>
+                {/* Barra de búsqueda */}
+                <InputGroup>
+                  <Input placeholder="Buscar..." />
+                </InputGroup>
+              </NavItem>
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   color="default"
@@ -143,13 +93,79 @@ function ScrollTransparentNavbar() {
                   href="#pablo"
                   id="navbarDropdownMenuLink"
                   nav
-                  tag={Link} to="/contribuir"
+                  tag={Link}
+                  to="/contribuir"
                 >
                   <i
                     aria-hidden={true}
-                    className="now-ui-icons design_image"
+                    className="now-ui-icons files_paper"
                   ></i>
-                  <p>Contribuir</p>
+                  <p>Autodepósito</p>
+                </DropdownToggle>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  caret
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink1"
+                  nav
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <i className="now-ui-icons files_single-copy-04"></i>
+                  <p>Búsquedas</p>
+                </DropdownToggle>
+                <DropdownMenu aria-labelledby="navbarDropdownMenuLink1" right>
+                  <DropdownItem to="/" tag={Link}>
+                    <i className="now-ui-icons design_image"></i>
+                    Autor
+                  </DropdownItem>
+                  <DropdownItem to="/index" tag={Link}>
+                    <i className="now-ui-icons business_chart-pie-36"></i>
+                    Área de conocimiento
+                  </DropdownItem>
+                  <DropdownItem
+                    href="https://demos.creative-tim.com/now-ui-kit-pro-react/#/documentation/introduction?ref=nuk-pro-react-dropdown-fixed-navbar"
+                    target="_blank"
+                  >
+                    <i className="now-ui-icons design_bullet-list-67"></i>
+                    Año
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  tag={Link}
+                  to="/nosotros"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="now-ui-icons business_badge"
+                  ></i>
+                  <p>Acerca de Nosotros</p>
+                </DropdownToggle>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  tag={Link}
+                  to="/nosotros"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="now-ui-icons ui-1_email-85"
+                  ></i>
+                  <p>Contacto</p>
                 </DropdownToggle>
               </UncontrolledDropdown>
             </Nav>
