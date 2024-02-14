@@ -15,6 +15,7 @@ import AboutUs from "views/examples/AboutUs.js";
 import BlogPost from "views/examples/BlogPost.js";
 import BlogPosts from "views/examples/BlogPosts.js";
 import ContactUs from "views/examples/ContactUs.js";
+import Autodeposito from "views/examples/Autodeposito.js";
 import Ecommerce from "views/examples/Ecommerce.js";
 import DocumentsViewerMap from "./views/examples/DocumentsViewerMap";
 import Index from "views/Index.js";
@@ -47,9 +48,10 @@ root.render(
             <Routes>
               {/* <Route path="/Publicaciones-por-municipio" element={<PDocuments />} /> */}
               <Route path="/nosotros" element={<AboutUs />} />
+              <Route path="/contacto" element={<ContactUs />} />
               <Route path="/contacto-fernando" element={<ProfilePage />} />
               <Route path="/blog-posts" element={<BlogPosts />} />
-              <Route path="/contribuir" element={<ContactUs />} />
+              <Route path="/contribuir" element={<Autodeposito />} />
               <Route path="/e-commerce" element={<Ecommerce />} />
               <Route path="/index" element={<Index />} />
               <Route path="/landing-page" element={<LandingPage />} />
@@ -60,7 +62,9 @@ root.render(
               <Route path="/product-page" element={<ProductPage />} />
               <Route path="/profile-page" element={<ProfilePage />} />
               <Route path="/sections" element={<Sections />} />
-              <Route path="/sign-up" element={<SignupPage />} />
+              <Route path="/busqueda-autor" element={<SignupPage />} />
+              <Route path="/busqueda-areaConocimiento" element={<SignupPage />} />
+              <Route path="/busqueda-year" element={<SignupPage />} />
               <Route path="/:url/:request" element={<Ecommerce />} />
               <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} />
               <Route path="/map/:url/:request" element={<DocumentsViewerMap />} />

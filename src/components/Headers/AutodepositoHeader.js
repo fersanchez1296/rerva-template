@@ -4,7 +4,7 @@ import React from "react";
 
 // core components
 
-function ContactUsHeader() {
+function AutodepositoHeader() {
   let pageHeader = React.createRef();
   React.useEffect(() => {
     if (window.innerWidth > 991) {
@@ -25,7 +25,7 @@ function ContactUsHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/cuvalles-5.jpeg") + ")"
+            backgroundImage: "url(" + require("assets/img/cuvalles-4.jpg") + ")"
           }}
           ref={pageHeader}
         ></div>
@@ -34,4 +34,4 @@ function ContactUsHeader() {
   );
 }
 
-export default ContactUsHeader;
+export default AutodepositoHeader;

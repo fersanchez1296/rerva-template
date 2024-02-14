@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -117,21 +117,19 @@ function ScrollTransparentNavbar() {
                   <p>Búsquedas</p>
                 </DropdownToggle>
                 <DropdownMenu aria-labelledby="navbarDropdownMenuLink1" right>
-                  <DropdownItem to="/" tag={Link}>
+                  <DropdownItem to="/busqueda-autor" tag={Link}>
                     <i className="now-ui-icons design_image"></i>
                     Autor
                   </DropdownItem>
-                  <DropdownItem to="/index" tag={Link}>
+                  <DropdownItem to="/busqueda-areaConocimiento" tag={Link}>
                     <i className="now-ui-icons business_chart-pie-36"></i>
                     Área de conocimiento
                   </DropdownItem>
-                  <DropdownItem
-                    href="https://demos.creative-tim.com/now-ui-kit-pro-react/#/documentation/introduction?ref=nuk-pro-react-dropdown-fixed-navbar"
-                    target="_blank"
-                  >
+                  <DropdownItem to="/busqueda-year" tag={Link}>
                     <i className="now-ui-icons design_bullet-list-67"></i>
                     Año
                   </DropdownItem>
+                  
                 </DropdownMenu>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav>
@@ -159,7 +157,7 @@ function ScrollTransparentNavbar() {
                   id="navbarDropdownMenuLink"
                   nav
                   tag={Link}
-                  to="/nosotros"
+                  to="/contacto"
                 >
                   <i
                     aria-hidden={true}

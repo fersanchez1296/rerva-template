@@ -17,8 +17,8 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import { NavLink } from "react-router-dom";
 
 interface Props {
-  data: any;
-  url : string
+  data?: any;
+  url?: string
 }
 
 interface TablePaginationActionsProps {
