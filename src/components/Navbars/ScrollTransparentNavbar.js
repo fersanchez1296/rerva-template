@@ -79,13 +79,25 @@ function ScrollTransparentNavbar() {
             </button>
           </div>
           <Collapse isOpen={collapseOpen} navbar>
+          
             <Nav className="ml-auto" id="ceva" navbar>
-              <NavItem>
-                {/* Barra de búsqueda */}
-                <InputGroup>
-                  <Input placeholder="Buscar..." />
-                </InputGroup>
-              </NavItem>
+            <UncontrolledDropdown nav>
+            <DropdownToggle
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  tag={Link}
+                  to="/busquedas"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="now-ui-icons files_single-copy-04"
+                  ></i>
+                  <p>Buscar</p>
+                </DropdownToggle>
+              </UncontrolledDropdown>
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   color="default"
@@ -103,35 +115,7 @@ function ScrollTransparentNavbar() {
                   <p>Autodepósito</p>
                 </DropdownToggle>
               </UncontrolledDropdown>
-              <UncontrolledDropdown nav>
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  id="navbarDropdownMenuLink1"
-                  nav
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <i className="now-ui-icons files_single-copy-04"></i>
-                  <p>Búsquedas</p>
-                </DropdownToggle>
-                <DropdownMenu aria-labelledby="navbarDropdownMenuLink1" right>
-                  <DropdownItem to="/busqueda-autor" tag={Link}>
-                    <i className="now-ui-icons design_image"></i>
-                    Autor
-                  </DropdownItem>
-                  <DropdownItem to="/busqueda-areaConocimiento" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36"></i>
-                    Área de conocimiento
-                  </DropdownItem>
-                  <DropdownItem to="/busqueda-year" tag={Link}>
-                    <i className="now-ui-icons design_bullet-list-67"></i>
-                    Año
-                  </DropdownItem>
-                  
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   color="default"

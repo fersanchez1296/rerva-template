@@ -11,10 +11,11 @@ function Cards() {
       <div className="section section-cards">
         <Container>
           <Row>
-            <Col className="text-center ml-auto mr-auto" md="8">
+            <Col className="text-center ml-auto mr-auto" md="10">
               <div className="section-description">
                 <h2 className="title">Producción académica </h2>
                 <h6 className="category">en la región de los valles</h6>
+                <br></br><br></br><br></br>
                 <h5 className="text-justify">
                   La producción académica encontrada hasta el día de hoy en esta
                   búsqueda preliminar muestra la existencia de 412 trabajos de
@@ -41,6 +42,7 @@ function Cards() {
                   investigaciones desde perspectivas innovadoras, cubriendo así
                   los vacíos existentes.
                 </h5>
+                <br></br><br></br><br></br>
               </div>
             </Col>
           </Row>

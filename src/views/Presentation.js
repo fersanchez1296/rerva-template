@@ -23,6 +23,7 @@ import Pricing from "./presentation-sections/Pricing.js";
 import VectorMaps from "./Maps/VectorMap.js";
 import country from "../assets/maps/world.geo.json";
 import polity from '../assets/maps/jalisco.geo.json'
+
 import {Visualitations} from '../components/visualitations/Visualitations'
 
 function Presentation() {
@@ -63,28 +64,27 @@ function Presentation() {
       <ScrollTransparentNavbar />
       <div className="wrapper">
         <PresentationHeader/>
+        <Sections /> 
         <Components />
         <BasicComponents />
+        
         <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
         <Visualitations title={"Publicaciones por pais"} endpoint={"countriesDataCount"} mapa={country}/>
-
         {/* <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"} map={country}/> */}
         {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
         {/* <Visuxalitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
         {/* <BasicComponents /> */}
-
         <Cards />
         {/* <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/> */}
         {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
         {/* <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/> */}
-        {/* <Sections /> */}
-        {/* <Examples /> */}
-        {/* <FreeDemo /> */}
-        {/* <Icons /> */}
-        {/* <Image /> */}
-        {/* <Testimonials /> */}
-        {/* <Pricing /> */}
         
+         {/* <Examples /> 
+         <FreeDemo /> 
+         <Icons /> 
+         <Image /> 
+         <Testimonials />  */}
+         <Pricing />
         <FooterBlack />
       </div>
     </>

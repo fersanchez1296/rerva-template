@@ -10,12 +10,11 @@ function Components() {
     <>
       <div
         className="section section-components"
-        data-background-color="dark-blue"
       >
         <Container>
           <Row>
-            <Col className="ml-auto mr-auto" md="8">
-              <h2 className="text-center title">
+            <Col className="ml-auto mr-auto" md="12">
+              <h2 className="text-center title text-dark">
                 Creación y difusión del conocimiento <br></br>
                 <small className="description">
                   <b>
@@ -24,7 +23,7 @@ function Components() {
                   </b>
                 </small>
               </h2>
-              <h5 className="text-justify description">
+              <h5 className="text-justify description text-dark">
                 En un contexto de globalización y decreciente importancia de la
                 ciencia y la tecnología, para enfrentar problemas sociales y
                 ambientales, innovación y desarrollo científico se han
@@ -35,14 +34,14 @@ function Components() {
                 explicar la diferenciación en las rutas de desarrollo que siguen
                 los países.
               </h5>
-              <h5 className="text-justify description">
+              <h5 className="text-justify description text-dark">          
                 En el centro de la discusión sobre lo que se sabe de una región
                 y lo que se genera de conocimientos en cada región, está el tema
                 del vínculo existente entre ciencia y desarrollo, lo cual
                 plantea interrogantes sobre el vínculo existente y sobre las
                 formas convencionales de generar investigación y desarrollo.
               </h5>
-              <h5 className="text-justify description">
+              <h5 className="text-justify description text-dark">
                 Entender la región como objeto de estudio y la región como
                 espacio de producción y de condiciones para el desarrollo
                 científico y tecnológico son tareas importantes para trazar
@@ -51,10 +50,10 @@ function Components() {
                 para explorar rutas independientes de desarrollo científico o de
                 manera más específica.
               </h5>
-              <div className="space-50"></div>
+              <div className="space-100"></div>
             </Col>
           </Row>
-          {/* <Row>
+          <Row>
             <Col md="3">
               <div className="card-container first-card">
                 <div className="card-component">
@@ -111,7 +110,7 @@ function Components() {
                 </div>
               </div>
             </Col>
-          </Row> */}
+          </Row>
         </Container>
       </div>
     </>

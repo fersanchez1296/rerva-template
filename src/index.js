@@ -62,9 +62,7 @@ root.render(
               <Route path="/product-page" element={<ProductPage />} />
               <Route path="/profile-page" element={<ProfilePage />} />
               <Route path="/sections" element={<Sections />} />
-              <Route path="/busqueda-autor" element={<SignupPage />} />
-              <Route path="/busqueda-areaConocimiento" element={<SignupPage />} />
-              <Route path="/busqueda-year" element={<SignupPage />} />
+              <Route path="/busquedas" element={<SignupPage />} />
               <Route path="/:url/:request" element={<Ecommerce />} />
               <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} />
               <Route path="/map/:url/:request" element={<DocumentsViewerMap />} />

@@ -1,5 +1,6 @@
 import React from "react";
 // reactstrap components
+import Select from "react-select";
 import {
   Button,
   Card,
@@ -28,7 +29,9 @@ function SignupPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
-  const {data : autores,isLoading,} = useGetAutoresQuery();
+  const [colorSelect, setColorSelect] = React.useState({ value: "1", label: "General" });
+  const [sizeSelect, setSizeSelect] = React.useState(null);
+  const { data: autores, isLoading } = useGetAutoresQuery();
   React.useEffect(() => {
     document.body.classList.add("signup-page");
     document.body.classList.add("sidebar-collapse");
@@ -43,25 +46,26 @@ function SignupPage() {
   if (isLoading) {
     return <Spiner showSpiner />;
   }
-  console.log(autores)
+  console.log(autores);
   return (
     <>
-      <FixedTransparentNavbar />
+      
       <div className="page-header header-filter" filter-color="black">
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg18.jpg") + ")",
+            backgroundImage:
+              "url(" + require("assets/img/cuvalles-3.jpg") + ")",
           }}
         ></div>
         <div className="content">
           <Container>
             <Row>
-              <Col className="ml-auto mr-auto" md="6" lg="4">
+              <Col className="ml-auto mr-auto" md="12" lg="12">
                 <Card className="card-signup">
                   <CardBody>
                     <CardTitle className="text-center" tag="h4">
-                      Búscar por Autor
+                      Búscar
                     </CardTitle>
                     <div className="social text-center">
                       <Button
@@ -82,28 +86,63 @@ function SignupPage() {
                       <br />
                     </div>
                     <Form action="" className="form" method="">
-                      <InputGroup
-                        className={lastFocus ? "input-group-focus" : ""}
-                      >
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="now-ui-icons text_caps-small"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input
-                          autoComplete="name"
-                          placeholder="Last Name..."
-                          type="text"
-                          onFocus={() => setLastFocus(true)}
-                          onBlur={() => setLastFocus(false)}
-                        ></Input>
-                      </InputGroup>
+                      <Row>
+                        <Col lg="12" md="12" sm="12">
+                          <div className="d-flex">
+                            <Select
+                              className="react-select mr-0"
+                              classNamePrefix="react-select"
+                              name=""
+                              onChange={(value) => setColorSelect(value)}
+                              options={[
+                                { value: "1", label: "General" },
+                                { value: "2", label: "Autor" },
+                                { value: "3", label: "Año" },
+                                { value: "4", label: "Revista" },
+                              ]}
+                              placeholder="Select color"
+                              value={colorSelect}
+                              styles={{
+                                control: (provided) => ({
+                                  ...provided,
+                                  width: "200px !important",
+                                  borderTopRightRadius: "0 !important",
+                                  borderBottomRightRadius: "0 !important",
+                                }),
+                              }}
+                            />
+                            <InputGroup
+                              className={lastFocus ? "input-group-focus" : ""}
+                            >
+                              <InputGroupAddon addonType="prepend">
+                                <InputGroupText
+                                  style={{
+                                    borderTopLeftRadius: 0,
+                                    borderBottomLeftRadius: 0,
+                                  }}
+                                >
+                                  <i className="now-ui-icons text_caps-small"></i>
+                                </InputGroupText>
+                              </InputGroupAddon>
+                              <Input
+                                autoComplete="name"
+                                placeholder="Last Name..."
+                                type="text"
+                                onFocus={() => setLastFocus(true)}
+                                onBlur={() => setLastFocus(false)}
+                              />
+                            </InputGroup>
+                          </div>
+                        </Col>
+                      </Row>
                       <CardFooter className="text-center">
                         <Button
                           className="btn-round"
                           color="info"
                           href="#pablo"
-                          onClick={(e) => e.preventDefault()}
+                          onClick={(e) => (
+                            e.preventDefault(),
+                            console.log(colorSelect))}
                           size="lg"
                         >
                           Búscar
@@ -112,16 +151,13 @@ function SignupPage() {
                     </Form>
                   </CardBody>
                 </Card>
+                
               </Col>
-              <Col className="mr-auto" md="6" lg="8">
-                <Card className="card-signup">
-                  <PaginationAlternative data={autores} url="."/>
-                </Card>
-              </Col>
+
             </Row>
           </Container>
         </div>
-        <Footer />
+        
       </div>
     </>
   );

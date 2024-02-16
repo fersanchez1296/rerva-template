@@ -11,9 +11,10 @@ function BasicComponents() {
       <div className="section section-basic-components">
         <Container>
           <Row>
-            <Col className="ml-auto mr-auto" lg="5" md="7">
-              <h2 className="title">Áreas de influencia</h2>
-              <h6 className="category">Centro Universitario de los Valles</h6>
+            <Col className="ml-auto mr-auto" lg="10" md="7">
+              <h2 className="title text-center">Áreas de influencia</h2>
+              <h6 className="category text-center">Centro Universitario de los Valles</h6>
+              <br></br><br></br><br></br>
               <h5 className=" text-justify">
                 Sería hasta el año 2000 cuando el Consejo General Universitario
                 de la U. de G., aprobaría la creación del Campus Universitario
@@ -32,14 +33,9 @@ function BasicComponents() {
                 Guachinango, Mascota, Mixtlán y Talpa de Allende, los cuales
                 conforman una parte de la Región Costa-Sierra Occidental.
               </h5>
-              <h5 className=" text-justify">
-                4) Cocula y San Martín de Hidalgo correspondientes a la Región
-                Lagunas; 5) Atenguillo, Guachinango, Mascota, Mixtlán y Talpa
-                de Allende, los cuales conforman una parte de la Región
-                Costa-Sierra Occidental.
-              </h5>
+              <br></br><br></br><br></br>
             </Col>
-            <Col lg="6" md="12">
+            <Col lg="10" md="12">
               <div className="image-container">
                 <img
                   alt="..."
@@ -62,6 +58,7 @@ function BasicComponents() {
                   src={require("assets/img/presentation-page/ameca.jpg")}
                 ></img>
               </div>
+              <br></br><br></br><br></br>
             </Col>
           </Row>
         </Container>
