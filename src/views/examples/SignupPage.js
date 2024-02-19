@@ -23,7 +23,6 @@ import {
 import FixedTransparentNavbar from "components/Navbars/FixedTransparentNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import { PaginationAlternative } from "../../components/pagination/PaginationAlternative";
-import { useGetAutoresQuery } from "../../api/api.slice";
 import { Spiner } from "../../components/spiner/Spiner";
 function SignupPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
@@ -31,7 +30,7 @@ function SignupPage() {
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [colorSelect, setColorSelect] = React.useState({ value: "1", label: "General" });
   const [sizeSelect, setSizeSelect] = React.useState(null);
-  const { data: autores, isLoading } = useGetAutoresQuery();
+  
   React.useEffect(() => {
     document.body.classList.add("signup-page");
     document.body.classList.add("sidebar-collapse");
@@ -43,10 +42,7 @@ function SignupPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
-  if (isLoading) {
-    return <Spiner showSpiner />;
-  }
-  console.log(autores);
+
   return (
     <>
       

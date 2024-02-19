@@ -16,6 +16,7 @@ interface Props {
 }
 
 export const Visualitations = ({ title, endpoint,mapa }: Props) => {
+  console.log(endpoint)
   const {
     data: dt,
     isError,

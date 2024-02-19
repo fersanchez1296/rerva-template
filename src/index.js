@@ -17,6 +17,7 @@ import BlogPosts from "views/examples/BlogPosts.js";
 import ContactUs from "views/examples/ContactUs.js";
 import Autodeposito from "views/examples/Autodeposito.js";
 import Ecommerce from "views/examples/Ecommerce.js";
+import BusquedaGrafica from "views/examples/BusquedaGrafica.js";
 import DocumentsViewerMap from "./views/examples/DocumentsViewerMap";
 import Index from "views/Index.js";
 import LandingPage from "views/examples/LandingPage.js";
@@ -52,7 +53,7 @@ root.render(
               <Route path="/contacto-fernando" element={<ProfilePage />} />
               <Route path="/blog-posts" element={<BlogPosts />} />
               <Route path="/contribuir" element={<Autodeposito />} />
-              <Route path="/e-commerce" element={<Ecommerce />} />
+              {/* <Route path="/e-commerce" element={<Ecommerce />} /> */}
               <Route path="/index" element={<Index />} />
               <Route path="/landing-page" element={<LandingPage />} />
               <Route path="/login-page" element={<LoginPage />} />
@@ -63,8 +64,9 @@ root.render(
               <Route path="/profile-page" element={<ProfilePage />} />
               <Route path="/sections" element={<Sections />} />
               <Route path="/busquedas" element={<SignupPage />} />
-              <Route path="/:url/:request" element={<Ecommerce />} />
-              <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} />
+              <Route path="/:url/:request" element={<BusquedaGrafica/>} />
+              <Route path="/:url/:busqueda/:request" element={<Ecommerce />} />
+              {/* <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} /> */}
               <Route path="/map/:url/:request" element={<DocumentsViewerMap />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>

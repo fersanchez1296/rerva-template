@@ -23,13 +23,16 @@ import { CardWithIcons } from "../../components/Card/CardWithIcons";
 import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
-import { useGetDataForQuery } from "../../api/api.slice";
+import { useGetBusquedaQuery } from "../../api/api.slice";
 
 function Ecommerce() {
-  let { url, request } = useParams();
-  request = request.replace(/-/g, "/")
+  const params = useParams();
+  console.log(params)
+  let { url, request, busqueda} = useParams();
+  url = `${url}/${busqueda}`
+  request = request.replace(/-/g, "/");
   const title = url.replace(/-/g, " ");
-  const subtitle = request;
+  const subtitle = request.replace(/\+/g, " ");
   const [selectedArea, setSelectedArea] = useState(null);
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
   const [selectedCampo, setSelectedCampo] = useState("");
@@ -132,11 +135,12 @@ function Ecommerce() {
   };
 
   const {
-    data: dt,
+    data : dt,
     isError,
     isLoading,
     error,
-  } = useGetDataForQuery({ url, request });
+  } = useGetBusquedaQuery({url,request});
+
 
   useEffect(() => {
     document.title = `${subtitle} - ${title}`;
@@ -145,12 +149,11 @@ function Ecommerce() {
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
-
     return function cleanup() {
       document.body.classList.remove("ecommerce-page");
       document.body.classList.remove("sidebar-collapse");
     };
-  }, []);
+  },);
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -169,7 +172,7 @@ function Ecommerce() {
       </>
     );
   }
-
+  console.log(dt)
   const filterOptionsArea = Array.from(new Set(dt.map((el) => el["Área"])))
     .filter((area) => area !== undefined && area !== null)
     .map((area) => ({ key: area.trim(), label: area }));
@@ -186,8 +189,7 @@ function Ecommerce() {
 
   const filterOptionsPClave = Array.from(
     new Set(dt.map((el) => el["Palabras Clave"]))
-  )
-    .filter(
+  ).filter(
       (pClave) => pClave !== undefined && pClave !== null
     )
     .map((pClave) => ({
@@ -238,7 +240,7 @@ function Ecommerce() {
 
   const cantidadTotal = dt.length;
   const cantidadFiltrada = filteredData.length;
-
+  console.log(dt)
   return (
     <>
       <ScrollTransparentNavbar />

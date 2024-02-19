@@ -136,7 +136,7 @@ export const Pagination = ({ url, data }: Props) => {
                   {row.name_es}
                 </NavLink>
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right" >
+              <TableCell style={{ width: 160 }} align= "right" >
                 {row.count}
               </TableCell>
             </TableRow>

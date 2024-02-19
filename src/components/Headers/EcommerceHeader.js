@@ -1,5 +1,5 @@
 import React from "react";
-import { useChartsDocumentsInfoQuery } from "../../api/api.slice";
+import { useChartsBusquedasInfoQuery } from "../../api/api.slice";
 import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
@@ -28,7 +28,7 @@ function generateChartData(dt) {
     labels: labels,
     datasets: [
       {
-        label: `Número de publicaciones`,
+        label: `Cantidad`,
         data: XLabels,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -55,7 +55,8 @@ function generateChartData(dt) {
 }
 
 function EcommerceHeader({ title, subtitle, cantidad }) {
-  const { url, request } = useParams();
+  const { url, request, busqueda } = useParams();
+  console.log(url,request,busqueda)
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
 
@@ -64,7 +65,7 @@ function EcommerceHeader({ title, subtitle, cantidad }) {
     isError,
     isLoading,
     error,
-  } = useChartsDocumentsInfoQuery({ url, request });
+  } = useChartsBusquedasInfoQuery({ url, request,busqueda });
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -149,13 +150,13 @@ function EcommerceHeader({ title, subtitle, cantidad }) {
         <Row>
           <Col className="ml-auto mr-auto" md="12">
             <h1 className="title">{subtitle}</h1>
-            <h2 className="description">{cantidad} documentos relacionados</h2>
+            <h2 className="description">{cantidad} Coincidencias</h2>
             <Col
               className="ml-auto mr-auto d-flex justify-content-center"
               md="4"
             >
               {chartData.map((data, index) => (
-                <Doughnut data={data} options={chartOptions(["Áreas de conocimiento", "País de publicación", "Clasificación"], index)} />              ))}
+                <Doughnut data={data} options={chartOptions(["País de origen", "Institución de origen", "ADS"], index)} />              ))}
             </Col>
           </Col>
         </Row>

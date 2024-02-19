@@ -3,9 +3,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://148.202.89.67:4000/api/',
+    //baseUrl: 'http://148.202.89.67:4000/api/',
     //baseUrl: "https://rerva-backend-104f4d2354cf.herokuapp.com/api/",
-    //baseUrl: 'http://localhost:4000/api/',
+    baseUrl: 'http://localhost:4000/api/',
   }),
   // baseUrl: 'https://localhost:4000/api/'}),
 
@@ -46,9 +46,21 @@ export const apiSlice = createApi({
         method: "GET",
       }),
     }),
-    getAutores: builder.query({
+    chartsBusquedasInfo: builder.query({
+      query: ({ url, request, busqueda }) => ({
+        url: `/charts/${url}/${busqueda}?search=${request}`,
+        method: "GET",
+      }),
+    }),
+    getBusqueda: builder.query({
+      query: ({ url, request }) => ({
+        url: `/${url}?search=${request}`,
+        method: "GET",
+      }),
+    }),
+    getBusquedaInfoSelect: builder.query({
       query: () => ({
-        url: `/get-Autores`,
+        url: `/busqueda/seccionesSelect`,
         method: "GET",
       }),
     }),
@@ -63,5 +75,7 @@ export const {
   useGetDataForQuery,
   useMapGetDataForQuery,
   useChartsDocumentsInfoQuery,
-  useGetAutoresQuery
+  useGetBusquedaQuery,
+  useChartsBusquedasInfoQuery,
+  useGetBusquedaInfoSelectQuery
 } = apiSlice;
