@@ -172,23 +172,23 @@ function Ecommerce() {
       </>
     );
   }
-  console.log(dt)
-  const filterOptionsArea = Array.from(new Set(dt.map((el) => el["Área"])))
+  console.log("estos son los resultados->",dt.resultados.resultados)
+  const filterOptionsArea = Array.from(new Set(dt.resultados.map((el) => el["Área"])))
     .filter((area) => area !== undefined && area !== null)
     .map((area) => ({ key: area.trim(), label: area }));
 
   const filterOptionsDisciplina = Array.from(
-    new Set(dt.map((el) => el["Disciplina"]))
+    new Set(dt.resultados.map((el) => el["Disciplina"]))
   )
     .filter((disciplina) => disciplina !== undefined && disciplina !== null)
     .map((disciplina) => ({ key: disciplina.trim(), label: disciplina }));
 
-  const filterOptionsCampo = Array.from(new Set(dt.map((el) => el["Campo"])))
+  const filterOptionsCampo = Array.from(new Set(dt.resultados.map((el) => el["Campo"])))
     .filter((campo) => campo !== undefined && campo !== null)
     .map((campo) => ({ key: campo.trim(), label: campo }));
 
   const filterOptionsPClave = Array.from(
-    new Set(dt.map((el) => el["Palabras Clave"]))
+    new Set(dt.resultados.map((el) => el["Palabras Clave"]))
   ).filter(
       (pClave) => pClave !== undefined && pClave !== null
     )
@@ -197,7 +197,7 @@ function Ecommerce() {
       label: pClave,
     }));
 
-    const filterOptionsYear = Array.from(new Set(dt.map((el) => el["Año"])))
+    const filterOptionsYear = Array.from(new Set(dt.resultados.map((el) => el["Año"])))
     .filter((year) => year !== undefined && year !== null)
     .map((year) => ({ key: year, label: year }))
     .sort((a, b) => b.key - a.key);
@@ -205,7 +205,7 @@ function Ecommerce() {
 
     const filterOptionsIdioma = Array.from(
       new Set(
-        dt
+        dt.resultados
           .map((el) => el["Idioma"])
           .filter((idioma) => idioma !== undefined && idioma !== null)
       )
@@ -214,16 +214,16 @@ function Ecommerce() {
   
 
   const filterOptionsPais = Array.from(
-    new Set(dt.map((el) => el["País de la Publicación"]))
+    new Set(dt.resultados.map((el) => el["País de la Publicación"]))
   )
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
 
-  const filterOptionsTipoDocumento = Array.from(new Set(dt.map((el) => el["Tipo de documento"])))
+  const filterOptionsTipoDocumento = Array.from(new Set(dt.resultados.map((el) => el["Tipo de documento"])))
   .filter((tipo) => tipo !== undefined && tipo !== null)
   .map((tipo) => ({ key: tipo.trim(), label: tipo }));
 
-  const filteredData = dt.filter((item) => {
+  const filteredData = dt.resultados.filter((item) => {
     return (
       (!selectedArea || item["Área"] === selectedArea) &&
       (!filters.disciplina || item["Disciplina"] === filters.disciplina) &&
@@ -238,17 +238,18 @@ function Ecommerce() {
     );
   });
 
-  const cantidadTotal = dt.length;
+  const cantidadTotal = dt.resultados.length;
   const cantidadFiltrada = filteredData.length;
-  console.log(dt)
+  console.log(dt.resultados)
   return (
     <>
-      <ScrollTransparentNavbar />
+      <ScrollTransparentNavbar/>
       <div className="wrapper">
         <EcommerceHeader
           title={title}
           subtitle={subtitle}
           cantidad={cantidadTotal}
+          data = {dt.dt}
         />
         <div className="main">
           <div className="section">
@@ -621,7 +622,7 @@ function Ecommerce() {
                   </div>
                 </Col>
                 <Col md="9">
-                  <PaginationAlternative data={filteredData} />
+                  <PaginationAlternative data={filteredData} tableTitles={dt.tableTitle}/>
                 </Col>
               </Row>
               <Row>

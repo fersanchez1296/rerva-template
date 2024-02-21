@@ -66,7 +66,7 @@ function Sections() {
             autoComplete="name"
             placeholder="Título, área de conocimiento..."
             type="text"
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
           />

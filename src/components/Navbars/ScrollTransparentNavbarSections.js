@@ -18,7 +18,7 @@ import {
   Input, // Agregar Input de reactstrap
 } from "reactstrap";
 
-function ScrollTransparentNavbar() {
+function ScrollTransparentNavbarSections() {
   const url = "Publicaciones-por-municipio";
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [navbarColor, setNavbarColor] = React.useState(
@@ -106,6 +106,23 @@ function ScrollTransparentNavbar() {
                   id="navbarDropdownMenuLink"
                   nav
                   tag={Link}
+                  to="/"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="now-ui-icons business_bank"
+                  ></i>
+                  <p>Inicio</p>
+                </DropdownToggle>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  tag={Link}
                   to="/contribuir"
                 >
                   <i
@@ -157,4 +174,4 @@ function ScrollTransparentNavbar() {
   );
 }
 
-export default ScrollTransparentNavbar;
+export default ScrollTransparentNavbarSections;

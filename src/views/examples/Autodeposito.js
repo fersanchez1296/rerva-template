@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 
 // core components
-import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
+import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AutodepositoHeader from "components/Headers/AutodepositoHeader.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -39,7 +39,7 @@ function Autodeposito() {
   }, []);
   return (
     <>
-      <ScrollTransparentNavbar />
+      <ScrollTransparentNavbarSections />
       <div className="wrapper">
         <AutodepositoHeader />
         <div className="main">

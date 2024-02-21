@@ -22,7 +22,7 @@ import {
 } from "reactstrap";
 
 // core components
-import DropdownFixedNavbar from "components/Navbars/DropdownFixedNavbar.js";
+import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AboutUsHeader from "components/Headers/AboutUsHeader.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -43,7 +43,7 @@ function AboutUs() {
   }, []);
   return (
     <>
-      <DropdownFixedNavbar />
+      <ScrollTransparentNavbarSections />
       <div className="wrapper">
         <AboutUsHeader />
         <div className="section">

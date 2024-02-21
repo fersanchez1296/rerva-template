@@ -15,7 +15,8 @@ import {
 } from "reactstrap";
 
 // core components
-import DropdownFixedNavbar from "components/Navbars/DropdownFixedNavbar.js";
+import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
+
 import ContactUsHeader from "components/Headers/ContactUsHeader.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -153,7 +154,7 @@ function ContactUs() {
   }, []);
   return (
     <>
-      <DropdownFixedNavbar />
+      <ScrollTransparentNavbarSections />
       <div className="wrapper">
         <ContactUsHeader />
         <div className="main">

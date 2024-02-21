@@ -54,37 +54,14 @@ function generateChartData(dt) {
   return data;
 }
 
-function EcommerceHeader({ title, subtitle, cantidad }) {
+function EcommerceHeader({ title, subtitle, cantidad,data }) {
+  const dt = data;
   const { url, request, busqueda } = useParams();
   console.log(url,request,busqueda)
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
 
-  const {
-    data: dt,
-    isError,
-    isLoading,
-    error,
-  } = useChartsBusquedasInfoQuery({ url, request,busqueda });
 
-  if (isLoading) {
-    return <Spiner showSpiner />;
-  }
-
-  if (isError) {
-    return (
-      <>
-        <SnackBar
-          msg={
-            "Ocurrió un error en la petición, error : " +
-            JSON.stringify(error)
-          }
-          variant={"error"}
-        />
-        <ServerError />
-      </>
-    );
-  }
 
   const chartData = dt.map((data) => generateChartData(data));
 

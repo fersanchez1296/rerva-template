@@ -18,6 +18,7 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 
 interface Props {
   data: any;
+  tableTitles: any;
   url: string;
 }
 
@@ -99,9 +100,13 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
       </IconButton>
     </Box>
   );
+
+  
 }
 
-export const PaginationAlternative = ({ url, data }: Props) => {
+
+export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
+  console.log("informacion de la tabla->", data);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -122,61 +127,44 @@ export const PaginationAlternative = ({ url, data }: Props) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const renderTitles = () => {
+    return tableTitles.map((title) => ( // Añadir 'return' aquí
+      <TableCell style={{ width: 100 }} align="left" key={title}> {/* Añadir 'key' prop */}
+        <b>{title}</b>
+      </TableCell>
+    ));
+  };
+
+  const renderRowCells = (row) => {
+    return Object.keys(row).map((key) => (
+      <TableCell style={{ width: 100 }} align="left" key={key}>
+        {row[key]}
+      </TableCell>
+    ));
+  };
+  
+  
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }}>
-      <TableHead>
-      <TableRow>
-        <TableCell><b>Título</b></TableCell>
-        <TableCell style={{ width: 100 }} align="left">
-          <b>Año</b>
-        </TableCell>
-        <TableCell style={{ width: 100 }} align="left">
-        <b>Idioma</b>
-        </TableCell>
-        <TableCell style={{ width: 100 }} align="left">
-        <b>País de la publicación</b>
-        </TableCell>
-        <TableCell style={{ width: 100 }} align="left">
-        <b>Tipo de documento</b>
-        </TableCell>
-      </TableRow>
-    </TableHead>
+        <TableHead>
+          <TableRow>
+            {renderTitles()}
+          </TableRow>
+        </TableHead>
         <TableBody>
-          {(rowsPerPage > 0
-            ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : data
-          ).map((row) => (
-            <TableRow key={row.name_es}>
-              <TableCell component="th" scope="row" style={{ width: 300 }} align="left">
-                <a
-                  href={row["Link de acceso"]}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {row["Título"]}
-                </a>
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="left">
-                {row["Año"]}
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="left">
-                {row["Idioma"]}
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="left">
-                {row["País de la Publicación"]}
-              </TableCell>
-              <TableCell style={{ width: 100 }} align="left">
-                {row["Tipo de documento"]}
-              </TableCell>
-            </TableRow>
-          ))}
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
-            </TableRow>
-          )}
-        </TableBody>
+      {data.map((row) => (
+        <TableRow key={row._id}>
+          {renderRowCells(row)}
+        </TableRow>
+      ))}
+      {emptyRows > 0 && (
+        <TableRow style={{ height: 53 * emptyRows }}>
+          <TableCell colSpan={6} />
+        </TableRow>
+      )}
+    </TableBody>
         <TableFooter>
           <TableRow>
             <TablePagination
