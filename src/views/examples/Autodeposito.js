@@ -19,7 +19,7 @@ import {
 // core components
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AutodepositoHeader from "components/Headers/AutodepositoHeader.js";
-import Footer from "components/Footers/Footer.js";
+import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 
 function Autodeposito() {
   const [nameFocus, setNameFocus] = React.useState(false);
@@ -197,7 +197,7 @@ function Autodeposito() {
             </Container>
           </div>
         </div>
-        <Footer />
+        <FooterBlackSections />
       </div>
     </>
   );

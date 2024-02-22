@@ -154,7 +154,10 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-      {data.map((row) => (
+        {(rowsPerPage > 0
+            ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : data
+          ).map((row) => (
         <TableRow key={row._id}>
           {renderRowCells(row)}
         </TableRow>

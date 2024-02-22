@@ -15,10 +15,10 @@ import {
   Col,
   UncontrolledTooltip,
 } from "reactstrap";
-import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
+import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
 import {PaginationAlternative} from "../../components/pagination/PaginationAlternative"
-import Footer from "components/Footers/Footer.js";
+import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 import { CardWithIcons } from "../../components/Card/CardWithIcons";
 import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
@@ -153,7 +153,7 @@ function Ecommerce() {
       document.body.classList.remove("ecommerce-page");
       document.body.classList.remove("sidebar-collapse");
     };
-  },);
+  },[]);
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -202,7 +202,7 @@ function Ecommerce() {
     .map((year) => ({ key: year, label: year }))
     .sort((a, b) => b.key - a.key);
   
-
+    // TODO resoolver esta cosa
     const filterOptionsIdioma = Array.from(
       new Set(
         dt.resultados
@@ -218,7 +218,7 @@ function Ecommerce() {
   )
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
-
+    
   const filterOptionsTipoDocumento = Array.from(new Set(dt.resultados.map((el) => el["Tipo de documento"])))
   .filter((tipo) => tipo !== undefined && tipo !== null)
   .map((tipo) => ({ key: tipo.trim(), label: tipo }));
@@ -243,7 +243,7 @@ function Ecommerce() {
   console.log(dt.resultados)
   return (
     <>
-      <ScrollTransparentNavbar/>
+      <ScrollTransparentNavbarSections/>
       <div className="wrapper">
         <EcommerceHeader
           title={title}
@@ -631,7 +631,7 @@ function Ecommerce() {
             </Container>
           </div>
         </div>
-        <Footer />
+        <FooterBlackSections />
       </div>
     </>
   );

@@ -102,6 +102,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const Pagination = ({ url, data }: Props) => {
+  console.log(data)
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 

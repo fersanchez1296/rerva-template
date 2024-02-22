@@ -24,7 +24,7 @@ import {
 // core components
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AboutUsHeader from "components/Headers/AboutUsHeader.js";
-import Footer from "components/Footers/Footer.js";
+import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 
 function AboutUs() {
   const [specialitySelect, setSpecialitySelect] = React.useState(null);
@@ -213,244 +213,6 @@ function AboutUs() {
               </Row>
             </Container>
           </div>
-          <div className="about-team team-4">
-            <Container>
-              <Row>
-                <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Nuestro equipo de Trabajo</h2>
-                  <h4 className="text-justify">
-                    Nuestros colaboradores conforman un equipo
-                    multidisciplinario que abarca las áreas de Ingeniería,
-                    Ciencias Sociales y Humanidades. Esta combinación de
-                    disciplinas permite una sinergia que resulta en la
-                    realización exitosa del presente proyecto.
-                  </h4>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/olivia.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">Dr. Alvaro Mora Maciel</CardTitle>
-                          <h6 className="category">Doctor en Urbanismo</h6>
-                          <p className="">alvaro.mora@valles.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-felix.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Mtro. Félix Alberto Barrera Osuna
-                          </CardTitle>
-                          <h6 className="category">Secretario Técnico</h6>
-                          <p className="">felix.barrera@valles.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-rectora.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Dra. María Luisa García Bátiz
-                          </CardTitle>
-                          <h6 className="category">Rectora de Centro</h6>
-                          <p className="">mluisa.garcia@valles.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/michael.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Dra. Karla Viridiana Rosales Valenzuela
-                          </CardTitle>
-                          <h6 className="category">Doctora en Urbanismo</h6>
-                          <p className="">karla.rosales@valles.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/olivia.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Stefany Hernández Sánchez
-                          </CardTitle>
-                          <h6 className="category">Estudiante</h6>
-                          <p className="">
-                            stefany.hernandez6508@alumnos.udg.mx
-                          </p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <NavLink to={`/contacto-fernando`} target="blank">
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/emily.jpg")}
-                            ></img>
-                          </NavLink>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Fernando Sánchez Plascencia
-                          </CardTitle>
-                          <h6 className="category">
-                            Ing. Electrónica y Computación
-                          </h6>
-                          <p className="">
-                            fernando.sanchez3411@alumnos.udg.mx
-                          </p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/james.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            César Uriel Torres Vallarta
-                          </CardTitle>
-                          <h6 className="category">Estudiante</h6>
-                          <p className="">cesar.torres5377@alumnos.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/michael.jpg")}
-                            ></img>
-                          </a>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <CardTitle tag="h4">
-                            Enrique Jesús Fregoso Gutiérrez
-                          </CardTitle>
-                          <h6 className="category">Estudiante</h6>
-                          <p className="">enrique.fregoso4189@alumnos.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </div>
           <div className="about-office">
             <Container>
               <Row className="text-center">
@@ -505,8 +267,263 @@ function AboutUs() {
               </Row>
             </Container>
           </div>
+          <div className="about-team team-4">
+            <Container>
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h2 className="title">Nuestro equipo de Trabajo</h2>
+                  <h4 className="text-justify">
+                    Nuestros colaboradores conforman un equipo
+                    multidisciplinario que abarca las áreas de Ingeniería,
+                    Ciencias Sociales y Humanidades. Esta combinación de
+                    disciplinas permite una sinergia que resulta en la
+                    realización exitosa del presente proyecto.
+                  </h4>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-alvaro.jpeg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Dr. Alvaro Mora Maciel
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Doctor en Urbanismo</h6>
+                          <p className="">alvaro.mora@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-karla.jpeg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Dra. Karla Viridiana Rosales Valenzuela
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Doctora en Urbanismo</h6>
+                          <p className="">karla.rosales@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-stefany.jpeg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <CardTitle tag="h4">
+                            Stefany Hernández Sánchez
+                          </CardTitle>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">
+                            stefany.hernandez6508@alumnos.udg.mx
+                          </p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-fernando.jpeg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Fernando Sánchez Plascencia
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">
+                            Ing. Electrónica y Computación
+                          </h6>
+                          <p className="">
+                            fernando.sanchez3411@alumnos.udg.mx
+                          </p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-cesar.jpeg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              César Uriel Torres Vallarta
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">cesar.torres5377@alumnos.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/michael.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Enrique Jesús Fregoso Gutiérrez
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Estudiante</h6>
+                          <p className="">enrique.fregoso4189@alumnos.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-felix.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Mtro. Félix Alberto Barrera Osuna
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Secretario Técnico</h6>
+                          <p className="">felix.barrera@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/cuvalles-rectora.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Dra. María Luisa García Bátiz
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">Rectora de Centro</h6>
+                          <p className="">mluisa.garcia@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          
         </div>
-        <Footer />
+        <FooterBlackSections />
       </div>
     </>
   );

@@ -55,14 +55,11 @@ export const Charts = ({XLabels,YLabels} : Props) => {
             >
               Numeralia
             </Button>
-            <Button startIcon={<DataSaverOffIcon />} onClick={handleOpenDoDialog}>
-              Numeralia porcentual
-            </Button>
           </Stack>
         </Grid>
       </Grid>
       <ChartLinesDialog open={openDialog} handleCloseDialog={handleCloseDialog} XLabels={XLabels} YLabels={YLabels}/>
-      <ChartDoDialog open={openDoDialog} handleCloseDialog={handleCloseDoDialog} XLabels={XLabels} YLabels={YLabels}/>
+      
     </>
   );
 };

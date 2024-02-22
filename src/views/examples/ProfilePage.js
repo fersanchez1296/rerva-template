@@ -29,7 +29,7 @@ import {
 // core components
 import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
-import FooterDefault from "components/Footers/FooterDefault.js";
+import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 
 function ProfilePage() {
   const [pills, setPills] = React.useState("1");
@@ -415,7 +415,7 @@ function ProfilePage() {
             </Card>
           </Col>
         </div>
-        <FooterDefault />
+        <FooterBlackSections />
       </div>
     </>
   );

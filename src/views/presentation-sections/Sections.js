@@ -28,6 +28,7 @@ function Sections() {
   const url = "busqueda";
   const [lastFocus, setLastFocus] = React.useState(false);
   let [busqueda, setBusqueda] = React.useState("");
+  const [inputValue, setInputValue] = React.useState('');
   const [seccionSelect, setSeccionSelect] = React.useState({
     value: "1",
     label: "General",
@@ -46,7 +47,12 @@ function Sections() {
   console.log(indicadores.areas);
 
   const handleChange = (e) => {
-    setBusqueda(e);
+    const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
+
+    if (regex.test(e) || e === '') {
+      setInputValue(e.toUpperCase());
+      setBusqueda(e);
+    }
   };
   const renderInputGroup = () => {
     if (seccionSelect.value === "1") {
@@ -66,6 +72,7 @@ function Sections() {
             autoComplete="name"
             placeholder="Título, área de conocimiento..."
             type="text"
+            value={inputValue}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -89,6 +96,7 @@ function Sections() {
             autoComplete="name"
             placeholder="Nombre o Apellido..."
             type="text"
+            value={inputValue}
             onChange={(e) => handleChange(e.target.value)}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -136,6 +144,7 @@ function Sections() {
             autoComplete="name"
             placeholder="Nombre de la revista..."
             type="text"
+            value={inputValue}
             onChange={(e) => handleChange(e.target.value)}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -190,54 +199,6 @@ function Sections() {
           }}
         />
       );
-    } else if (seccionSelect.value === "7") {
-      return (
-        <Select
-          className="react-select mr-0 w-100"
-          classNamePrefix="react-select"
-          name=""
-          onChange={(value) => (setEditorialSelect(value),setBusqueda(value.label))}
-          options={indicadores.editoriales.map((a) => {
-            return (
-              { value: a.value , label : a.label }
-            )
-          })}
-          placeholder="Selecciona la editorial"
-          value={editorialSelect}
-          styles={{
-            control: (provided) => ({
-              ...provided,
-
-              borderTopLeftRadius: "0 !important",
-              borderBottomLeftRadius: "0 !important",
-            }),
-          }}
-        />
-      );
-    } else if (seccionSelect.value === "8") {
-      return (
-        <Select
-          className="react-select mr-0 w-100 "
-          classNamePrefix="react-select"
-          name=""
-          onChange={(value) => (setInstitucionSelect(value),setBusqueda(value.label))}
-          options={indicadores.instituciones.map((a) => {
-            return (
-              { value: a.value , label : a.label }
-            )
-          })}
-          placeholder="Selecciona la institución"
-          value={institucionSelect}
-          styles={{
-            control: (provided) => ({
-              ...provided,
-
-              borderTopLeftRadius: "0 !important",
-              borderBottomLeftRadius: "0 !important",
-            }),
-          }}
-        />
-      );
     }
   };
   return (
@@ -271,7 +232,7 @@ function Sections() {
                       <Col lg="12" md="12" sm="12">
                         <div className="d-flex">
                           <Select
-                            className="react-select mr-0"
+                            className="react-select mr-0 w-50"
                             classNamePrefix="react-select"
                             name=""
                             onChange={(value) => setSeccionSelect(value)}
@@ -282,15 +243,13 @@ function Sections() {
                               { value: "4", label: "Revista" },
                               { value: "5", label: "Tipo de documento" },
                               { value: "6", label: "Pais de publicacion" },
-                              { value: "7", label: "Editorial" },
-                              { value: "8", label: "Institucion" },
                             ]}
                             placeholder="Selecciona la sección"
                             value={seccionSelect}
                             styles={{
                               control: (provided) => ({
                                 ...provided,
-                                width: "200px !important",
+                                
                                 backgroundColor: "#0096FF !important",
                                 color: "white !important",
                                 textAlign: "center !important",
@@ -330,6 +289,7 @@ function Sections() {
                          setPaisPublicacionSelect("")
                          setEditorialSelect("")
                          setInstitucionSelect("")
+                         setInputValue("")
                         }}
                         size="lg"
                         

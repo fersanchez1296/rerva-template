@@ -41,19 +41,6 @@ function PresentationHeader() {
         <h4 className="h3-description rellax-text" data-rellax-speed="-1">
           Universidad de Guadalajara
         </h4>
-        <h6
-          className="category category-absolute rellax-text"
-          data-rellax-speed="-1"
-        >
-          Universidad de Guadalajara{" "}
-          <a href="http://invisionapp.com/?ref=creativetim" target="_blank">
-            <img
-              alt="..."
-              className="invision-logo"
-              src={require("assets/img/invision-white-slim.png")}
-            ></img>
-          </a>
-        </h6>
       </div>
     </>
   );
