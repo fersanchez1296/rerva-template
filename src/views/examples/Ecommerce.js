@@ -176,7 +176,7 @@ function Ecommerce() {
       </>
     );
   }
-  console.log("estos son los resultados->", dt.resultados.resultados);
+  console.log("estos son los resultados->", dt.resultados);
   const filterOptionsArea = Array.from(
     new Set(dt.resultados.map((el) => el["Área"]))
   )
@@ -213,7 +213,7 @@ function Ecommerce() {
 
 
   const filterOptionsIdioma = Array.from(
-    new Set(dt.resultados.map((el) => el["Idioma"][0]))
+    new Set(dt.resultados.map((el) => (el["Idioma"] ? el["Idioma"][0]: null)))
   )
     .filter((idioma) => idioma !== undefined && idioma !== null)
     .map((idioma) => ({ key: idioma.trim(), label: idioma }));

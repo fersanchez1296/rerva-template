@@ -50,7 +50,8 @@ function Sections() {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
 
     if (regex.test(e) || e === '') {
-      setInputValue(e.toUpperCase());
+      
+      setInputValue(e);
       setBusqueda(e);
     }
   };
@@ -97,7 +98,7 @@ function Sections() {
             placeholder="Nombre o Apellido..."
             type="text"
             value={inputValue}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
           />
@@ -145,7 +146,7 @@ function Sections() {
             placeholder="Nombre de la revista..."
             type="text"
             value={inputValue}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
           />
