@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
-import {PaginationAlternative} from "../../components/pagination/PaginationAlternative"
+import { PaginationAlternative } from "../../components/pagination/PaginationAlternative";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 import { CardWithIcons } from "../../components/Card/CardWithIcons";
 import { ServerError } from "../../components/serverError/ServerError";
@@ -27,9 +27,9 @@ import { useGetBusquedaQuery } from "../../api/api.slice";
 
 function Ecommerce() {
   const params = useParams();
-  console.log(params)
-  let { url, request, busqueda} = useParams();
-  url = `${url}/${busqueda}`
+  console.log(params);
+  let { url, request, busqueda } = useParams();
+  url = `${url}/${busqueda}`;
   request = request.replace(/-/g, "/");
   const title = url.replace(/-/g, " ");
   const subtitle = request.replace(/\+/g, " ");
@@ -38,7 +38,7 @@ function Ecommerce() {
   const [selectedCampo, setSelectedCampo] = useState("");
   const [selectedPClave, setSelectedPClave] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const [selectedIdioma, setSelectedIdioma] = useState("");
+  const [selectedIdiomas, setSelectedIdiomas] = useState([]);
   const [selectedPais, setSelectedPais] = useState("");
   const [selectedTipoDocumento, setSelectedTipoDocumento] = useState("");
 
@@ -89,13 +89,10 @@ function Ecommerce() {
   };
 
   const handleCheckboxChangePClave = (pClave) => {
-    setSelectedPClave(
-      selectedPClave === pClave ? null : pClave
-    );
+    setSelectedPClave(selectedPClave === pClave ? null : pClave);
     setFilters((prevFilters) => ({
       ...prevFilters,
-      pClave:
-        prevFilters.pClave === pClave ? "" : pClave,
+      pClave: prevFilters.pClave === pClave ? "" : pClave,
     }));
   };
 
@@ -108,10 +105,18 @@ function Ecommerce() {
   };
 
   const handleCheckboxChangeIdioma = (idioma) => {
-    setSelectedIdioma(selectedIdioma === idioma ? null : idioma);
+    const updatedIdiomas = [...selectedIdiomas];
+    const index = updatedIdiomas.indexOf(idioma);
+    if (index === -1) {
+      updatedIdiomas.push(idioma);
+    } else {
+      updatedIdiomas.splice(index, 1);
+    }
+    setSelectedIdiomas(updatedIdiomas);
+
     setFilters((prevFilters) => ({
       ...prevFilters,
-      idioma: prevFilters.idioma === idioma ? "" : idioma,
+      idioma: updatedIdiomas.join(","),
     }));
   };
 
@@ -135,12 +140,11 @@ function Ecommerce() {
   };
 
   const {
-    data : dt,
+    data: dt,
     isError,
     isLoading,
     error,
-  } = useGetBusquedaQuery({url,request});
-
+  } = useGetBusquedaQuery({ url, request });
 
   useEffect(() => {
     document.title = `${subtitle} - ${title}`;
@@ -153,7 +157,7 @@ function Ecommerce() {
       document.body.classList.remove("ecommerce-page");
       document.body.classList.remove("sidebar-collapse");
     };
-  },[]);
+  }, []);
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -172,8 +176,10 @@ function Ecommerce() {
       </>
     );
   }
-  console.log("estos son los resultados->",dt.resultados.resultados)
-  const filterOptionsArea = Array.from(new Set(dt.resultados.map((el) => el["Área"])))
+  console.log("estos son los resultados->", dt.resultados.resultados);
+  const filterOptionsArea = Array.from(
+    new Set(dt.resultados.map((el) => el["Área"]))
+  )
     .filter((area) => area !== undefined && area !== null)
     .map((area) => ({ key: area.trim(), label: area }));
 
@@ -183,45 +189,47 @@ function Ecommerce() {
     .filter((disciplina) => disciplina !== undefined && disciplina !== null)
     .map((disciplina) => ({ key: disciplina.trim(), label: disciplina }));
 
-  const filterOptionsCampo = Array.from(new Set(dt.resultados.map((el) => el["Campo"])))
+  const filterOptionsCampo = Array.from(
+    new Set(dt.resultados.map((el) => el["Campo"]))
+  )
     .filter((campo) => campo !== undefined && campo !== null)
     .map((campo) => ({ key: campo.trim(), label: campo }));
 
   const filterOptionsPClave = Array.from(
     new Set(dt.resultados.map((el) => el["Palabras Clave"]))
-  ).filter(
-      (pClave) => pClave !== undefined && pClave !== null
-    )
+  )
+    .filter((pClave) => pClave !== undefined && pClave !== null)
     .map((pClave) => ({
       key: pClave,
       label: pClave,
     }));
 
-    const filterOptionsYear = Array.from(new Set(dt.resultados.map((el) => el["Año"])))
+  const filterOptionsYear = Array.from(
+    new Set(dt.resultados.map((el) => el["Año"]))
+  )
     .filter((year) => year !== undefined && year !== null)
     .map((year) => ({ key: year, label: year }))
     .sort((a, b) => b.key - a.key);
-  
-    // TODO resoolver esta cosa
-    const filterOptionsIdioma = Array.from(
-      new Set(
-        dt.resultados
-          .map((el) => el["Idioma"])
-          .filter((idioma) => idioma !== undefined && idioma !== null)
-      )
-    ).map((idioma) => ({ key: idioma, label: idioma }));
-    
-  
+
+
+  const filterOptionsIdioma = Array.from(
+    new Set(dt.resultados.map((el) => el["Idioma"][0]))
+  )
+    .filter((idioma) => idioma !== undefined && idioma !== null)
+    .map((idioma) => ({ key: idioma.trim(), label: idioma }));
+
 
   const filterOptionsPais = Array.from(
     new Set(dt.resultados.map((el) => el["País de la Publicación"]))
   )
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
-    
-  const filterOptionsTipoDocumento = Array.from(new Set(dt.resultados.map((el) => el["Tipo de documento"])))
-  .filter((tipo) => tipo !== undefined && tipo !== null)
-  .map((tipo) => ({ key: tipo.trim(), label: tipo }));
+
+  const filterOptionsTipoDocumento = Array.from(
+    new Set(dt.resultados.map((el) => el["Tipo de documento"]))
+  )
+    .filter((tipo) => tipo !== undefined && tipo !== null)
+    .map((tipo) => ({ key: tipo.trim(), label: tipo }));
 
   const filteredData = dt.resultados.filter((item) => {
     return (
@@ -232,7 +240,7 @@ function Ecommerce() {
         item["Clasificación"] === filters.clasificacion) &&
       (!filters.pais || item["País de la Publicación"] === filters.pais) &&
       (!filters.tipo || item["Tipo de documento"] === filters.tipo) &&
-      (!filters.idioma || item["Idioma"] === filters.idioma) &&
+      (!filters.idioma || filters.idioma.includes(item["Idioma"])) && // Modificación aquí
       (!filters.pClave || item["Palabras Clave"] === filters.pClave) &&
       (!filters.year || item["Año"] === filters.year)
     );
@@ -240,16 +248,15 @@ function Ecommerce() {
 
   const cantidadTotal = dt.resultados.length;
   const cantidadFiltrada = filteredData.length;
-  console.log(dt.resultados)
   return (
     <>
-      <ScrollTransparentNavbarSections/>
+      <ScrollTransparentNavbarSections />
       <div className="wrapper">
         <EcommerceHeader
           title={title}
           subtitle={subtitle}
           cantidad={cantidadTotal}
-          data = {dt.dt}
+          data={dt.dt}
         />
         <div className="main">
           <div className="section">
@@ -554,13 +561,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={
-                                      selectedIdioma === option.key
-                                    }
+                                    checked={selectedIdiomas.includes(
+                                      option.key
+                                    )}
                                     onChange={() =>
-                                      handleCheckboxChangeIdioma(
-                                        option.key
-                                      )
+                                      handleCheckboxChangeIdioma(option.key)
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -601,13 +606,9 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={
-                                      selectedYear === option.key
-                                    }
+                                    checked={selectedYear === option.key}
                                     onChange={() =>
-                                      handleCheckboxChangeYear(
-                                        option.key
-                                      )
+                                      handleCheckboxChangeYear(option.key)
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -622,12 +623,13 @@ function Ecommerce() {
                   </div>
                 </Col>
                 <Col md="9">
-                  <PaginationAlternative data={filteredData} tableTitles={dt.tableTitle}/>
+                  <PaginationAlternative
+                    data={filteredData}
+                    tableTitles={dt.tableTitle}
+                  />
                 </Col>
               </Row>
-              <Row>
-                
-              </Row>
+              <Row></Row>
             </Container>
           </div>
         </div>

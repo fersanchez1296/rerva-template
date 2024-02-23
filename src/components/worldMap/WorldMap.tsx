@@ -53,7 +53,7 @@ const countries = g
     );
 
     if (country) {
-      const newTab = window.open(`/map/${url}/${name_es}`, '_blank');
+      const newTab = window.open(`${url}/${name_es}`, '_blank');
       newTab.focus();
     }
   })

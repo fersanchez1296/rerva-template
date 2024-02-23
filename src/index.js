@@ -67,7 +67,7 @@ root.render(
               <Route path="/:url/:request" element={<BusquedaGrafica/>} />
               <Route path="/:url/:busqueda/:request" element={<Ecommerce />} />
               {/* <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} /> */}
-              <Route path="/map/:url/:request" element={<DocumentsViewerMap />} />
+              {/* <Route path="/map/:url/:request" element={<BusquedaGrafica/>} /> */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>
