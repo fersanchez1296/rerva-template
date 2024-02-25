@@ -64,6 +64,13 @@ export const apiSlice = createApi({
         method: "GET",
       }),
     }),
+    postSolicitud: builder.mutation({
+      query: ({body}) => ({
+        url: `/postSolicitud`,
+        body,
+        method: "POST",
+      }),
+    }),
   }),
   keepUnusedDataFor: 300, // Tiempo en segundos para mantener los datos en caché sin usar
 });
@@ -77,5 +84,6 @@ export const {
   useChartsDocumentsInfoQuery,
   useGetBusquedaQuery,
   useChartsBusquedasInfoQuery,
-  useGetBusquedaInfoSelectQuery
+  useGetBusquedaInfoSelectQuery,
+  usePostSolicitudMutation,
 } = apiSlice;
