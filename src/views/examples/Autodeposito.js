@@ -113,6 +113,11 @@ function Autodeposito() {
       setTitleValue("");
       setLinkValue("");
       setEmailValue("");
+      setSnackBarState({
+        show: false,
+        variant: "success",
+        message: "",
+      });
     } catch (error) {
       console.log(error);
     }
