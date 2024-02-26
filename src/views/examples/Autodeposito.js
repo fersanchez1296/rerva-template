@@ -109,17 +109,20 @@ function Autodeposito() {
           message: result.data.message,
         });
       }
+    } catch (error) {
+      console.log(error);
+    } finally {
       setNameValue("");
       setTitleValue("");
       setLinkValue("");
       setEmailValue("");
-      setSnackBarState({
-        show: false,
-        variant: "success",
-        message: "",
-      });
-    } catch (error) {
-      console.log(error);
+      setTimeout(() => {
+        setSnackBarState({
+          show: false,
+          variant: "success",
+          message: "",
+        });
+      },3000)
     }
   };
   return (
