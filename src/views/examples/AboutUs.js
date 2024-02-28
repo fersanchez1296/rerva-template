@@ -2,6 +2,7 @@ import React from "react";
 // react plugin used to create DropdownMenu for selecting items
 import Select from "react-select";
 import { NavLink } from "react-router-dom";
+import {JaliscoMap} from "../../components/MapaMunicipios/JaliscoMap.tsx"
 // reactstrap components
 import {
   Badge,
@@ -52,42 +53,22 @@ function AboutUs() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Nuestra Misión</h2>
+                  <h2 className="title">Antecedentes</h2>
                   <h4 className="text-justify">
-                    Nuestra misión es poder generar un espacio donde se
-                    aglomeren todos los documentos, publicaciones y trabajos
-                    relacionados con la región de los valles y con el área de
-                    atención pertinentes el Centro Universitario de los Valles
-                    (CUValles), partiendo de 6 puntos:
+                    Este Repositorio surge como un esfuerzo a partir del
+                    desarrollo del proyecto de investigación titulado “Estudio
+                    exploratorio de los aportes y brechas en el conocimiento de
+                    la Región de los Valles en el estado Jalisco”, impulsado por
+                    el financiamiento de las convocatorias de Fomento a la
+                    Investigación, en sus emisiones 2022 y 2023, de este Centro
+                    Universitario
                   </h4>
                   <div className="section-space"></div>
                 </Col>
               </Row>
               <Row>
                 <Col className="ml-auto" md="5">
-                  <Card
-                    className="card-background card-background-product card-raised"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/cuvalles-3.jpg") + ")",
-                      opacity: 0.7,
-                    }}
-                  >
-                    <CardBody>
-                      <CardTitle tag="h2">
-                        Plataforma de Almacenamiento y Promoción Académica
-                      </CardTitle>
-                      <p className="card-description text-justify text-white">
-                        Plataforma integral para la vinculación, exhibición y
-                        promoción de trabajos académicos relacionados con la
-                        región y el Centro Universitario de los Valles
-                        (CUValles), abarcando una amplia variedad de formatos y
-                        disciplinas. Además, facilita la celebración de la
-                        diversidad cultural y promueve la interacción
-                        comunitaria a través de eventos y talleres.
-                      </p>
-                    </CardBody>
-                  </Card>
+                 <JaliscoMap/>
                 </Col>
                 <Col className="mr-auto" md="5">
                   <div className="info info-horizontal">
@@ -521,7 +502,6 @@ function AboutUs() {
               </Row>
             </Container>
           </div>
-          
         </div>
         <FooterBlackSections />
       </div>

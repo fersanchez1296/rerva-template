@@ -122,7 +122,7 @@ function Autodeposito() {
           variant: "success",
           message: "",
         });
-      },3000)
+      }, 3000);
     }
   };
   return (
@@ -137,41 +137,54 @@ function Autodeposito() {
                 <Col className="ml-auto mr-auto" md="12">
                   <h2 className="title">Colabora con nosotros</h2>
                   <p className="text-justify">
-                    El autodepósito es una iniciativa diseñada para servir como
-                    un espacio de vinculación y exhibición para el público en
-                    general que posea trabajos o producción académica
-                    relacionados con la región de los valles o con el Centro
-                    Universitario de los Valles (CUValles). Este concepto
-                    fusiona la idea de un depósito tradicional con la promoción
-                    de la cultura local y la investigación académica. En su
-                    forma más básica, el autodepósito proporcionara un lugar
-                    físico donde las personas puedan depositar y exhibir sus
-                    trabajos relacionados con la región, ya sea en forma de
-                    libros, artículos, capítulos de libros, proyectos de
-                    investigación, entre otros.
+                    El autodepósito es una herramienta que permite integrar a
+                    través del DOI, URL o dirección web, un artículo, capítulo,
+                    libro u otro tipo de documento de contenido académico que se
+                    encuentre previamente publicado con el objetivo de que sea
+                    consultado por los usuarios a partir de la interoperabilidad
+                    de repositorios.
                     <br></br>
                   </p>
 
                   <h2 className="title">¿Cómo funciona?</h2>
+                  <ol>
+                    <li>
+                      Llena el formulario con los datos correspondientes.
+                      Asegúrate de no dejar ningún espacio en blanco.
+                    </li>
+                    <br></br>
+                    <li>
+                      Una vez completado el formulario, da click en contribuir.
+                    </li>
+                    <br></br>
+                    <li>
+                      Se validará el contenido para determinar la pertinencia de
+                      su registro en el Repositorio.
+                    </li>
+                    <br></br>
+                    <li>Recibirás un correo con el estatus de tu solicitud.</li>
+                  </ol>
+                  <h2 className="title">Requisitos</h2>
                   <p className="text-justify">
-                    Mediante un formulario, la persona interesada en dar
-                    visibilidad a su trabajo en esta plataforma deberá ingresar
-                    una serie de datos, como el nombre del interesado, el título
-                    del documento, el link dónde está alojado el documento y el
-                    correo electrónico de contacto. Cuando el equipo de trabajo
-                    recibe la solicitud para agregar un nuevo documento,
-                    mediante el link porporcionado la persona encargada de la
-                    administración revisará una serie de aspectos, y tras la
-                    revisión se determinará si el documento cumple o no con los
-                    criterios para ser añadido al Repositorio.
-                    Independientemente de si la solicitud es aceptada o
-                    rechazada, el interesado recibirá un correo electrónico
-                    donde se informa que su solicitud fue aceptada o en dado
-                    caso y explicando las razones del por qué su solicitud fue
-                    rechazada.
+                    El contenido académico debe abordar el estudio de la región
+                    de los valles.
                     <br></br>
                   </p>
-
+                  <h2 className="title">Derechos de autor</h2>
+                  <p className="text-justify">
+                    La publicación de los contenidos digitales se realiza
+                    principalmente bajo el esquema de acceso abierto, sin
+                    prejuicio de las disposiciones en materia de protección de
+                    los derechos de autor. Por lo tanto, se direccionará al
+                    sitio en el que se encuentre disponible para que los
+                    usuarios accedan libremente. En caso de que se trate de un
+                    documento de acceso cerrado únicamente se direccionará al
+                    sitio web en el que se encuentre para que los usuarios, de
+                    ser el caso realicen el pago correspondiente para su
+                    consulta si así lo desean.
+                    <br></br>
+                  </p>
+                  <br></br>
                   <Form id="contact-form" method="post" role="form">
                     <label>Nombre</label>
                     <InputGroup

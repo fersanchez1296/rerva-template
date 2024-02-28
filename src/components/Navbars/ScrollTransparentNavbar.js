@@ -129,7 +129,7 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons business_badge"
                   ></i>
-                  <p>Acerca de Nosotros</p>
+                  <p>Acerca de...</p>
                 </DropdownToggle>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav>
