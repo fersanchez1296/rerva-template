@@ -36,11 +36,9 @@ function Ecommerce() {
   const [selectedArea, setSelectedArea] = useState(null);
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
   const [selectedCampo, setSelectedCampo] = useState("");
-  const [selectedPClave, setSelectedPClave] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedIdiomas, setSelectedIdiomas] = useState([]);
   const [selectedPais, setSelectedPais] = useState("");
-  const [selectedTipoDocumento, setSelectedTipoDocumento] = useState("");
 
   const [collapses, setCollapses] = useState([1]);
   const changeCollapse = (collapse) => {
@@ -88,14 +86,6 @@ function Ecommerce() {
     }));
   };
 
-  const handleCheckboxChangePClave = (pClave) => {
-    setSelectedPClave(selectedPClave === pClave ? null : pClave);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      pClave: prevFilters.pClave === pClave ? "" : pClave,
-    }));
-  };
-
   const handleCheckboxChangeYear = (year) => {
     setSelectedYear(selectedYear === year ? null : year);
     setFilters((prevFilters) => ({
@@ -128,16 +118,7 @@ function Ecommerce() {
     }));
   };
 
-  const handleCheckboxChangeTipoDocumento = (tipoDocumento) => {
-    setSelectedTipoDocumento(
-      selectedTipoDocumento === tipoDocumento ? null : tipoDocumento
-    );
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      tipoDocumento:
-        prevFilters.tipoDocumento === tipoDocumento ? "" : tipoDocumento,
-    }));
-  };
+  
 
   const {
     data: dt,
@@ -188,14 +169,6 @@ function Ecommerce() {
     .filter((campo) => campo !== undefined && campo !== null)
     .map((campo) => ({ key: campo.trim(), label: campo }));
 
-  const filterOptionsPClave = Array.from(
-    new Set(dt.resultados.map((el) => el["Palabras Clave"]))
-  )
-    .filter((pClave) => pClave !== undefined && pClave !== null)
-    .map((pClave) => ({
-      key: pClave,
-      label: pClave,
-    }));
 
   const filterOptionsYear = Array.from(
     new Set(dt.resultados.map((el) => el["Año"]))
@@ -218,11 +191,6 @@ function Ecommerce() {
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
 
-  const filterOptionsTipoDocumento = Array.from(
-    new Set(dt.resultados.map((el) => el["Tipo de documento"]))
-  )
-    .filter((tipo) => tipo !== undefined && tipo !== null)
-    .map((tipo) => ({ key: tipo.trim(), label: tipo }));
 
   const filteredData = dt.resultados.filter((item) => {
     return (
@@ -254,9 +222,9 @@ function Ecommerce() {
         <div className="main">
           <div className="section">
             <Container>
-              <h2 className="section-title">Documentos : {cantidadFiltrada}</h2>
+              <h2 className="section-title">Coincidencias : {cantidadFiltrada}</h2>
               <Row>
-                <Col md="3">
+                <Col md="2">
                   <div className="collapse-panel">
                     <CardBody>
                       {/* Collapse para Área */}
@@ -388,53 +356,6 @@ function Ecommerce() {
                         </Collapse>
                       </Card>
 
-                      {/* Collapse para Palabras Clave */}
-                      {/* <Card className="card-refine card-plain">
-                        <CardHeader id="headingOne" role="tab">
-                          <h6 className="mb-0">
-                            <a
-                              className="text-info"
-                              aria-expanded={collapses.includes(4)}
-                              data-toggle="collapse"
-                              href="#collapsePClave"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                changeCollapse(4);
-                              }}
-                            >
-                              Palabras Clave{" "}
-                              <i className="now-ui-icons arrows-1_minimal-down"></i>
-                            </a>
-                          </h6>
-                        </CardHeader>
-                        <Collapse
-                          isOpen={collapses.includes(4)}
-                          id="collapsePClave"
-                        >
-                          <CardBody>
-                            {filterOptionsPClave.map((option) => (
-                              <FormGroup key={option.key} check>
-                                <Label check>
-                                  <Input
-                                    type="checkbox"
-                                    checked={
-                                      selectedPClave === option.key
-                                    }
-                                    onChange={() =>
-                                      handleCheckboxChangePClave(
-                                        option.key
-                                      )
-                                    }
-                                  />
-                                  <span className="form-check-sign"></span>
-                                  {option.label}
-                                </Label>
-                              </FormGroup>
-                            ))}
-                          </CardBody>
-                        </Collapse>
-                      </Card> */}
-
                       {/* Collapse para País */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -477,53 +398,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
-                      {/* Collapse para tipo de documento */}
-                      {/* <Card className="card-refine card-plain">
-                        <CardHeader id="headingOne" role="tab">
-                          <h6 className="mb-0">
-                            <a
-                              className="text-info"
-                              aria-expanded={collapses.includes(6)}
-                              data-toggle="collapse"
-                              href="#collapseTipoDocumento"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                changeCollapse(6);
-                              }}
-                            >
-                              Tipo de documento{" "}
-                              <i className="now-ui-icons arrows-1_minimal-down"></i>
-                            </a>
-                          </h6>
-                        </CardHeader>
-                        <Collapse
-                          isOpen={collapses.includes(6)}
-                          id="collapseTipoDocumento"
-                        >
-                          <CardBody>
-                            {filterOptionsTipoDocumento.map((option) => (
-                              <FormGroup key={option.key} check>
-                                <Label check>
-                                  <Input
-                                    type="checkbox"
-                                    checked={
-                                      selectedTipoDocumento === option.key
-                                    }
-                                    onChange={() =>
-                                      handleCheckboxChangeTipoDocumento(
-                                        option.key
-                                      )
-                                    }
-                                  />
-                                  <span className="form-check-sign"></span>
-                                  {option.label}
-                                </Label>
-                              </FormGroup>
-                            ))}
-                          </CardBody>
-                        </Collapse>
-                      </Card> */}
 
                       {/* Collapse para Idioma */}
                       <Card className="card-refine card-plain">
@@ -615,7 +489,7 @@ function Ecommerce() {
                     </CardBody>
                   </div>
                 </Col>
-                <Col md="9">
+                <Col md="10">
                   <PaginationAlternative
                     data={filteredData}
                     tableTitles={dt.tableTitle}

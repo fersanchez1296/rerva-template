@@ -44,7 +44,6 @@ function Sections() {
   if (isLoading) {
     return <Spiner showSpiner />;
   }
-  console.log(indicadores.areas);
 
   const handleChange = (e) => {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;

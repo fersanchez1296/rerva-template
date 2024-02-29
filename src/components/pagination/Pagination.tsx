@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
 import TableContainer from "@mui/material/TableContainer";
 import TableFooter from "@mui/material/TableFooter";
 import TablePagination from "@mui/material/TablePagination";
@@ -18,7 +19,7 @@ import { NavLink } from "react-router-dom";
 
 interface Props {
   data?: any;
-  url?: string
+  url?: string;
 }
 
 interface TablePaginationActionsProps {
@@ -102,7 +103,15 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const Pagination = ({ url, data }: Props) => {
-  console.log(data)
+  function quitarAcentos(texto) {
+    return texto
+      .replace(/[áäà]/gi, "a")
+      .replace(/[éëè]/gi, "e")
+      .replace(/[íïì]/gi, "i")
+      .replace(/[óöò]/gi, "o")
+      .replace(/[úüù]/gi, "u");
+  }
+  url = quitarAcentos(url);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -126,18 +135,28 @@ export const Pagination = ({ url, data }: Props) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }}>
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              <b>Región geográfica</b>
+            </TableCell>
+            <TableCell>
+              <b>Total de publicaciones</b>
+            </TableCell>
+          </TableRow>
+        </TableHead>
         <TableBody>
           {(rowsPerPage > 0
             ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : data
           ).map((row) => (
             <TableRow key={row.name_es}>
-              <TableCell component="th" scope="row">
-              <NavLink to={`/${url}/${row.name_es}`} target="blank">   
+              <TableCell component="th" scope="row" >
+                <NavLink to={`/${url}/${row.name_es}`} target="blank">
                   {row.name_es}
                 </NavLink>
               </TableCell>
-              <TableCell style={{ width: 160 }} align= "right" >
+              <TableCell style={{ width: 160 }} align="center">
                 {row.count}
               </TableCell>
             </TableRow>

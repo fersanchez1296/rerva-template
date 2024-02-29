@@ -15,6 +15,8 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Icon from "@mui/material/Icon";
 
 interface Props {
   data: any;
@@ -100,13 +102,9 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
       </IconButton>
     </Box>
   );
-
-  
 }
 
-
 export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
-  console.log("informacion de la tabla->", data);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -129,45 +127,70 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
   };
 
   const renderTitles = () => {
-    return tableTitles.map((title) => ( // Añadir 'return' aquí
-      <TableCell style={{ width: 100 }} align="left" key={title}> {/* Añadir 'key' prop */}
+    return tableTitles.map((title) => (
+      <TableCell style={{ width: 100 }} align="left" key={title}>
         <b>{title}</b>
       </TableCell>
     ));
   };
 
   const renderRowCells = (row) => {
-    return Object.keys(row).map((key) => (
-      <TableCell style={{ width: 100 }} align="left" key={key}>
-        {row[key]}
-      </TableCell>
-    ));
+    return tableTitles.map((title) => {
+      if (title === "Nombre de la revista/libro") {
+        return (
+          <TableCell style={{ width: 100 }} align="left" key={title}>
+            <a href={`/revista/documentos/${encodeURIComponent(row[title])}`}>
+              {row[title]}
+            </a>
+          </TableCell>
+        );
+      } else if (title === "Link de acceso") {
+        return (
+          <TableCell style={{ width: 100 }} align="center" key={title}>
+            {row[title] === "No aplica" ? "Consulta Física" : (
+            <a href={row[title]} target={"blank"}>
+              <Icon>
+                <OpenInNewIcon />
+              </Icon>
+            </a>
+            )}
+          </TableCell>
+        );
+      } else if (title === "País de la Publicación") {
+        return (
+          <TableCell style={{ width: 100 }} align="left" key={title}>
+            <a href={`/publicaciones-por-pais/${row[title]}`}>{row[title]}</a>
+          </TableCell>
+        );
+      } else {
+        return (
+          <TableCell style={{ width: 100 }} align="left" key={title}>
+            {row[title]}
+          </TableCell>
+        );
+      }
+    });
   };
-  
-  
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }}>
         <TableHead>
-          <TableRow>
-            {renderTitles()}
-          </TableRow>
+          <TableRow>{renderTitles()}</TableRow>
         </TableHead>
         <TableBody>
-        {(rowsPerPage > 0
+          {(rowsPerPage > 0
             ? data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : data
           ).map((row) => (
-        <TableRow key={row._id}>
-          {renderRowCells(row)}
-        </TableRow>
-      ))}
-      {emptyRows > 0 && (
-        <TableRow style={{ height: 53 * emptyRows }}>
-          <TableCell colSpan={6} />
-        </TableRow>
-      )}
-    </TableBody>
+            <TableRow key={row._id}>{renderRowCells(row)}</TableRow>
+          ))}
+          {emptyRows > 0 && (
+            <TableRow style={{ height: 53 * emptyRows }}>
+              <TableCell colSpan={6} />
+            </TableRow>
+          )}
+        </TableBody>
         <TableFooter>
           <TableRow>
             <TablePagination

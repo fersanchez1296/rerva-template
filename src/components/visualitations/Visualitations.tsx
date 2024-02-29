@@ -8,6 +8,7 @@ import { SnackBar } from "../../components/snackBar/SnackBar";
 import { Charts } from "components/charts/Charts";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import {PaginationAlternative} from "../pagination/PaginationAlternative"
 
 interface Props {
   title: string;

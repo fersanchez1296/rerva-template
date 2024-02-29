@@ -6,10 +6,20 @@ interface Props {
   data: any;
   handleChange: any;
   countriesData: any;
-  url : string;
+  url: string;
 }
 
-export const WorldMap = ({ data, countriesData,url }: Props) => {
+export const WorldMap = ({ data, countriesData, url }: Props) => {
+  function quitarAcentos(texto) {
+    return texto
+      .replace(/[áäà]/gi, "a")
+      .replace(/[éëè]/gi, "e")
+      .replace(/[íïì]/gi, "i")
+      .replace(/[óöò]/gi, "o")
+      .replace(/[úüù]/gi, "u");
+  }
+  url = quitarAcentos(url);
+  console.log(url)
   const svgRef = useRef<SVGSVGElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const dimensions = useResizeObserver(wrapperRef);
@@ -19,7 +29,6 @@ export const WorldMap = ({ data, countriesData,url }: Props) => {
     y: 0,
     content: "",
   });
-
 
   useEffect(() => {
     const { width, height } = dimensions ?? {
@@ -41,40 +50,40 @@ export const WorldMap = ({ data, countriesData,url }: Props) => {
 
     const g = svg.select(".zoomable-group");
 
-// render each country
-const countries = g
-  .selectAll(".country")
-  .data(data.features)
-  .join("path")
-  .on("click", (event, feature: any) => {
-    const { name_es } = feature.properties;
-    const country = countriesData?.find(
-      (country: any) => country.name_es === name_es
-    );
+    // render each country
+    const countries = g
+      .selectAll(".country")
+      .data(data.features)
+      .join("path")
+      .on("click", (event, feature: any) => {
+        const { name_es } = feature.properties;
+        const country = countriesData?.find(
+          (country: any) => country.name_es === name_es
+        );
 
-    if (country) {
-      const newTab = window.open(`${url}/${name_es}`, '_blank');
-      newTab.focus();
-    }
-  })
-  .on("mousemove", (event, name: any) => {
-    const [x, y] = [event.clientX, event.clientY];
-    setTooltip({ visible: true, x, y, content: name.properties.name_es });
-  })
-  .on("mouseout", () => {
-    setTooltip({ visible: false, x: 0, y: 0, content: "" });
-  });
+        if (country) {
+          const newTab = window.open(`${url}/${name_es}`, "_blank");
+          newTab.focus();
+        }
+      })
+      .on("mousemove", (event, name: any) => {
+        const [x, y] = [event.clientX, event.clientY];
+        setTooltip({ visible: true, x, y, content: name.properties.name_es });
+      })
+      .on("mouseout", () => {
+        setTooltip({ visible: false, x: 0, y: 0, content: "" });
+      });
 
-countries
-  .attr("class", "country")
-  .attr("fill", (d: any) => {
-    const country = countriesData?.find(
-      (country: any) => country.name_es === d.properties.name_es
-    );
-    return country ? "#da256aeb" : "#bdbdbdbb";
-  })
-  .attr("stroke-width", 0.5)
-  .attr("d", (feature: any) => pathGenerator(feature));
+    countries
+      .attr("class", "country")
+      .attr("fill", (d: any) => {
+        const country = countriesData?.find(
+          (country: any) => country.name_es === d.properties.name_es
+        );
+        return country ? "#da256aeb" : "#bdbdbdbb";
+      })
+      .attr("stroke-width", 0.5)
+      .attr("d", (feature: any) => pathGenerator(feature));
   }, []);
 
   return (
