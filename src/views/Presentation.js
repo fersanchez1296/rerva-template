@@ -65,8 +65,8 @@ function Presentation() {
       <div className="wrapper">
         <PresentationHeader/>
         <Sections /> 
-        <Components />
-        <BasicComponents />
+        {/* <Components /> */}
+        {/* <BasicComponents /> */}
         
         <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
         <Visualitations title={"Publicaciones por pais"} endpoint={"countriesDataCount"} mapa={country}/>
@@ -74,7 +74,7 @@ function Presentation() {
         {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
         {/* <Visuxalitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
         {/* <BasicComponents /> */}
-        <Cards />
+        {/* <Cards /> */}
         {/* <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/> */}
         {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
         {/* <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/> */}

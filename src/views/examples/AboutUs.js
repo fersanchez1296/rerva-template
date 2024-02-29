@@ -2,7 +2,7 @@ import React from "react";
 // react plugin used to create DropdownMenu for selecting items
 import Select from "react-select";
 import { NavLink } from "react-router-dom";
-import {JaliscoMap} from "../../components/MapaMunicipios/JaliscoMap.tsx"
+import { JaliscoMap } from "../../components/MapaMunicipios/JaliscoMap.tsx";
 // reactstrap components
 import {
   Badge,
@@ -26,11 +26,13 @@ import {
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AboutUsHeader from "components/Headers/AboutUsHeader.js";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
+import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
+import { Spiner } from "components/spiner/Spiner";
 
 function AboutUs() {
-  const [specialitySelect, setSpecialitySelect] = React.useState(null);
-  const [firstFocus, setFirstFocus] = React.useState(false);
-  const [emailFocus, setEmailFocus] = React.useState(false);
+  const { data, isLoading } = useGetVisualitationsDataQuery(
+    "/countriesAndMunicipios"
+  );
   React.useEffect(() => {
     document.body.classList.add("about-us");
     document.body.classList.add("sidebar-collapse");
@@ -42,6 +44,15 @@ function AboutUs() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
+  if (isLoading) {
+    return (
+      <>
+        <Spiner showBool />
+      </>
+    );
+  }
+
   return (
     <>
       <ScrollTransparentNavbarSections />
@@ -67,60 +78,46 @@ function AboutUs() {
                 </Col>
               </Row>
               <Row>
-                <Col className="ml-auto" md="5">
-                 <JaliscoMap/>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h2 className="title">Objetivos Principales</h2>
+                  <h4 className="text-justify">
+                    Los objetivos principales que enmarcan este proyecto de
+                    investigación versan, por un lado, en determinar el estado
+                    actual y la trayectoria que ha seguido la hechura de la
+                    investigación sobre la región y los municipios del área de
+                    atención del Centro Universitario de los Valles de la
+                    Universidad de Guadalajara (CUValles), la cuál se constituye
+                    de los siguiente municipios:
+                  </h4>
+                  <div className="section-space"></div>
                 </Col>
-                <Col className="mr-auto" md="5">
+              </Row>
+              <Row>
+                <Col className="ml-auto mr-auto" md="5">
+                  <JaliscoMap data={data[0]} />
+                </Col>
+                <Col className="ml-auto mr-auto" md="5">
                   <div className="info info-horizontal">
-                    <div className="icon icon-danger">
-                      <i className="now-ui-icons education_agenda-bookmark"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Vinculación y exhibición:</h4>
+                    <div className="info info-horizontal">
                       <p className="info-title text-justify">
-                        Proporcionar un espacio digital para que el público en
-                        general pueda depositar y exhibir sus trabajos
-                        relacionados con la región de los valles o con el Centro
-                        Universitario de los Valles (CUValles).
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-danger">
-                      <i className="now-ui-icons design_palette"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">
-                        Promoción de la cultura local:
-                      </h4>
-                      <p className="info-title text-justify">
-                        Promover la cultura local al facilitar la difusión de
-                        obras que resalten la importancia y diversidad de la
-                        región de los valles, incluyendo aspectos históricos,
-                        antropológicos, científicos y culturales que contribuyan
-                        a enriquecer el conocimiento sobre esta área geográfica.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-danger">
-                      <i className="now-ui-icons business_globe"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">
-                        Fomento de la participación comunitaria:
-                      </h4>
-                      <p className="info-title text-justify">
-                        Promover la participación activa de la comunidad,
-                        permitiendo que los creadores interactúen entre sí y
-                        compartan ideas y trabajos.
+                        Ahualulco de Mercado, Ameca, Amatitán, Cocula, El
+                        Arenal, Etzatlán, Hostotipaquillo, Magdalena, San
+                        Juanito de Escobedo, San Marcos, San Martín de Hidalgo,
+                        Tala, Tequila, Teuchitlán, Atenguillo, Guachinango,
+                        Mascota, Mixtlán y Talpa de Allende. A partir de la
+                        producción científica orientada a la descripción,
+                        explicación y análisis de las diversas temáticas y
+                        problemáticas abordadas desde la comunidad académica
+                        nacional e internacional en los últimos 50 años; y por
+                        el otro, en explorar las brechas entre el conocimiento
+                        existente y las demandas sociales de la región.
                       </p>
                     </div>
                   </div>
                 </Col>
               </Row>
               <hr></hr>
-              <Row>
+              {/* <Row>
                 <Col className="ml-auto mt-5" md="5">
                   <div className="info info-horizontal">
                     <div className="icon icon-warning">
@@ -191,9 +188,115 @@ function AboutUs() {
                     </CardBody>
                   </Card>
                 </Col>
+              </Row> */}
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h2 className="title">
+                    Los objetivos particulares planteados en este trabajo giran
+                    en torno a:
+                  </h2>
+                  <h4 className="text-justify">
+                    <ol>
+                      <li>
+                        Construir el estado del arte de los conocimientos
+                        generados sobre la región del CUValles.
+                      </li>
+                      <br></br>
+                      <li>
+                        Identificar las temáticas que se han definido como
+                        prioritarias en la producción académica de la región a
+                        lo largo del tiempo.
+                      </li>
+                      <br></br>
+                      <li>
+                        Develar las brechas y potenciales líneas de
+                        investigación en distintas disciplinas y campos de
+                        conocimiento, acordes a las dinámicas y procesos
+                        regionales.
+                      </li>
+                      <br></br>
+                      <li>
+                        Mostrar la incidencia del CUValles en la generación del
+                        conocimiento científico en su región de atención.
+                      </li>
+                      <br></br>
+                      <li>
+                        Impulsar la creación del repositorio de estudios sobre
+                        la Región de los Valles.
+                      </li>
+                      <br></br>
+                      <li>
+                        Fomentar vínculos Centro Universitario-gobierno-sociedad
+                        para la generación y difusión del conocimiento relevante
+                        sobre la región.
+                      </li>
+                    </ol>
+                  </h4>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h4 className="text-justify">
+                    En términos metodológicos, entre los pasos que este trabajo
+                    siguió, una de sus principales actividades realizadas fue la
+                    determinación del conocimiento existente, a partir de la
+                    búsqueda, la identificación y la compilación de fuentes de
+                    información en diversos idiomas, de libros, capítulos de
+                    libro, artículos en revistas arbitradas, tesis, monografías
+                    y documentales disponibles tanto en la red como en sitios de
+                    internet especializados. Asimismo, se emprendió trabajo de
+                    campo en el que se visitaron las principales bibliotecas
+                    municipales de la región y las bibliotecas más importantes
+                    del estado de Jalisco, aunado entablar entrevistas con
+                    actores locales relevantes en la generación de conocimiento,
+                    no únicamente desde la academia, sino también con
+                    involucrados como los cronistas.
+                  </h4>
+                  <div className="section-space"></div>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h2 className="title">Producción Académica</h2>
+                  <h4 className="text-justify">
+                    Hasta mayo del 2023, se habían identificado un total de
+                    1,420 documentos relacionados con el estudio de la región,
+                    en alguna de las áreas del conocimiento y desarrollados a
+                    través de artículos académicos, libros, capítulos de libro,
+                    tesis en sus diferentes niveles, notas científicas,
+                    reportes, memorias y otro tipo de documentos.
+                  </h4>
+                  <div className="section-space"></div>
+                </Col>
+              </Row>
+              <Row>
+                <Col className="ml-auto mr-auto text-center" md="8">
+                  <h2 className="title">Funcionamiento</h2>
+                  <h4 className="text-justify">
+                    El repositorio del CUValles vincula a los usuarios con otras
+                    plataformas digitales que integran, publican y distribuyen
+                    de manera libre y gratuita materiales académicos,
+                    científicos, tecnológicos y culturales sobre la región de
+                    los Valles.
+                  </h4>
+                  <h4 className="text-justify">
+                    En el mismo sentido, facilita la identificación de que se
+                    encuentran disponibles de manera física en las Bibliotecas
+                    Públicas.
+                  </h4>
+                  <h4 className="text-justify">
+                    Asimismo, para promover el libre acceso a contenidos
+                    generados desde el CUValles, cuenta con una herramienta de
+                    depósito directo del personal académico sin perjuicio de las
+                    disposiciones en materia de propiedad intelectual,
+                    garantizando la protección de los derechos de autor.
+                  </h4>
+                  <div className="section-space"></div>
+                </Col>
               </Row>
             </Container>
           </div>
+          <hr></hr>
           <div className="about-office">
             <Container>
               <Row className="text-center">
@@ -210,39 +313,96 @@ function AboutUs() {
                 </Col>
               </Row>
               <Row>
-                <Col md="4">
+                <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
                     src={require("assets/img/cuvalles-3.jpg")}
                   ></img>
                 </Col>
-                <Col md="4">
+                <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
                     src={require("assets/img/cuvalles-4.jpg")}
                   ></img>
                 </Col>
-                <Col md="4">
+                <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/universidad-de-guadalajara-3.jpg")}
+                    src={require("assets/img/sanmartin.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/region-valles-3.jpeg")}
+                    src={require("assets/img/teuchitlan.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
                   <img
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/region-valles-2.jpeg")}
+                    src={require("assets/img/guachinango.jpeg")}
+                  ></img>
+                </Col>
+                
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/etzatlan.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/mixtlan.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/atenguillo.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/magdalena.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/talpa.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/mascota.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/ameca.jpeg")}
+                  ></img>
+                </Col>
+                <Col md="6">
+                  <img
+                    alt="..."
+                    className="rounded img-raised"
+                    src={require("assets/img/sanmarcos.jpeg")}
                   ></img>
                 </Col>
               </Row>
@@ -254,11 +414,12 @@ function AboutUs() {
                 <Col className="ml-auto mr-auto text-center" md="8">
                   <h2 className="title">Nuestro equipo de Trabajo</h2>
                   <h4 className="text-justify">
-                    Nuestros colaboradores conforman un equipo
-                    multidisciplinario que abarca las áreas de Ingeniería,
-                    Ciencias Sociales y Humanidades. Esta combinación de
-                    disciplinas permite una sinergia que resulta en la
-                    realización exitosa del presente proyecto.
+                    Somos un equipo multidisciplinarios interesados en dar
+                    visibilidad a la Región de los Valles en Jalisco. Nuestros
+                    colaboradores conforman un equipo que abarca las áreas de
+                    Ingeniería, Ciencias Sociales y Humanidades. Esta
+                    combinación de disciplinas permite una sinergia que resulta
+                    en la realización exitosa del presente proyecto.
                   </h4>
                 </Col>
               </Row>

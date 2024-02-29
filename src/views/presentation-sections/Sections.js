@@ -20,7 +20,7 @@ import {
   Col,
 } from "reactstrap";
 
-import {useGetBusquedaInfoSelectQuery} from "../../api/api.slice.js"
+import { useGetBusquedaInfoSelectQuery } from "../../api/api.slice.js";
 import { Spiner } from "../../components/spiner/Spiner";
 // core components
 
@@ -28,7 +28,7 @@ function Sections() {
   const url = "busqueda";
   const [lastFocus, setLastFocus] = React.useState(false);
   let [busqueda, setBusqueda] = React.useState("");
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const [seccionSelect, setSeccionSelect] = React.useState({
     value: "1",
     label: "General",
@@ -40,7 +40,7 @@ function Sections() {
   const [editorialSelect, setEditorialSelect] = React.useState(null);
   const [institucionSelect, setInstitucionSelect] = React.useState(null);
 
-  const {data : indicadores,isLoading} = useGetBusquedaInfoSelectQuery() 
+  const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
   if (isLoading) {
     return <Spiner showSpiner />;
   }
@@ -49,8 +49,7 @@ function Sections() {
   const handleChange = (e) => {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
 
-    if (regex.test(e) || e === '') {
-      
+    if (regex.test(e) || e === "") {
       setInputValue(e);
       setBusqueda(e);
     }
@@ -110,11 +109,9 @@ function Sections() {
           className="react-select mr-0 w-100"
           classNamePrefix="react-select"
           name=""
-          onChange={(value) => (setAreaSelect(value),setBusqueda(value.label))}
+          onChange={(value) => (setAreaSelect(value), setBusqueda(value.label))}
           options={indicadores.areas.map((a) => {
-            return (
-              { value: a.value , label : a.label }
-            )
+            return { value: a.value, label: a.label };
           })}
           placeholder="Selecciona el área de conocimiento"
           value={areaSelect}
@@ -158,35 +155,11 @@ function Sections() {
           className="react-select mr-0 w-100"
           classNamePrefix="react-select"
           name=""
-          onChange={(value) => (setTipoDocumentoSelect(value),setBusqueda(value.label))}
-          options={indicadores.tipos.map((a) => {
-            return (
-              { value: a.value , label : a.label }
-            )
-          })}
-          placeholder="Selecciona el tipo de documento"
-          value={tipoDocumentoSelect}
-          styles={{
-            control: (provided) => ({
-              ...provided,
-
-              borderTopLeftRadius: "0 !important",
-              borderBottomLeftRadius: "0 !important",
-            }),
-          }}
-        />
-      );
-    } else if (seccionSelect.value === "6") {
-      return (
-        <Select
-          className="react-select mr-0 w-100"
-          classNamePrefix="react-select"
-          name=""
-          onChange={(value) => (setPaisPublicacionSelect(value),setBusqueda(value.label))}
+          onChange={(value) => (
+            setPaisPublicacionSelect(value), setBusqueda(value.label)
+          )}
           options={indicadores.paises.map((a) => {
-            return (
-              { value: a.value , label : a.label }
-            )
+            return { value: a.value, label: a.label };
           })}
           placeholder="Selecciona el país de publicación"
           value={paisPublicacionSelect}
@@ -206,14 +179,35 @@ function Sections() {
     <>
       <div className="section section-sections">
         <Container>
-        <h1 className="text-center"> <span className="text-primary">{indicadores.indicadores[0].documentos}</span> Documentos identificados</h1>
+          <h1 className="text-center">
+            {" "}
+            <span className="text-primary">
+              {indicadores.indicadores[0].documentos}
+            </span>{" "}
+            Documentos identificados
+          </h1>
           <hr className="bg-primary"></hr>
           <div className="d-flex justify-content-around align-items-center text-center">
-            <h3><span className="text-primary">{indicadores.indicadores[0].autores}</span> Autores</h3>
+            <h3>
+              <span className="text-primary">
+                {indicadores.indicadores[0].autores}
+              </span>{" "}
+              Autores
+            </h3>
             <h1>|</h1>
-            <h3><span className="text-primary">{indicadores.indicadores[0].paises}</span> Países</h3>
+            <h3>
+              <span className="text-primary">
+                {indicadores.indicadores[0].paises}
+              </span>{" "}
+              Países
+            </h3>
             <h1>|</h1>
-            <h3><span className="text-primary">{indicadores.indicadores[0].revistas}</span> Revistas</h3>
+            <h3>
+              <span className="text-primary">
+                {indicadores.indicadores[0].revistas}
+              </span>{" "}
+              Revistas
+            </h3>
           </div>
           <hr className="bg-primary"></hr>
           <Col className="ml-auto mr-auto" md="12">
@@ -242,15 +236,14 @@ function Sections() {
                               { value: "2", label: "Autor" },
                               { value: "3", label: "Area de conocimiento" },
                               { value: "4", label: "Revista" },
-                              { value: "5", label: "Tipo de documento" },
-                              { value: "6", label: "Pais de publicacion" },
+                              { value: "5", label: "Pais de publicacion" },
                             ]}
                             placeholder="Selecciona la sección"
                             value={seccionSelect}
                             styles={{
                               control: (provided) => ({
                                 ...provided,
-                                
+
                                 backgroundColor: "#0096FF !important",
                                 color: "white !important",
                                 textAlign: "center !important",
@@ -275,25 +268,26 @@ function Sections() {
                         className="btn-round"
                         color="info"
                         onClick={(e) => {
-                          
-                         if (busqueda != "") {
-                           busqueda = busqueda.replace(/ /g, "+");
-                         }
-                          const seccion = seccionSelect.label.replace(/ /g, "-");
-                         window.open(
-                           `/${url}/${seccion}/${busqueda}`,
-                           "_blank"
-                         );
-                         setBusqueda("")
-                         setAreaSelect("")
-                         setTipoDocumentoSelect("")
-                         setPaisPublicacionSelect("")
-                         setEditorialSelect("")
-                         setInstitucionSelect("")
-                         setInputValue("")
+                          if (busqueda != "") {
+                            busqueda = busqueda.replace(/ /g, "+");
+                          }
+                          const seccion = seccionSelect.label.replace(
+                            / /g,
+                            "-"
+                          );
+                          window.open(
+                            `/${url}/${seccion}/${busqueda}`,
+                            "_blank"
+                          );
+                          setBusqueda("");
+                          setAreaSelect("");
+                          setTipoDocumentoSelect("");
+                          setPaisPublicacionSelect("");
+                          setEditorialSelect("");
+                          setInstitucionSelect("");
+                          setInputValue("");
                         }}
                         size="lg"
-                        
                       >
                         Búscar
                       </Button>

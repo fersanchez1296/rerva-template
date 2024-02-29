@@ -147,7 +147,6 @@ function Ecommerce() {
   } = useGetBusquedaQuery({ url, request });
 
   useEffect(() => {
-    document.title = `${subtitle} - ${title}`;
     document.body.classList.add("ecommerce-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
@@ -166,12 +165,6 @@ function Ecommerce() {
   if (isError) {
     return (
       <>
-        <SnackBar
-          msg={
-            "Ocurrió un error en la petición, error : " + JSON.stringify(error)
-          }
-          variant={"error"}
-        />
         <ServerError />
       </>
     );

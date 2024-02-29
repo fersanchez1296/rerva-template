@@ -1,20 +1,29 @@
-import { useEffect } from 'react'
-import Lottie from 'lottie-react'
-import { useNavigate } from 'react-router-dom'
-import serverErrorAnimationData from 'assets/animations/error/serverError-animations-variant-2.json'
-import { SnackBar } from '../snackBar/SnackBar'
+import { NavLink } from "react-router-dom";
+import Lottie from "lottie-react";
+import noDataFound from "assets/animations/NoDataFound/No-data-found.json";
+import { Button, Container, Row, Col } from "reactstrap";
 export const ServerError = () => {
-    const navigate = useNavigate()
-    useEffect(() => {
-        setTimeout(() => {
-            //navigate("/")
-        },5000)   
-    },[])
 
   return (
-    <div className='animations-container'>
-        <Lottie animationData={serverErrorAnimationData} className='animation server-error'/>
-        <SnackBar msg='En 5 segundos serás redireccionado a la página de inicio' variant='warning'/>
-    </div>
-  )
-}
+    <Container>
+      <Row>
+        <Col className="ml-auto mr-auto" md="5">
+          <Lottie
+            animationData={noDataFound}
+            className="animation server-error"
+          />
+        </Col>
+        <Col className="ml-auto mr-auto text-center" md="8">
+          <h2 className="title">
+            Lo sentimos, no encontramos información en nuestra base de datos
+          </h2>
+          <h4 className=" ml-auto mr-auto text-justify">
+            <NavLink to={"/"}>
+              <Button color="info">Regresar a Inicio</Button>
+            </NavLink>
+          </h4>
+        </Col>
+      </Row>
+    </Container>
+  );
+};

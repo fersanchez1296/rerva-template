@@ -1,16 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 import { select, geoPath, geoMercator } from "d3";
 import useResizeObserver from "../useResizeObserver/useResizeObserver";
-import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
-import { Spiner } from "components/spiner/Spiner";
 import jalisco from "../../assets/maps/jalisco.geo.json";
-
 interface Props {
   handleChange: any;
   url: string;
+  data: any
 }
 
-export const JaliscoMap = ({ url }: Props) => {
+export const JaliscoMap = ({ data,url }: Props) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const dimensions = useResizeObserver(wrapperRef);
@@ -21,9 +19,7 @@ export const JaliscoMap = ({ url }: Props) => {
     content: "",
   });
 
-  const { data, isLoading } = useGetVisualitationsDataQuery(
-    "/countriesAndMunicipios"
-  );
+  
 
   useEffect(() => {
     const { width, height } = dimensions ?? {
@@ -82,9 +78,6 @@ export const JaliscoMap = ({ url }: Props) => {
   }, []);
   
 
-  if(isLoading) {
-    console.log("cargando")
-  }
 
   return (
     <>

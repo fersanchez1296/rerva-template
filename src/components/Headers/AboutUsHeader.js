@@ -35,11 +35,6 @@ function AboutUsHeader() {
           <Row>
             <Col className="ml-auto mr-auto" md="8">
               <h1 className="title">Acerca de nosotros</h1>
-              <h5>
-                Somos un equipo multidisciplinarios
-                interesados en dar visibilidad a la Región
-                de los Valles en Jalisco.
-              </h5>
             </Col>
           </Row>
         </div>
