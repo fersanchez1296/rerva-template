@@ -341,7 +341,7 @@ function Pricing() {
                           <Col md="6">
                             <FormGroup check>
                               <Label check>
-                                <Input type="checkbox" ></Input>
+                                <Input type="checkbox"></Input>
                                 <span className="form-check-sign"></span>
                                 I'm not a robot
                               </Label>

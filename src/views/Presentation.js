@@ -1,30 +1,18 @@
+//React
 import React from "react";
 // javascript library that creates a parrallax effect
 import Rellax from "rellax";
-// reactstrap components
-
 // core components
 import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
 import PresentationHeader from "components/Headers/PresentationHeader.js";
 import FooterBlack from "components/Footers/FooterBlack.js";
-
 // sections for this page
-import Components from "./presentation-sections/Components.js";
-import BasicComponents from "./presentation-sections/BasicComponents.js";
-import Cards from "./presentation-sections/Cards.js";
-import Content from "./presentation-sections/Content.js";
-import Sections from "./presentation-sections/Sections.js";
-import Examples from "./presentation-sections/Examples.js";
-import FreeDemo from "./presentation-sections/FreeDemo.js";
-import Icons from "./presentation-sections/Icons.js";
-import Image from "./presentation-sections/Image.js";
-import Testimonials from "./presentation-sections/Testimonials.js";
-import Pricing from "./presentation-sections/Pricing.js";
-import VectorMaps from "./Maps/VectorMap.js";
+import SearchBoxSection from "./presentation-sections/SearchBoxSection.js";
+import Credits from "./presentation-sections/Credits.js";
 import country from "../assets/maps/world.geo.json";
-import polity from '../assets/maps/jalisco.geo.json'
-
-import {Visualitations} from '../components/visualitations/Visualitations'
+import polity from "../assets/maps/jalisco.geo.json";
+//self components
+import { Visualitations } from "../components/visualitations/Visualitations";
 
 function Presentation() {
   React.useEffect(() => {
@@ -63,28 +51,21 @@ function Presentation() {
     <>
       <ScrollTransparentNavbar />
       <div className="wrapper">
-        <PresentationHeader/>
-        <Sections /> 
-        {/* <Components /> */}
-        {/* <BasicComponents /> */}
-        
-        <Visualitations title={"Publicaciones por municipio"} endpoint={"countriesAndMunicipios"} mapa={polity}/>
-        <Visualitations title={"Publicaciones por país"} endpoint={"countriesDataCount"} mapa={country}/>
-        {/* <Visualitations title={"Publicaciones por Campo de Estudio"} endpoint={"countriesAndFieldStudy"} map={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Tipo de Documento"} endpoint={"countriesAndDocumentType"} country={country}/> */}
-        {/* <Visuxalitations title={"Publicaciones por Editorial"} endpoint={"countriesAndEditorial"} map={country}/> */}
-        {/* <BasicComponents /> */}
-        {/* <Cards /> */}
-        {/* <Visualitations title={"Publicaciones por decadas"} endpoint={"countriesAndDecades"} mapa={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Área"} endpoint={"countriesAndAreas"} map={country}/> */}
-        {/* <Visualitations title={"Publicaciones por Disciplina"} endpoint={"countriesAndDisciplines"} mapa={country}/> */}
-        
-         {/* <Examples /> 
-         <FreeDemo /> 
-         <Icons /> 
-         <Image /> 
-         <Testimonials />  */}
-         <Pricing />
+        <PresentationHeader />
+        <SearchBoxSection />
+        <Visualitations
+          title={"Municipio"}
+          redirectTo={"Publicaciones por municipio"}
+          endpoint={"countriesAndMunicipios"}
+          mapa={polity}
+        />
+        <Visualitations
+          title={"Pais"}
+          redirectTo={"Publicaciones por país"}
+          endpoint={"countriesDataCount"}
+          mapa={country}
+        />
+        <Credits />
         <FooterBlack />
       </div>
     </>

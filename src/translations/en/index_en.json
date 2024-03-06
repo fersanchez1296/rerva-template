@@ -1,0 +1,32 @@
+{
+  "languagePage": {
+    "language": "English"
+  },
+  "indexNav" : {
+    "autodeposito" : "Autodeposito",
+    "aboutUs" : "About...",
+    "contact" : "Contact",
+    "library" : "Regional Librarys" 
+  },
+  "searchBox": {
+    "Description": {
+      "Title": "Identified documents",
+      "Authors": "Authors",
+      "Country": "Countries",
+      "Magazine": "Magazines"
+    },
+    "Container": {
+      "Title": "Search on CUValles Data Base",
+      "Subtitle": "Enter search criteria",
+      "Button": "Search"
+    }
+  },
+  "indexMapsLanguage": {
+    "mapTitleMunicipality": "Publications by municipality",
+    "mapTitleCountry": "Publications by country",
+    "mapSubtitle": "Statistical data",
+    "mapChartTitle": "Numerical data",
+    "MapTableColumnRegion": "Geographic region",
+    "MapTableColumnTitleTotal": "Total publications"
+  }
+}

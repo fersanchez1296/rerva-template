@@ -1,4 +1,3 @@
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Navigate, Routes } from "react-router-dom";
@@ -29,21 +28,34 @@ import ProductPage from "views/examples/ProductPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import Sections from "views/Sections.js";
 import SignupPage from "views/examples/SignupPage.js";
-import PDocuments from "./views/PDocuments";
 import { Suspense } from "react";
-import { Provider } from "react-redux";
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import { store } from "./redux/store";
 import { apiSlice } from "./api/api.slice";
-import { SnackbarProvider } from 'notistack';
+import { SnackbarProvider } from "notistack";
+import index_en from "./translations/en/index_en.json";
+import index_es from "./translations/es/index_es.json";
+import i18next from "i18next";
+import { I18nextProvider } from "react-i18next";
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: "es",
+  resources: {
+    en: {
+      global: index_en,
+    },
+    es: {
+      global: index_es,
+    },
+  },
+});
 // others
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <Suspense fallback={<>Cargando...</>}>
-    <SnackbarProvider maxSnack={2}>
-      <Provider store={store}>
+  <I18nextProvider i18n={i18next}>
+    <Suspense fallback={<>Cargando...</>}>
+      <SnackbarProvider maxSnack={2}>
         <ApiProvider api={apiSlice}>
           <BrowserRouter>
             <Routes>
@@ -64,16 +76,19 @@ root.render(
               <Route path="/profile-page" element={<ProfilePage />} />
               <Route path="/sections" element={<Sections />} />
               <Route path="/busquedas" element={<SignupPage />} />
-              <Route path="/:url/:request" element={<BusquedaGrafica/>} />
+              <Route path="/:url/:request" element={<BusquedaGrafica />} />
               <Route path="/:url/:busqueda/:request" element={<Ecommerce />} />
-              <Route path="/:busqueda/:documentos/:request" element={<Ecommerce />} />
+              <Route
+                path="/:busqueda/:documentos/:request"
+                element={<Ecommerce />}
+              />
               {/* <Route path="/Publicaciones-por-municipio/all" element={<Ecommerce />} /> */}
               {/* <Route path="/map/:url/:request" element={<BusquedaGrafica/>} /> */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </BrowserRouter>
         </ApiProvider>
-      </Provider>
-    </SnackbarProvider>
-  </Suspense>
+      </SnackbarProvider>
+    </Suspense>
+  </I18nextProvider>
 );

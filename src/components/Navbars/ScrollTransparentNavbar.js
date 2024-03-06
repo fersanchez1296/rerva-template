@@ -1,5 +1,17 @@
 import React from "react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+//translations
+import { useTranslation } from "react-i18next";
+//zustand
+import { useLanguageStore } from "../../context/store";
+//mui
+import { styled } from "@mui/material/styles";
+import Switch from "@mui/material/Switch";
+import FormGroupS from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+//icon languages
+import mxicon from "assets/img/mx-icon.png";
+import usaicon from "assets/img/usa-icon.png";
 // reactstrap components
 import {
   Button,
@@ -17,9 +29,52 @@ import {
   InputGroup,
   Input, // Agregar Input de reactstrap
 } from "reactstrap";
-
+const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+  width: 54,
+  height: 32,
+  padding:7,
+  "& .MuiSwitch-switchBase": {
+    margin: 1.7,
+    padding: 0,
+    transform: "translateX(6px)",
+    "&.Mui-checked": {
+      color: "#fff",
+      transform: "translateX(22px)",
+      "& .MuiSwitch-thumb:before": {
+        backgroundImage: `url(${mxicon})`,
+      },
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "#fff" : "#aab4be",
+      },
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+    width: 24,
+    height: 24,
+    "&::before": {
+      content: "''",
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      left: 0,
+      top: 0,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundImage: `url(${usaicon})`,
+    },
+  },
+  "& .MuiSwitch-track": {
+    opacity: 1,
+    backgroundColor: theme.palette.mode === "#fff" ? "#8796A5" : "#aab4be",
+    borderRadius: 20 / 2,
+  },
+}));
 function ScrollTransparentNavbar() {
   const url = "Publicaciones-por-municipio";
+  const { t, i18n } = useTranslation("global");
+  const { language, changeLanguage } = useLanguageStore();
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [navbarColor, setNavbarColor] = React.useState(
     document.documentElement.scrollTop > 499 || document.body.scrollTop > 499
@@ -31,6 +86,11 @@ function ScrollTransparentNavbar() {
       ? "info"
       : "neutral"
   );
+  const handleChangeLanguage = () => {
+    const newLanguage = language === "es" ? "en" : "es";
+    changeLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -79,25 +139,7 @@ function ScrollTransparentNavbar() {
             </button>
           </div>
           <Collapse isOpen={collapseOpen} navbar>
-          
             <Nav className="ml-auto" id="ceva" navbar>
-            {/* <UncontrolledDropdown nav>
-            <DropdownToggle
-                  color="default"
-                  data-toggle="dropdown"
-                  href="#pablo"
-                  id="navbarDropdownMenuLink"
-                  nav
-                  tag={Link}
-                  to="/busquedas"
-                >
-                  <i
-                    aria-hidden={true}
-                    className="now-ui-icons files_single-copy-04"
-                  ></i>
-                  <p>Buscar</p>
-                </DropdownToggle>
-              </UncontrolledDropdown> */}
               <UncontrolledDropdown nav>
                 <DropdownToggle
                   color="default"
@@ -112,7 +154,7 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons files_paper"
                   ></i>
-                  <p>Autodepósito</p>
+                  <p>{t("indexNav.autodeposito")}</p>
                 </DropdownToggle>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav>
@@ -129,7 +171,7 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons business_badge"
                   ></i>
-                  <p>Acerca de...</p>
+                  <p>{t("indexNav.aboutUs")}</p>
                 </DropdownToggle>
               </UncontrolledDropdown>
               <UncontrolledDropdown nav>
@@ -146,8 +188,39 @@ function ScrollTransparentNavbar() {
                     aria-hidden={true}
                     className="now-ui-icons ui-1_email-85"
                   ></i>
-                  <p>Contacto</p>
+                  <p>{t("indexNav.contact")}</p>
                 </DropdownToggle>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <DropdownToggle
+                  color="default"
+                  data-toggle="dropdown"
+                  href="#pablo"
+                  id="navbarDropdownMenuLink"
+                  nav
+                  tag={Link}
+                  to="/contacto"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="now-ui-icons ui-1_email-85"
+                  ></i>
+                  <p>{t("indexNav.library")}</p>
+                </DropdownToggle>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav>
+                <FormGroupS>
+                  <FormControlLabel
+                    control={
+                      <MaterialUISwitch
+                        sx={{ m: 1 }}
+                        defaultChecked
+                        onChange={() => handleChangeLanguage()}
+                      />
+                    }
+                    label={t("languagePage.language")}
+                  />
+                </FormGroupS>
               </UncontrolledDropdown>
             </Nav>
           </Collapse>

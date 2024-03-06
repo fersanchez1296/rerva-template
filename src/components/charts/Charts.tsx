@@ -1,13 +1,16 @@
-import { useState } from "react";
+//React
+import React from "react";
+//Mui
 import Grid from "@mui/material/Unstable_Grid2";
 import QueryStatsIcon from "@mui/icons-material/QueryStats";
 import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
-import DataSaverOffIcon from "@mui/icons-material/DataSaverOff";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+//Self components
 import { ChartLinesDialog } from "components/chartDialog/ChartLinesDialog";
-import { ChartDoDialog } from "components/chartDoDialog/ChartDoDialog";
+//translations
+import { useTranslation } from "react-i18next";
 
 interface Props {
   XLabels : any,
@@ -15,23 +18,15 @@ interface Props {
 }
 
 export const Charts = ({XLabels,YLabels} : Props) => {
-  const [openDialog, setOpenDialog] = useState(false);
-  const [openDoDialog, setOpenDoDialog] = useState(false);
+  const { t, i18n } = useTranslation("global");
+  const [openDialog, setOpenDialog] = React.useState(false);
 
   const handleOpenDialog = () => {
     setOpenDialog(true);
   };
 
-  const handleOpenDoDialog = () => {
-    setOpenDoDialog(true);
-  };
-
   const handleCloseDialog = () => {
     setOpenDialog(false);
-  };
-
-  const handleCloseDoDialog = () => {
-    setOpenDoDialog(false);
   };
 
   return (
@@ -44,7 +39,7 @@ export const Charts = ({XLabels,YLabels} : Props) => {
             sx={{ display: "flex", alignItems: "center", gap: "1rem" }}
           >
             <QueryStatsIcon />
-            Información estadística
+            {t("indexMapsLanguage.mapSubtitle")}
           </Typography>
         </Grid>
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
@@ -53,7 +48,7 @@ export const Charts = ({XLabels,YLabels} : Props) => {
               startIcon={<StackedLineChartIcon />}
               onClick={handleOpenDialog}
             >
-              Numeralia
+              {t("indexMapsLanguage.mapChartTitle")}
             </Button>
           </Stack>
         </Grid>

@@ -1,6 +1,6 @@
 import React from "react";
+
 // reactstrap components
-import Select from "react-select";
 import {
   Button,
   Card,
@@ -16,21 +16,17 @@ import {
   InputGroup,
   Container,
   Row,
-  Col,
+  Col
 } from "reactstrap";
 
 // core components
 import FixedTransparentNavbar from "components/Navbars/FixedTransparentNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import { PaginationAlternative } from "../../components/pagination/PaginationAlternative";
-import { Spiner } from "../../components/spiner/Spiner";
+
 function SignupPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
   const [lastFocus, setLastFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
-  const [colorSelect, setColorSelect] = React.useState({ value: "1", label: "General" });
-  const [sizeSelect, setSizeSelect] = React.useState(null);
-  
   React.useEffect(() => {
     document.body.classList.add("signup-page");
     document.body.classList.add("sidebar-collapse");
@@ -42,26 +38,62 @@ function SignupPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
-
   return (
     <>
-      
+      <FixedTransparentNavbar />
       <div className="page-header header-filter" filter-color="black">
         <div
           className="page-header-image"
           style={{
-            backgroundImage:
-              "url(" + require("assets/img/cuvalles-3.jpg") + ")",
+            backgroundImage: "url(" + require("assets/img/bg18.jpg") + ")"
           }}
         ></div>
         <div className="content">
           <Container>
             <Row>
-              <Col className="ml-auto mr-auto" md="12" lg="12">
+              <Col className="ml-auto mr-auto" md="6" lg="4">
+                <div className="info info-horizontal">
+                  <div className="icon icon-info">
+                    <i className="now-ui-icons media-2_sound-wave"></i>
+                  </div>
+                  <div className="description">
+                    <h5 className="info-title">Marketing</h5>
+                    <p className="description">
+                      We've created the marketing campaign of the website. It
+                      was a very interesting collaboration.
+                    </p>
+                  </div>
+                </div>
+                <div className="info info-horizontal">
+                  <div className="icon icon-info">
+                    <i className="now-ui-icons media-1_button-pause"></i>
+                  </div>
+                  <div className="description">
+                    <h5 className="info-title">Fully Coded in React 16</h5>
+                    <p className="description">
+                      We've developed the website with React 16 and CSS3. The
+                      client has access to the code using GitHub.
+                    </p>
+                  </div>
+                </div>
+                <div className="info info-horizontal">
+                  <div className="icon icon-info">
+                    <i className="now-ui-icons users_single-02"></i>
+                  </div>
+                  <div className="description">
+                    <h5 className="info-title">Built Audience</h5>
+                    <p className="description">
+                      There is also a Fully Customizable CMS Admin Dashboard for
+                      this product.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col className="mr-auto" md="6" lg="4">
                 <Card className="card-signup">
                   <CardBody>
                     <CardTitle className="text-center" tag="h4">
-                      Búscar
+                      Register
                     </CardTitle>
                     <div className="social text-center">
                       <Button
@@ -79,81 +111,87 @@ function SignupPage() {
                       <Button className="btn-icon btn-round" color="facebook">
                         <i className="fab fa-facebook"></i>
                       </Button>
-                      <br />
+                      <h5 className="card-description">or be classical</h5>
                     </div>
                     <Form action="" className="form" method="">
-                      <Row>
-                        <Col lg="12" md="12" sm="12">
-                          <div className="d-flex">
-                            <Select
-                              className="react-select mr-0"
-                              classNamePrefix="react-select"
-                              name=""
-                              onChange={(value) => setColorSelect(value)}
-                              options={[
-                                { value: "1", label: "General" },
-                                { value: "2", label: "Autor" },
-                                { value: "3", label: "Año" },
-                                { value: "4", label: "Revista" },
-                              ]}
-                              placeholder="Select color"
-                              value={colorSelect}
-                              styles={{
-                                control: (provided) => ({
-                                  ...provided,
-                                  width: "200px !important",
-                                  borderTopRightRadius: "0 !important",
-                                  borderBottomRightRadius: "0 !important",
-                                }),
-                              }}
-                            />
-                            <InputGroup
-                              className={lastFocus ? "input-group-focus" : ""}
-                            >
-                              <InputGroupAddon addonType="prepend">
-                                <InputGroupText
-                                  style={{
-                                    borderTopLeftRadius: 0,
-                                    borderBottomLeftRadius: 0,
-                                  }}
-                                >
-                                  <i className="now-ui-icons text_caps-small"></i>
-                                </InputGroupText>
-                              </InputGroupAddon>
-                              <Input
-                                autoComplete="name"
-                                placeholder="Last Name..."
-                                type="text"
-                                onFocus={() => setLastFocus(true)}
-                                onBlur={() => setLastFocus(false)}
-                              />
-                            </InputGroup>
-                          </div>
-                        </Col>
-                      </Row>
+                      <InputGroup
+                        className={firstFocus ? "input-group-focus" : ""}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="now-ui-icons users_circle-08"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          autoComplete="fullname"
+                          placeholder="First Name..."
+                          type="text"
+                          onFocus={() => setFirstFocus(true)}
+                          onBlur={() => setFirstFocus(false)}
+                        ></Input>
+                      </InputGroup>
+                      <InputGroup
+                        className={lastFocus ? "input-group-focus" : ""}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="now-ui-icons text_caps-small"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          autoComplete="name"
+                          placeholder="Last Name..."
+                          type="text"
+                          onFocus={() => setLastFocus(true)}
+                          onBlur={() => setLastFocus(false)}
+                        ></Input>
+                      </InputGroup>
+                      <InputGroup
+                        className={emailFocus ? "input-group-focus" : ""}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="now-ui-icons ui-1_email-85"></i>
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          autoComplete="email"
+                          placeholder="Your Email..."
+                          type="text"
+                          onFocus={() => setEmailFocus(true)}
+                          onBlur={() => setEmailFocus(false)}
+                        ></Input>
+                      </InputGroup>
+                      <FormGroup check>
+                        <Label check>
+                          <Input type="checkbox"></Input>
+                          <span className="form-check-sign"></span>I agree to
+                          the terms and{" "}
+                          <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                            conditions
+                          </a>
+                          .
+                        </Label>
+                      </FormGroup>
                       <CardFooter className="text-center">
                         <Button
                           className="btn-round"
                           color="info"
                           href="#pablo"
-                          onClick={(e) => (
-                            e.preventDefault(),
-                            console.log(colorSelect))}
+                          onClick={(e) => e.preventDefault()}
                           size="lg"
                         >
-                          Búscar
+                          Get Started
                         </Button>
                       </CardFooter>
                     </Form>
                   </CardBody>
                 </Card>
-                
               </Col>
-
             </Row>
           </Container>
         </div>
-        
+        <Footer />
       </div>
     </>
   );

@@ -1,15 +1,14 @@
+//React
 import React from "react";
-import { Link } from "react-router-dom";
-// reactstrap components
+//translations
+import { useTranslation } from "react-i18next";
+//react-strap
 import Select from "react-select";
 import {
   Button,
   Card,
   CardBody,
   CardFooter,
-  CardTitle,
-  Label,
-  FormGroup,
   Form,
   Input,
   InputGroupAddon,
@@ -19,32 +18,29 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
+//api
 import { useGetBusquedaInfoSelectQuery } from "../../api/api.slice.js";
+//self components
 import { Spiner } from "../../components/spiner/Spiner";
-// core components
 
-function Sections() {
-  const url = "busqueda";
+function SearchBoxSection() {
+  const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
+  const { t, i18n } = useTranslation("global");
   const [lastFocus, setLastFocus] = React.useState(false);
-  let [busqueda, setBusqueda] = React.useState("");
+  const [busqueda, setBusqueda] = React.useState("");
   const [inputValue, setInputValue] = React.useState("");
+  const [paisPublicacionSelect, setPaisPublicacionSelect] = React.useState("");
+  const [areaSelect, setAreaSelect] = React.useState("");
   const [seccionSelect, setSeccionSelect] = React.useState({
     value: "1",
     label: "General",
   });
-  const [areaSelect, setAreaSelect] = React.useState("");
-  const [tipoDocumentoSelect, setTipoDocumentoSelect] = React.useState(null);
-  const [paisPublicacionSelect, setPaisPublicacionSelect] =
-    React.useState(null);
-  const [editorialSelect, setEditorialSelect] = React.useState(null);
-  const [institucionSelect, setInstitucionSelect] = React.useState(null);
+  const url = "busqueda";
 
-  const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
   if (isLoading) {
     return <Spiner showSpiner />;
   }
-
+// **********Functions**********
   const handleChange = (e) => {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
 
@@ -53,6 +49,14 @@ function Sections() {
       setBusqueda(e);
     }
   };
+
+  const handleResetInputs = () => {
+    setBusqueda("");
+    setAreaSelect("");
+    setPaisPublicacionSelect("");
+    setInputValue("");
+  };
+
   const renderInputGroup = () => {
     if (seccionSelect.value === "1") {
       return (
@@ -174,6 +178,7 @@ function Sections() {
       );
     }
   };
+
   return (
     <>
       <div className="section section-sections">
@@ -183,7 +188,7 @@ function Sections() {
             <span className="text-primary">
               {indicadores.indicadores[0].documentos}
             </span>{" "}
-            Documentos identificados
+            {t("searchBox.Description.Title")}
           </h1>
           <hr className="bg-primary"></hr>
           <div className="d-flex justify-content-around align-items-center text-center">
@@ -191,34 +196,34 @@ function Sections() {
               <span className="text-primary">
                 {indicadores.indicadores[0].autores}
               </span>{" "}
-              Autores
+              {t("searchBox.Description.Authors")}
             </h3>
             <h1>|</h1>
             <h3>
               <span className="text-primary">
                 {indicadores.indicadores[0].paises}
               </span>{" "}
-              Países
+              {t("searchBox.Description.Country")}
             </h3>
             <h1>|</h1>
             <h3>
               <span className="text-primary">
                 {indicadores.indicadores[0].revistas}
               </span>{" "}
-              Revistas
+              {t("searchBox.Description.Magazine")}
             </h3>
           </div>
           <hr className="bg-primary"></hr>
           <Col className="ml-auto mr-auto" md="12">
             <div className="section-description text-center">
-              <h1 className="title">Buscar en la Base de Datos de CUValles</h1>
+              <h1 className="title">{t("searchBox.Container.Title")}</h1>
               <Card
                 className="card-signup"
                 style={{ maxWidth: "90%", margin: "0 auto" }}
               >
                 <CardBody>
                   <div className="social text-center">
-                    <h3>Ingresa el criterio de búsqueda : </h3>
+                    <h3>{t("searchBox.Container.Subtitle")} : </h3>
                     <br />
                   </div>
                   <Form action="" className="form" method="">
@@ -268,7 +273,7 @@ function Sections() {
                         color="info"
                         onClick={(e) => {
                           if (busqueda != "") {
-                            busqueda = busqueda.replace(/ /g, "+");
+                            setBusqueda(busqueda.replace(/ /g, "+"));
                           }
                           const seccion = seccionSelect.label.replace(
                             / /g,
@@ -278,17 +283,11 @@ function Sections() {
                             `/${url}/${seccion}/${busqueda}`,
                             "_blank"
                           );
-                          setBusqueda("");
-                          setAreaSelect("");
-                          setTipoDocumentoSelect("");
-                          setPaisPublicacionSelect("");
-                          setEditorialSelect("");
-                          setInstitucionSelect("");
-                          setInputValue("");
+                          handleResetInputs();
                         }}
                         size="lg"
                       >
-                        Búscar
+                        {t("searchBox.Container.Button")}
                       </Button>
                     </CardFooter>
                   </Form>
@@ -302,4 +301,4 @@ function Sections() {
   );
 }
 
-export default Sections;
+export default SearchBoxSection;

@@ -1,4 +1,6 @@
+//React
 import * as React from "react";
+//Mui
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
@@ -15,8 +17,12 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
+//React router dom
 import { NavLink } from "react-router-dom";
+//translations
+import { useTranslation } from "react-i18next";
 
+// **********Interfaces**********
 interface Props {
   data?: any;
   url?: string;
@@ -32,6 +38,7 @@ interface TablePaginationActionsProps {
   ) => void;
 }
 
+// **********Functions**********
 function TablePaginationActions(props: TablePaginationActionsProps) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
@@ -102,19 +109,20 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   );
 }
 
+function quitarAcentos(texto) {
+  return texto
+    .replace(/[áäà]/gi, "a")
+    .replace(/[éëè]/gi, "e")
+    .replace(/[íïì]/gi, "i")
+    .replace(/[óöò]/gi, "o")
+    .replace(/[úüù]/gi, "u");
+}
+
 export const Pagination = ({ url, data }: Props) => {
-  function quitarAcentos(texto) {
-    return texto
-      .replace(/[áäà]/gi, "a")
-      .replace(/[éëè]/gi, "e")
-      .replace(/[íïì]/gi, "i")
-      .replace(/[óöò]/gi, "o")
-      .replace(/[úüù]/gi, "u");
-  }
-  url = quitarAcentos(url);
+  const { t, i18n } = useTranslation("global");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  url = quitarAcentos(url);
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
@@ -132,16 +140,17 @@ export const Pagination = ({ url, data }: Props) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }}>
         <TableHead>
           <TableRow>
             <TableCell>
-              <b>Región geográfica</b>
+              <b>{t("indexMapsLanguage.MapTableColumnRegion")}</b>
             </TableCell>
             <TableCell>
-              <b>Total de publicaciones</b>
+              <b>{t("indexMapsLanguage.MapTableColumnTitleTotal")}</b>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -151,7 +160,7 @@ export const Pagination = ({ url, data }: Props) => {
             : data
           ).map((row) => (
             <TableRow key={row.name_es}>
-              <TableCell component="th" scope="row" >
+              <TableCell component="th" scope="row">
                 <NavLink to={`/${url}/${row.name_es}`} target="blank">
                   {row.name_es}
                 </NavLink>

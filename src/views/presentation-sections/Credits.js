@@ -15,7 +15,7 @@ import {
 
 // core components
 
-function Pricing() {
+function Credits() {
   return (
     <>
       <hr></hr>
@@ -57,9 +57,6 @@ function Pricing() {
             </Container>
           </div>
           <Row>
-            {/* <Col className="text-center ml-auto mr-auto mt-5" md="8">
-              <h3>Thank you for supporting us!</h3>
-            </Col> */}
             <Col className="text-center ml-auto mr-auto" md="8">
               <Button
                 className="btn-round btn-icon bg-dark"
@@ -121,4 +118,4 @@ function Pricing() {
   );
 }
 
-export default Pricing;
+export default Credits;

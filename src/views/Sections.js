@@ -1,6 +1,6 @@
 import React from "react";
 
-// reactstrap components
+
 
 // core components
 import WhiteNavbar from "components/Navbars/WhiteNavbar.js";
@@ -17,6 +17,7 @@ import Testimonials from "./sections-sections/Testimonials.js";
 import ContactUs from "./sections-sections/ContactUs.js";
 
 function Sections() {
+  
   React.useEffect(() => {
     document.body.classList.add("sections-page");
     document.body.classList.add("sidebar-collapse");
