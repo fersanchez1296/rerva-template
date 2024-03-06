@@ -46,8 +46,14 @@ interface Props {
   
 
 export const Graphics = ({XLabels,YLabels} : Props) => {
-  console.log(YLabels)
-  console.log(XLabels)
+  const porcentaje = YLabels?.map((label, index) => {
+    const percentage = (
+      (XLabels[index] / XLabels.reduce((a, b) => a + b, 0)) *
+      100
+    ).toFixed(2);
+    return percentage;
+  });
+  console.log("esot es porcentaje->",porcentaje);
 
 const data = {
     labels : YLabels,
@@ -58,6 +64,12 @@ const data = {
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
+      {
+        label: 'Porcentaje de publicaciones',
+        data: porcentaje,
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      }
     ],
   };
   return <Bar options={options} data={data} />;

@@ -34,7 +34,7 @@ function AboutUsHeader() {
         <div className="content-center">
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h1 className="title">Acerca de nosotros</h1>
+              <h1 className="title">Acerca de</h1>
             </Col>
           </Row>
         </div>

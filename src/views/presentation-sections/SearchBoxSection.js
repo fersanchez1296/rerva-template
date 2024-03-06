@@ -210,7 +210,7 @@ function SearchBoxSection() {
               <span className="text-primary">
                 {indicadores.indicadores[0].revistas}
               </span>{" "}
-              {t("searchBox.Description.Magazine")}
+              {t("searchBox.Description.Journal")}
             </h3>
           </div>
           <hr className="bg-primary"></hr>

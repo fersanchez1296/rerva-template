@@ -1,5 +1,7 @@
+//react
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+//react router dom
+import { Link } from "react-router-dom";
 //translations
 import { useTranslation } from "react-i18next";
 //zustand
@@ -14,21 +16,17 @@ import mxicon from "assets/img/mx-icon.png";
 import usaicon from "assets/img/usa-icon.png";
 // reactstrap components
 import {
-  Button,
   Collapse,
   DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   UncontrolledDropdown,
   NavbarBrand,
   Navbar,
-  NavItem,
   Nav,
   Container,
   UncontrolledTooltip,
-  InputGroup,
-  Input, // Agregar Input de reactstrap
 } from "reactstrap";
+
+//switch
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 54,
   height: 32,
@@ -71,8 +69,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
+
 function ScrollTransparentNavbar() {
-  const url = "Publicaciones-por-municipio";
   const { t, i18n } = useTranslation("global");
   const { language, changeLanguage } = useLanguageStore();
   const [collapseOpen, setCollapseOpen] = React.useState(false);
@@ -86,11 +84,7 @@ function ScrollTransparentNavbar() {
       ? "info"
       : "neutral"
   );
-  const handleChangeLanguage = () => {
-    const newLanguage = language === "es" ? "en" : "es";
-    changeLanguage(newLanguage);
-    i18n.changeLanguage(newLanguage);
-  };
+  
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
@@ -109,6 +103,13 @@ function ScrollTransparentNavbar() {
       window.removeEventListener("scroll", updateNavbarColor);
     };
   }, []);
+
+//**********functions**********
+  const handleChangeLanguage = () => {
+    const newLanguage = language === "es" ? "en" : "es";
+    changeLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
   return (
     <>
       {collapseOpen ? (
@@ -120,8 +121,8 @@ function ScrollTransparentNavbar() {
           }}
         />
       ) : null}
-      <Navbar className={"fixed-top" + navbarColor} color="white" expand="lg">
-        <Container>
+      <Navbar className={"fixed-top" + navbarColor} color="white" expand="md">
+        <Container className="mr-0">
           <div className="navbar-translate">
             <NavbarBrand to="/" tag={Link} id="navbar-brand"></NavbarBrand>
             <UncontrolledTooltip target="navbar-brand"></UncontrolledTooltip>
@@ -214,7 +215,7 @@ function ScrollTransparentNavbar() {
                     control={
                       <MaterialUISwitch
                         sx={{ m: 1 }}
-                        defaultChecked
+                        checked={language === "es" ? true : false}
                         onChange={() => handleChangeLanguage()}
                       />
                     }

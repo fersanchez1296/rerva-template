@@ -8,12 +8,19 @@
     "contact" : "Contacto",
     "library" : "Bibliotecas regionales" 
   },
+  "navSections" : {
+    "home" : "Inicio",
+    "autodeposito" : "Autodeposito",
+    "aboutUs" : "Acerca de...",
+    "contact" : "Contacto",
+    "library" : "Bibliotecas regionales" 
+  },
   "searchBox": {
     "Description": {
       "Title": "Documentos identificados",
       "Authors": "Autores",
       "Country": "Países",
-      "Magazine": "Revistas"
+      "Journal": "Revistas"
     },
     "Container": {
       "Title": "Buscar en la Base de Datos de CUValles",

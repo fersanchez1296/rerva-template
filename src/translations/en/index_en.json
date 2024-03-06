@@ -8,12 +8,19 @@
     "contact" : "Contact",
     "library" : "Regional Librarys" 
   },
+  "navSections" : {
+    "home" : "Home",
+    "autodeposito" : "Autodeposito",
+    "aboutUs" : "About...",
+    "contact" : "Contact",
+    "library" : "Regional Librarys" 
+  },
   "searchBox": {
     "Description": {
       "Title": "Identified documents",
       "Authors": "Authors",
       "Country": "Countries",
-      "Magazine": "Magazines"
+      "Journal": "Journals"
     },
     "Container": {
       "Title": "Search on CUValles Data Base",
