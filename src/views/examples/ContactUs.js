@@ -1,5 +1,7 @@
+//react
 import React from "react";
-
+//translations
+import { useTranslation } from "react-i18next";
 // reactstrap components
 import {
   Button,
@@ -16,16 +18,15 @@ import {
 
 // core components
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
-
 import ContactUsHeader from "components/Headers/ContactUsHeader.js";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 
 
 
 function ContactUs() {
+  const { t, i18n } = useTranslation("global");
   const [nameFocus, setNameFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
-  const [numberFocus, setNumberFocus] = React.useState(false);
   React.useEffect(() => {
     document.body.classList.add("contact-page");
     document.body.classList.add("sidebar-collapse");
@@ -47,11 +48,9 @@ function ContactUs() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto" md="5">
-                  <h2 className="title">Envianos un mensaje</h2>
+                  <h2 className="title">{t("Contact.TitleContact")}</h2>
                   <p className="text-justify">
-                    ¿Necesitas ponerte en contacto con nosotros?
-                    Introduce tu información y a la brevedad estaremos
-                    en contacto contigo.
+                  {t("Contact.ContactDescription")}
                     <br></br>
                     <br></br>
                   </p>
@@ -119,7 +118,7 @@ function ContactUs() {
                       <i className="now-ui-icons location_pin"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">¿Dónde nos ubicamos?</h4>
+                      <h4 className="info-title">{t("Contact.Location")}</h4>
                       <p>
                         Centro Universitario de los Valles<br></br>
                         Carretera Guadalajara - Ameca Km. 45.5, C.P. 46600<br></br>
@@ -132,7 +131,7 @@ function ContactUs() {
                       <i className="now-ui-icons tech_mobile"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Llamanos</h4>
+                      <h4 className="info-title">{t("Contact.Call")}</h4>
                       <p>
                         Michael Jordan <br></br>
                         +40 762 321 762 <br></br>
@@ -145,7 +144,7 @@ function ContactUs() {
                       <i className="business_briefcase-24 now-ui-icons"></i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Información Legal</h4>
+                      <h4 className="info-title">{t("Contact.LegalInformation")}</h4>
                       <p>
                         Creative Tim Ltd. <br></br>
                         VAT · EN2341241 <br></br>

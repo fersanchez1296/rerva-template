@@ -1,11 +1,14 @@
+//react
 import React from "react";
-
 // reactstrap components
 import { Row, Col } from "reactstrap";
+//translations
+import { useTranslation } from "react-i18next";
+//**********Functions*********
 
-// core components
 
 function AboutUsHeader() {
+  const { t, i18n } = useTranslation("global");
   let pageHeader = React.createRef();
   React.useEffect(() => {
     if (window.innerWidth > 991) {
@@ -34,7 +37,7 @@ function AboutUsHeader() {
         <div className="content-center">
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h1 className="title">Acerca de</h1>
+              <h1 className="title">{t("About.Title")}</h1>
             </Col>
           </Row>
         </div>

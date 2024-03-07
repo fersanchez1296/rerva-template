@@ -204,7 +204,7 @@ function ScrollTransparentNavbar() {
                 >
                   <i
                     aria-hidden={true}
-                    className="now-ui-icons ui-1_email-85"
+                    className="now-ui-icons travel_istanbul"
                   ></i>
                   <p>{t("indexNav.library")}</p>
                 </DropdownToggle>

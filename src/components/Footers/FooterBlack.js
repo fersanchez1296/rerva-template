@@ -1,12 +1,14 @@
 /*eslint-disable*/
 import React from "react";
-
+//translations
+import { useTranslation } from "react-i18next";
 // reactstrap components
 import { Container } from "reactstrap";
+//react router dom
 import {NavLink} from "react-router-dom";
-// core components
 
 function FooterBlack() {
+  const { t, i18n } = useTranslation("global");
   return (
     <>
       <footer className="footer" data-background-color="black">
@@ -18,7 +20,7 @@ function FooterBlack() {
                   to="/nosotros"
                   target="_blank"
                 >
-                  Acerca de Nosotros
+                  {t("IndexFooter.About")}
                 </NavLink>
               </li>
               <li>
@@ -26,7 +28,7 @@ function FooterBlack() {
                   href="http://blog.creative-tim.com?ref=nuk-pro-react-footer-black"
                   target="_blank"
                 >
-                  Contacto
+                  {t("IndexFooter.Contact")}
                 </a>
               </li>
             </ul>

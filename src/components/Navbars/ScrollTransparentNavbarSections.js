@@ -122,7 +122,7 @@ function ScrollTransparentNavbarSections() {
         />
       ) : null}
       <Navbar className={"fixed-top" + navbarColor} color="white" expand="lg">
-        <Container>
+        <Container className="mr-0">
           <div className="navbar-translate">
             <NavbarBrand to="/" tag={Link} id="navbar-brand"></NavbarBrand>
             <UncontrolledTooltip target="navbar-brand"></UncontrolledTooltip>
@@ -239,7 +239,7 @@ function ScrollTransparentNavbarSections() {
                 >
                   <i
                     aria-hidden={true}
-                    className="now-ui-icons ui-1_email-85"
+                    className="now-ui-icons travel_istanbul"
                   ></i>
                   <p>{t("navSections.library")}</p>
                 </DropdownToggle>

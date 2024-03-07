@@ -17,6 +17,8 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Icon from "@mui/material/Icon";
+//translations
+import { useTranslation } from "react-i18next";
 
 interface Props {
   data: any;
@@ -105,6 +107,8 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
+  const { t, i18n } = useTranslation("global");
+  console.log(tableTitles)
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -129,7 +133,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
   const renderTitles = () => {
     return tableTitles.map((title) => (
       <TableCell style={{ width: 100 }} align="left" key={title}>
-        <b>{title}</b>
+        <b>{t(`Coincidences.TableTitleV1.${title}`)}</b>
       </TableCell>
     ));
   };

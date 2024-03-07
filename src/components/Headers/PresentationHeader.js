@@ -30,11 +30,20 @@ function PresentationHeader() {
 
         <div className="rellax-text-container rellax-text">
           <h1 className="h1-seo" data-rellax-speed="-1">
-            CUValles
+            RECUV
           </h1>
         </div>
         <h3 className="h3-description rellax-text" data-rellax-speed="-1">
-          Repositorio de Estudios sobre la Región Valles <br></br> 
+          Repositorio de Estudios de la Región en el Centro Universitario de los
+          Valles{" "}
+          <hr
+            style={{
+              border: "1px solid white",
+              width: "50%",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          ></hr>
           <span className="font-weight-normal">Universidad de Guadalajara</span>
         </h3>
       </div>

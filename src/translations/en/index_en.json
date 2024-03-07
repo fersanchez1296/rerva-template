@@ -2,18 +2,18 @@
   "languagePage": {
     "language": "English"
   },
-  "indexNav" : {
-    "autodeposito" : "Autodeposito",
-    "aboutUs" : "About...",
-    "contact" : "Contact",
-    "library" : "Regional Librarys" 
+  "indexNav": {
+    "autodeposito": "Autodeposito",
+    "aboutUs": "About...",
+    "contact": "Contact",
+    "library": "Regional Librarys"
   },
-  "navSections" : {
-    "home" : "Home",
-    "autodeposito" : "Autodeposito",
-    "aboutUs" : "About...",
-    "contact" : "Contact",
-    "library" : "Regional Librarys" 
+  "navSections": {
+    "home": "Home",
+    "autodeposito": "Autodeposito",
+    "aboutUs": "About...",
+    "contact": "Contact",
+    "library": "Regional Librarys"
   },
   "searchBox": {
     "Description": {
@@ -35,5 +35,79 @@
     "mapChartTitle": "Numerical data",
     "MapTableColumnRegion": "Geographic region",
     "MapTableColumnTitleTotal": "Total publications"
+  },
+  "Autodeposito": {
+    "Title": "Collaborate with us",
+    "TitleDescription": "Self-deposit is a tool that allows integration through the DOI, URL, or web address of an article, chapter, book, or other type of academic content document that has been previously published with the aim of being consulted by users through repository interoperability.",
+    "TitleHowWorks": "How does it work?",
+    "DescriptionHowWorks-1": "Fill out the form with the corresponding data, make sure not to leave any blank spaces.",
+    "DescriptionHowWorks-2": "Once the form is completed, click on contribute.",
+    "DescriptionHowWorks-3": "The content will be validated to determine its relevance for registration in the Repository.",
+    "DescriptionHowWorks-4": "You will receive an email with the status of your request.",
+    "TitleRequirements": "Requirements",
+    "TitleRequirementsDescription": "Academic content must address the study of the \"región de los valles\".",
+    "Copyright": "Copyright",
+    "CopyrightDescription": "The publication of digital content is primarily carried out under the open access scheme, without prejudice to copyright protection provisions. Therefore, it will be directed to the site where it is available for users to access freely. In case it is a closed access document, it will only be directed to the website where it is located so that users, if necessary, can make the corresponding payment for consultation if they wish."
+  },
+  "About": {
+    "Title": "About...",
+    "Background": "Background",
+    "BackgroundDescription": "This Repository emerges as an effort stemming from the development of the research project titled \"Estudio exploratorio de los aportes y brechas en el conocimiento de la Región de los Valles en el estado Jalisco\", driven by funding from the Research Promotion calls, in their 2022 and 2023 editions, from this University Center.",
+    "TitleMainObjectives": "Main Objectives",
+    "MainObjectives": "The main objectives framing this research project focus, on one hand, on determining the current state and trajectory of research on the region and municipalities within the scope of the \"Centro Universitario de los Valles\" of the \"Universidad de Guadalajara\" (CUValles), which comprises the following municipalities:",
+    "Municipality": "Ahualulco de Mercado, Ameca, Amatitán, Cocula, El Arenal, Etzatlán, Hostotipaquillo, Magdalena, San Juanito de Escobedo, San Marcos, San Martín de Hidalgo, Tala, Tequila, Teuchitlán, Atenguillo, Guachinango, Mascota, Mixtlán y Talpa de Allende. Based on the scientific production oriented towards the description, explanation, and analysis of various themes and issues addressed by the national and international academic community over the past 50 years; and on the other hand, to explore the gaps between existing knowledge and the social demands of the region.",
+    "TitleParticularObjectives": "The specific objectives outlined in this work revolve around:",
+    "ParticularObjectives-1": "To construct the state of the art of the knowledge generated about the CUValles region.",
+    "ParticularObjectives-2": "Identify the themes that have been defined as priorities in the academic production of the region over time.",
+    "ParticularObjectives-3": "Uncover the gaps and potential lines of research in different disciplines and fields of knowledge, according to regional dynamics and processes.",
+    "ParticularObjectives-4": "Show the impact of CUValles on the generation of scientific knowledge in its area of focus.",
+    "ParticularObjectives-5": "Drive the creation of the repository of studies on región de los valles.",
+    "ParticularObjectives-6": "Promote links between the University Center, government, and society for the generation and dissemination of relevant knowledge about the region.",
+    "ParticularObjectivesDescription": "In methodological terms, among the steps followed in this work, one of its main activities was the determination of existing knowledge, based on searching, identifying, and compiling sources of information in various languages, including books, book chapters, articles in peer-reviewed journals, theses, monographs, and documentaries available both online and on specialized websites. Additionally, fieldwork was undertaken, which involved visiting the main municipal libraries in the region and the most important libraries in the state of Jalisco. Interviews were also conducted with relevant local actors in knowledge generation, not only from academia but also with stakeholders such as local historians.",
+    "TitleAcademicProduction": "Academic Production",
+    "AcademicProductionDescription": "Until May 2023, a total of 1,420 documents related to the study of the region had been identified, encompassing various areas of knowledge and developed through academic articles, books, book chapters, theses at different levels, scientific notes, reports, proceedings, and other types of documents.",
+    "TitleOperation": "Operation",
+    "OperationDescriptionP-1": "The CUValles repository links users to other digital platforms that integrate, publish, and distribute academic, scientific, technological, and cultural materials freely and freely available on the región de los valles.",
+    "OperationDescriptionP-2": "Similarly, it facilitates the identification of materials available physically in public libraries.",
+    "OperationDescriptionP-3": "Furthermore, to promote open access to content generated from CUValles, it has a direct deposit tool for academic staff, without prejudice to intellectual property provisions, ensuring the protection of copyright.",
+    "TitleVision": "Our Vision",
+    "VisionDescription": "To be recognized as a center of reference and dissemination of knowledge about the \"región de los valles\" and the \"Centro Universitario de los Valles\" (CUValles), promoting interdisciplinary research, preservation of local culture, and community collaboration at both local and global levels.",
+    "TitleWorkingTeam": "Our Work Team",
+    "WorkingTeamDescription": "We are a multidisciplinary team interested in bringing visibility to the \"región de los valles\" in Jalisco. Our collaborators form a team that spans the fields of Engineering, Social Sciences and Humanities. This combination of disciplines allows for a synergy that results in the successful completion of the current project.",
+    "GradeAlvaro": "PhD. in Urban Planning",
+    "GradeKarla": "PhD. in Urban Planning",
+    "GradeFelix": "Technical Secretary at the \"Centro Universitario de los Valles\"",
+    "GradeRectora": "Rector at the \"Centro Universitario de los Valles\"",
+    "GradeStefany": "Bachelor's Degree Student in Accounting",
+    "GradeCesar": "Bachelor's Degree Student in Accounting",
+    "GradeFernando": "Engineer in Electronic and Computer Engineering",
+    "GradeEnrique": "Student of Electronic and Computer Engineering"
+  },
+  "Contact": {
+    "TitleContact": "Send us a message",
+    "ContactDescription": "Do you need to contact us? Enter your information and we will be in contact with you shortly.",
+    "Location": "Where are we located?",
+    "Call": "Call us",
+    "LegalInformation": "Legal Information"
+  },
+  "IndexFooter": {
+    "About": "About",
+    "Contact": "Contact"
+  },
+  "SectionsFooter": {
+    "Home": "Home",
+    "About": "About",
+    "Contact": "Contact"
+  },
+  "Coincidences": {
+    "TableTitleV1": {
+      "Link de acceso": "Access Link",
+      "Nombre de la revista/libro": "Nombre de la revista/libro",
+      "Título": "Título",
+      "Idioma": "Idioma",
+      "Año": "Año",
+      "Autores": "Autores",
+      "País de la Publicación": "País de la Publicación"
+    }
   }
 }

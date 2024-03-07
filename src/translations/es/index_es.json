@@ -1,19 +1,19 @@
 {
   "languagePage": {
-    "language" : "Español"
+    "language": "Español"
   },
-  "indexNav" : {
-    "autodeposito" : "Autodeposito",
-    "aboutUs" : "Acerca de...",
-    "contact" : "Contacto",
-    "library" : "Bibliotecas regionales" 
+  "indexNav": {
+    "autodeposito": "Autodeposito",
+    "aboutUs": "Acerca de...",
+    "contact": "Contacto",
+    "library": "Bibliotecas regionales"
   },
-  "navSections" : {
-    "home" : "Inicio",
-    "autodeposito" : "Autodeposito",
-    "aboutUs" : "Acerca de...",
-    "contact" : "Contacto",
-    "library" : "Bibliotecas regionales" 
+  "navSections": {
+    "home": "Inicio",
+    "autodeposito": "Autodeposito",
+    "aboutUs": "Acerca de...",
+    "contact": "Contacto",
+    "library": "Bibliotecas regionales"
   },
   "searchBox": {
     "Description": {
@@ -35,5 +35,79 @@
     "mapChartTitle": "Numeralia",
     "MapTableColumnRegion": "Región geográfica",
     "MapTableColumnTitleTotal": "Total de publicaciones"
+  },
+  "Autodeposito": {
+    "Title": "Colabora con nosotros",
+    "TitleDescription": "El autodepósito es una herramienta que permite integrar a través del DOI, URL o dirección web, un artículo, capítulo, libro u otro tipo de documento de contenido académico que se encuentre previamente publicado con el objetivo de que sea consultado por los usuarios a partir de la interoperabilidad de repositorios.",
+    "TitleHowWorks": "¿Cómo funciona?",
+    "DescriptionHowWorks-1": "Llena el formulario con los datos correspondientes, asegúrate de no dejar ningún espacio en blanco.",
+    "DescriptionHowWorks-2": "Una vez completado el formulario, da click en contribuir.",
+    "DescriptionHowWorks-3": "Se validará el contenido para determinar la pertinencia de su registro en el Repositorio.",
+    "DescriptionHowWorks-4": "Recibirás un correo con el estatus de tu solicitud.",
+    "TitleRequirements": "Requisitos",
+    "TitleRequirementsDescription": "El contenido académico debe abordar el estudio de la región de los valles.",
+    "Copyright": "Derechos de autor",
+    "CopyrightDescription": "La publicación de los contenidos digitales se realiza principalmente bajo el esquema de acceso abierto, sin prejuicio de las disposiciones en materia de protección de los derechos de autor. Por lo tanto, se direccionará al sitio en el que se encuentre disponible para que los usuarios accedan libremente. En caso de que se trate de un documento de acceso cerrado únicamente se direccionará al sitio web en el que se encuentre para que los usuarios, de ser el caso realicen el pago correspondiente para su consulta si así lo desean."
+  },
+  "About": {
+    "Title": "Acerca de...",
+    "Background": "Antecedentes",
+    "BackgroundDescription": "Este Repositorio surge como un esfuerzo a partir del desarrollo del proyecto de investigación titulado “Estudio exploratorio de los aportes y brechas en el conocimiento de la Región de los Valles en el estado Jalisco”, impulsado por el financiamiento de las convocatorias de Fomento a la Investigación, en sus emisiones 2022 y 2023, de este Centro Universitario",
+    "TitleMainObjectives": "Objetivos Principales",
+    "MainObjectives": "Los objetivos principales que enmarcan este proyecto de investigación versan, por un lado, en determinar el estado actual y la trayectoria que ha seguido la hechura de la investigación sobre la región y los municipios del área de atención del Centro Universitario de los Valles de la Universidad de Guadalajara (CUValles), la cuál se constituye de los siguiente municipios:",
+    "Municipality": "Ahualulco de Mercado, Ameca, Amatitán, Cocula, El Arenal, Etzatlán, Hostotipaquillo, Magdalena, San Juanito de Escobedo, San Marcos, San Martín de Hidalgo, Tala, Tequila, Teuchitlán, Atenguillo, Guachinango, Mascota, Mixtlán y Talpa de Allende. A partir de la producción científica orientada a la descripción, explicación y análisis de las diversas temáticas y problemáticas abordadas desde la comunidad académica nacional e internacional en los últimos 50 años; y por el otro, en explorar las brechas entre el conocimiento existente y las demandas sociales de la región.",
+    "TitleParticularObjectives": "Los objetivos particulares planteados en este trabajo giran en torno a:",
+    "ParticularObjectives-1": "Construir el estado del arte de los conocimientos generados sobre la región del CUValles.",
+    "ParticularObjectives-2": "Identificar las temáticas que se han definido como prioritarias en la producción académica de la región a lo largo del tiempo.",
+    "ParticularObjectives-3": "Develar las brechas y potenciales líneas de investigación en distintas disciplinas y campos de conocimiento, acordes a las dinámicas y procesos regionales.",
+    "ParticularObjectives-4": "Mostrar la incidencia del CUValles en la generación del conocimiento científico en su región de atención.",
+    "ParticularObjectives-5": "Impulsar la creación del repositorio de estudios sobre la Región de los Valles.",
+    "ParticularObjectives-6": "Fomentar vínculos Centro Universitario-gobierno-sociedad para la generación y difusión del conocimiento relevante sobre la región.",
+    "ParticularObjectivesDescription": "En términos metodológicos, entre los pasos que este trabajo siguió, una de sus principales actividades realizadas fue la determinación del conocimiento existente, a partir de la búsqueda, la identificación y la compilación de fuentes de información en diversos idiomas, de libros, capítulos de libro, artículos en revistas arbitradas, tesis, monografías y documentales disponibles tanto en la red como en sitios de internet especializados. Asimismo, se emprendió trabajo de campo en el que se visitaron las principales bibliotecas municipales de la región y las bibliotecas más importantes del estado de Jalisco, aunado entablar entrevistas con actores locales relevantes en la generación de conocimiento, no únicamente desde la academia, sino también con involucrados como los cronistas.",
+    "TitleAcademicProduction": "Producción Académica",
+    "AcademicProductionDescription": "Hasta mayo del 2023, se habían identificado un total de 1,420 documentos relacionados con el estudio de la región, en alguna de las áreas del conocimiento y desarrollados a través de artículos académicos, libros, capítulos de libro, tesis en sus diferentes niveles, notas científicas, reportes, memorias y otro tipo de documentos.",
+    "TitleOperation": "Funcionamiento",
+    "OperationDescriptionP-1": "El repositorio del CUValles vincula a los usuarios con otras plataformas digitales que integran, publican y distribuyen de manera libre y gratuita materiales académicos, científicos, tecnológicos y culturales sobre la región de los Valles.",
+    "OperationDescriptionP-2": "En el mismo sentido, facilita la identificación de que se encuentran disponibles de manera física en las Bibliotecas Públicas.Asimismo, para promover el libre acceso a contenidos generados desde el CUValles, cuenta con una herramienta de depósito directo del personal académico sin perjuicio de las disposiciones en materia de propiedad intelectual, garantizando la protección de los derechos de autor.",
+    "OperationDescriptionP-3": "Asimismo, para promover el libre acceso a contenidos generados desde el CUValles, cuenta con una herramienta de depósito directo del personal académico sin perjuicio de las disposiciones en materia de propiedad intelectual, garantizando la protección de los derechos de autor.",
+    "TitleVision": "Nuestra Visión",
+    "VisionDescription": "Ser reconocido como un centro de referencia y difusión de conocimiento sobre la región de los valles y el Centro Universitario de los Valles (CUValles), promoviendo la investigación interdisciplinaria, la preservación de la cultura local y la colaboración comunitaria a nivel local y global.",
+    "TitleWorkingTeam": "Nuestro equipo de Trabajo",
+    "WorkingTeamDescription": "Somos un equipo multidisciplinarios interesados en dar visibilidad a la Región de los Valles en Jalisco. Nuestros colaboradores conforman un equipo que abarca las áreas de Ingeniería, Ciencias Sociales y Humanidades. Esta combinación de disciplinas permite una sinergia que resulta en la realización exitosa del presente proyecto.",
+    "GradeAlvaro": "Dr. en Urbanismo",
+    "GradeKarla": "Dra. en Urbanismo",
+    "GradeFelix": "Secretario Técnico",
+    "GradeRectora": "Rectora de Centro",
+    "GradeStefany": "Estudiante de la Licenciatura en Contabilidad",
+    "GradeCesar": "Estudiante de la Licenciatura en Contabilidad",
+    "GradeFernando": "Ing. Electrónica y Computación",
+    "GradeEnrique": "Estudiante de la Ing. Electrónica y Computación"
+  },
+  "Contact": {
+    "TitleContact": "Envianos un mensaje",
+    "ContactDescription": "¿Necesitas ponerte en contacto con nosotros? Introduce tu información y a la brevedad estaremos en contacto contigo.",
+    "Location": "¿Dónde nos ubicamos?",
+    "Call": "Llamanos",
+    "LegalInformation": "Información Legal"
+  },
+  "IndexFooter": {
+    "About": "Acerca de Nosotros",
+    "Contact": "Contacto"
+  },
+  "SectionsFooter": {
+    "Home": "Inicio",
+    "About": "Acerca de",
+    "Contact": "Contacto"
+  },
+  "Coincidences": {
+    "TableTitleV1": {
+      "Link de acceso": "Link de acceso",
+      "Nombre de la revista/libro": "Nombre de la revista/libro",
+      "Título": "Título",
+      "Idioma": "Idioma",
+      "Año": "Año",
+      "Autores": "Autores",
+      "País de la Publicación": "País de la Publicación"
+    }
   }
 }

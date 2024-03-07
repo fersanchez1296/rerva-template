@@ -1,22 +1,17 @@
+//react
 import React from "react";
-// react plugin used to create DropdownMenu for selecting items
-import Select from "react-select";
+//translations
+import { useTranslation } from "react-i18next";
+//react router domr
 import { NavLink } from "react-router-dom";
+//self components
 import { JaliscoMap } from "../../components/MapaMunicipios/JaliscoMap.tsx";
 // reactstrap components
 import {
-  Badge,
-  Button,
   Card,
   CardBody,
   CardFooter,
   CardTitle,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
   Container,
   Row,
   Col,
@@ -30,6 +25,7 @@ import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
 import { Spiner } from "components/spiner/Spiner";
 
 function AboutUs() {
+  const { t, i18n } = useTranslation("global");
   const { data, isLoading } = useGetVisualitationsDataQuery(
     "/countriesAndMunicipios"
   );
@@ -64,31 +60,17 @@ function AboutUs() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Antecedentes</h2>
+                  <h2 className="title">{t("About.Background")}</h2>
                   <h4 className="text-justify">
-                    Este Repositorio surge como un esfuerzo a partir del
-                    desarrollo del proyecto de investigación titulado “Estudio
-                    exploratorio de los aportes y brechas en el conocimiento de
-                    la Región de los Valles en el estado Jalisco”, impulsado por
-                    el financiamiento de las convocatorias de Fomento a la
-                    Investigación, en sus emisiones 2022 y 2023, de este Centro
-                    Universitario
+                    {t("About.BackgroundDescription")}
                   </h4>
                   <div className="section-space"></div>
                 </Col>
               </Row>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Objetivos Principales</h2>
-                  <h4 className="text-justify">
-                    Los objetivos principales que enmarcan este proyecto de
-                    investigación versan, por un lado, en determinar el estado
-                    actual y la trayectoria que ha seguido la hechura de la
-                    investigación sobre la región y los municipios del área de
-                    atención del Centro Universitario de los Valles de la
-                    Universidad de Guadalajara (CUValles), la cuál se constituye
-                    de los siguiente municipios:
-                  </h4>
+                  <h2 className="title">{t("About.TitleMainObjectives")}</h2>
+                  <h4 className="text-justify">{t("About.MainObjectives")}</h4>
                   <div className="section-space"></div>
                 </Col>
               </Row>
@@ -100,136 +82,31 @@ function AboutUs() {
                   <div className="info info-horizontal">
                     <div className="info info-horizontal">
                       <p className="info-title text-justify">
-                        Ahualulco de Mercado, Ameca, Amatitán, Cocula, El
-                        Arenal, Etzatlán, Hostotipaquillo, Magdalena, San
-                        Juanito de Escobedo, San Marcos, San Martín de Hidalgo,
-                        Tala, Tequila, Teuchitlán, Atenguillo, Guachinango,
-                        Mascota, Mixtlán y Talpa de Allende. A partir de la
-                        producción científica orientada a la descripción,
-                        explicación y análisis de las diversas temáticas y
-                        problemáticas abordadas desde la comunidad académica
-                        nacional e internacional en los últimos 50 años; y por
-                        el otro, en explorar las brechas entre el conocimiento
-                        existente y las demandas sociales de la región.
+                        {t("About.Municipality")}
                       </p>
                     </div>
                   </div>
                 </Col>
               </Row>
               <hr></hr>
-              {/* <Row>
-                <Col className="ml-auto mt-5" md="5">
-                  <div className="info info-horizontal">
-                    <div className="icon icon-warning">
-                      <i className="now-ui-icons location_world"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">
-                        Colaboración local, nacional e internacional:
-                      </h4>
-                      <p className="info-title text-justify">
-                        Colaborar con instituciones educativas, bibliotecas y
-                        organizaciones locales, nacionales e internacionales
-                        para promover el acceso a la información y la
-                        investigación sobre la región.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-warning">
-                      <i className="now-ui-icons tech_laptop"></i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Presencia digital:</h4>
-                      <p className="info-title text-justify">
-                        Presencia digital a través de una plataforma web donde
-                        los creadores puedan cargar sus obras de manera virtual
-                        permitiendo que un público más amplio pueda acceder a
-                        ellas desde cualquier lugar del mundo, amplificando así
-                        su alcance y accesibilidad.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-warning">
-                      <i className="now-ui-icons education_hat"></i>
-                    </div>
-                    <div className="">
-                      <h4 className="info-title">Punto de encuentro :</h4>
-                      <p className="info-title text-justify">
-                        Punto de encuentro para la comunidad académica y
-                        cultural interesada en explorar y celebrar la riqueza y
-                        diversidad de esta región.
-                      </p>
-                    </div>
-                  </div>
-                </Col>
-                <Col className="mr-auto" md="5">
-                  <Card
-                    className="card-background card-background-product card-raised"
-                    style={{
-                      backgroundImage:
-                        "url(" + require("assets/img/cuvalles-4.jpg") + ")",
-                    }}
-                  >
-                    <CardBody>
-                      <CardTitle tag="h2">
-                        Hub de Colaboración Institucional y Difusión Global
-                      </CardTitle>
-                      <p className="card-description text-white text-justify">
-                        Hub dinámico que promueve la colaboración entre
-                        instituciones educativas, bibliotecas y organizaciones
-                        locales, fortaleciendo el acceso a la información y la
-                        investigación sobre los valles. Además, establece una
-                        presencia digital global, permitiendo que las obras
-                        depositadas sean vistas y compartidas por un público
-                        amplio desde cualquier lugar del mundo.
-                      </p>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row> */}
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
                   <h2 className="title">
-                    Los objetivos particulares planteados en este trabajo giran
-                    en torno a:
+                    {t("About.TitleParticularObjectives")}
                   </h2>
                   <h4 className="text-justify">
                     <ol>
-                      <li>
-                        Construir el estado del arte de los conocimientos
-                        generados sobre la región del CUValles.
-                      </li>
+                      <li>{t("About.ParticularObjectives-1")}</li>
                       <br></br>
-                      <li>
-                        Identificar las temáticas que se han definido como
-                        prioritarias en la producción académica de la región a
-                        lo largo del tiempo.
-                      </li>
+                      <li>{t("About.ParticularObjectives-2")}</li>
                       <br></br>
-                      <li>
-                        Develar las brechas y potenciales líneas de
-                        investigación en distintas disciplinas y campos de
-                        conocimiento, acordes a las dinámicas y procesos
-                        regionales.
-                      </li>
+                      <li>{t("About.ParticularObjectives-3")}</li>
                       <br></br>
-                      <li>
-                        Mostrar la incidencia del CUValles en la generación del
-                        conocimiento científico en su región de atención.
-                      </li>
+                      <li>{t("About.ParticularObjectives-4")}</li>
                       <br></br>
-                      <li>
-                        Impulsar la creación del repositorio de estudios sobre
-                        la Región de los Valles.
-                      </li>
+                      <li>{t("About.ParticularObjectives-5")}</li>
                       <br></br>
-                      <li>
-                        Fomentar vínculos Centro Universitario-gobierno-sociedad
-                        para la generación y difusión del conocimiento relevante
-                        sobre la región.
-                      </li>
+                      <li>{t("About.ParticularObjectives-6")}</li>
                     </ol>
                   </h4>
                 </Col>
@@ -237,59 +114,33 @@ function AboutUs() {
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
                   <h4 className="text-justify">
-                    En términos metodológicos, entre los pasos que este trabajo
-                    siguió, una de sus principales actividades realizadas fue la
-                    determinación del conocimiento existente, a partir de la
-                    búsqueda, la identificación y la compilación de fuentes de
-                    información en diversos idiomas, de libros, capítulos de
-                    libro, artículos en revistas arbitradas, tesis, monografías
-                    y documentales disponibles tanto en la red como en sitios de
-                    internet especializados. Asimismo, se emprendió trabajo de
-                    campo en el que se visitaron las principales bibliotecas
-                    municipales de la región y las bibliotecas más importantes
-                    del estado de Jalisco, aunado entablar entrevistas con
-                    actores locales relevantes en la generación de conocimiento,
-                    no únicamente desde la academia, sino también con
-                    involucrados como los cronistas.
+                    {t("About.ParticularObjectivesDescription")}
                   </h4>
                   <div className="section-space"></div>
                 </Col>
               </Row>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Producción Académica</h2>
+                  <h2 className="title">
+                    {t("About.TitleAcademicProduction")}
+                  </h2>
                   <h4 className="text-justify">
-                    Hasta mayo del 2023, se habían identificado un total de
-                    1,420 documentos relacionados con el estudio de la región,
-                    en alguna de las áreas del conocimiento y desarrollados a
-                    través de artículos académicos, libros, capítulos de libro,
-                    tesis en sus diferentes niveles, notas científicas,
-                    reportes, memorias y otro tipo de documentos.
+                    {t("About.AcademicProductionDescription")}
                   </h4>
                   <div className="section-space"></div>
                 </Col>
               </Row>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Funcionamiento</h2>
+                  <h2 className="title">{t("About.TitleOperation")}</h2>
                   <h4 className="text-justify">
-                    El repositorio del CUValles vincula a los usuarios con otras
-                    plataformas digitales que integran, publican y distribuyen
-                    de manera libre y gratuita materiales académicos,
-                    científicos, tecnológicos y culturales sobre la región de
-                    los Valles.
+                    {t("About.OperationDescriptionP-1")}
                   </h4>
                   <h4 className="text-justify">
-                    En el mismo sentido, facilita la identificación de que se
-                    encuentran disponibles de manera física en las Bibliotecas
-                    Públicas.
+                    {t("About.OperationDescriptionP-2")}
                   </h4>
                   <h4 className="text-justify">
-                    Asimismo, para promover el libre acceso a contenidos
-                    generados desde el CUValles, cuenta con una herramienta de
-                    depósito directo del personal académico sin perjuicio de las
-                    disposiciones en materia de propiedad intelectual,
-                    garantizando la protección de los derechos de autor.
+                    {t("About.OperationDescriptionP-3")}
                   </h4>
                   <div className="section-space"></div>
                 </Col>
@@ -301,14 +152,9 @@ function AboutUs() {
             <Container>
               <Row className="text-center">
                 <Col className="ml-auto mr-auto" md="8">
-                  <h2 className="title">Nuestra Visión</h2>
+                  <h2 className="title">{t("About.TitleVision")}</h2>
                   <h4 className="text-justify">
-                    Ser reconocido como un centro de referencia y difusión de
-                    conocimiento sobre la región de los valles y el Centro
-                    Universitario de los Valles (CUValles), promoviendo la
-                    investigación interdisciplinaria, la preservación de la
-                    cultura local y la colaboración comunitaria a nivel local y
-                    global.
+                  {t("About.VisionDescription")}
                   </h4>
                 </Col>
               </Row>
@@ -348,7 +194,7 @@ function AboutUs() {
                     src={require("assets/img/guachinango.jpeg")}
                   ></img>
                 </Col>
-                
+
                 <Col md="6">
                   <img
                     alt="..."
@@ -412,14 +258,9 @@ function AboutUs() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center" md="8">
-                  <h2 className="title">Nuestro equipo de Trabajo</h2>
+                  <h2 className="title">{t("About.TitleWorkingTeam")}</h2>
                   <h4 className="text-justify">
-                    Somos un equipo multidisciplinarios interesados en dar
-                    visibilidad a la Región de los Valles en Jalisco. Nuestros
-                    colaboradores conforman un equipo que abarca las áreas de
-                    Ingeniería, Ciencias Sociales y Humanidades. Esta
-                    combinación de disciplinas permite una sinergia que resulta
-                    en la realización exitosa del presente proyecto.
+                  {t("About.WorkingTeamDescription")}
                   </h4>
                 </Col>
               </Row>
@@ -442,10 +283,10 @@ function AboutUs() {
                         <CardBody>
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <CardTitle tag="h4">
-                              Dr. Alvaro Mora Maciel
+                              Alvaro Mora Maciel
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Doctor en Urbanismo</h6>
+                          <h6 className="category">{t("About.GradeAlvaro")}</h6>
                           <p className="">alvaro.mora@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
@@ -471,10 +312,10 @@ function AboutUs() {
                         <CardBody>
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <CardTitle tag="h4">
-                              Dra. Karla Viridiana Rosales Valenzuela
+                              Karla Viridiana Rosales Valenzuela
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Doctora en Urbanismo</h6>
+                          <h6 className="category">{t("About.GradeKarla")}</h6>
                           <p className="">karla.rosales@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
@@ -501,7 +342,7 @@ function AboutUs() {
                           <CardTitle tag="h4">
                             Stefany Hernández Sánchez
                           </CardTitle>
-                          <h6 className="category">Estudiante</h6>
+                          <h6 className="category">{t("About.GradeStefany")}</h6>
                           <p className="">
                             stefany.hernandez6508@alumnos.udg.mx
                           </p>
@@ -533,7 +374,7 @@ function AboutUs() {
                             </CardTitle>
                           </NavLink>
                           <h6 className="category">
-                            Ing. Electrónica y Computación
+                          {t("About.GradeFernando")}
                           </h6>
                           <p className="">
                             fernando.sanchez3411@alumnos.udg.mx
@@ -565,7 +406,7 @@ function AboutUs() {
                               César Uriel Torres Vallarta
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Estudiante</h6>
+                          <h6 className="category">{t("About.GradeCesar")}</h6>
                           <p className="">cesar.torres5377@alumnos.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
@@ -594,7 +435,7 @@ function AboutUs() {
                               Enrique Jesús Fregoso Gutiérrez
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Estudiante</h6>
+                          <h6 className="category">{t("About.GradeEnrique")}</h6>
                           <p className="">enrique.fregoso4189@alumnos.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
@@ -623,7 +464,7 @@ function AboutUs() {
                               Mtro. Félix Alberto Barrera Osuna
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Secretario Técnico</h6>
+                          <h6 className="category">{t("About.GradeFelix")}</h6>
                           <p className="">felix.barrera@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
@@ -652,7 +493,7 @@ function AboutUs() {
                               Dra. María Luisa García Bátiz
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">Rectora de Centro</h6>
+                          <h6 className="category">{t("About.GradeRectora")}</h6>
                           <p className="">mluisa.garcia@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>

@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+//translations
+import { useTranslation } from "react-i18next";
 import {
-  Button,
+  tableTitlesV1,
+  tableTitlesV2,
+  tableTitlesV3,
+  tableTitlesV4,
+} from "../../utilities/tableTitles/tableTitles";
+import {
   Card,
   CardHeader,
   CardBody,
-  CardTitle,
   Collapse,
   Label,
   FormGroup,
@@ -13,19 +19,17 @@ import {
   Container,
   Row,
   Col,
-  UncontrolledTooltip,
 } from "reactstrap";
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
 import { PaginationAlternative } from "../../components/pagination/PaginationAlternative";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
-import { CardWithIcons } from "../../components/Card/CardWithIcons";
 import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
-import { SnackBar } from "../../components/snackBar/SnackBar";
 import { useGetBusquedaQuery } from "../../api/api.slice";
 
 function Ecommerce() {
+  const { t, i18n } = useTranslation("global");
   const params = useParams();
   console.log(params);
   let { url, request, busqueda } = useParams();
@@ -118,8 +122,6 @@ function Ecommerce() {
     }));
   };
 
-  
-
   const {
     data: dt,
     isError,
@@ -150,7 +152,6 @@ function Ecommerce() {
       </>
     );
   }
-  console.log("estos son los resultados->", dt.resultados);
   const filterOptionsArea = Array.from(
     new Set(dt.resultados.map((el) => el["Área"]))
   )
@@ -169,7 +170,6 @@ function Ecommerce() {
     .filter((campo) => campo !== undefined && campo !== null)
     .map((campo) => ({ key: campo.trim(), label: campo }));
 
-
   const filterOptionsYear = Array.from(
     new Set(dt.resultados.map((el) => el["Año"]))
   )
@@ -177,20 +177,17 @@ function Ecommerce() {
     .map((year) => ({ key: year, label: year }))
     .sort((a, b) => b.key - a.key);
 
-
   const filterOptionsIdioma = Array.from(
-    new Set(dt.resultados.map((el) => (el["Idioma"] ? el["Idioma"][0]: null)))
+    new Set(dt.resultados.map((el) => (el["Idioma"] ? el["Idioma"][0] : null)))
   )
     .filter((idioma) => idioma !== undefined && idioma !== null)
     .map((idioma) => ({ key: idioma.trim(), label: idioma }));
-
 
   const filterOptionsPais = Array.from(
     new Set(dt.resultados.map((el) => el["País de la Publicación"]))
   )
     .filter((pais) => pais !== undefined && pais !== null)
     .map((pais) => ({ key: pais.trim(), label: pais }));
-
 
   const filteredData = dt.resultados.filter((item) => {
     return (
@@ -222,7 +219,9 @@ function Ecommerce() {
         <div className="main">
           <div className="section">
             <Container>
-              <h2 className="section-title">Coincidencias : {cantidadFiltrada}</h2>
+              <h2 className="section-title">
+                Coincidencias : {cantidadFiltrada}
+              </h2>
               <Row>
                 <Col md="2">
                   <div className="collapse-panel">
@@ -492,7 +491,15 @@ function Ecommerce() {
                 <Col md="10">
                   <PaginationAlternative
                     data={filteredData}
-                    tableTitles={dt.tableTitle}
+                    tableTitles={
+                      busqueda === "Revista"
+                        ? tableTitlesV4
+                        : busqueda === "Autor"
+                        ? tableTitlesV2
+                        : busqueda === "General" || "Area-de-conocimiento"
+                        ? tableTitlesV1
+                        : tableTitlesV3
+                    }
                   />
                 </Col>
               </Row>

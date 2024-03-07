@@ -1,9 +1,11 @@
+//react
 import React from "react";
+//translations
+import { useTranslation } from "react-i18next";
 //Api
 import { usePostSolicitudMutation } from "../../api/api.slice";
 //Snackbar
 import { SnackBar } from "../../components/snackBar/SnackBar";
-import { Spiner } from "../../components/spiner/Spiner";
 // reactstrap components
 import {
   Button,
@@ -23,6 +25,7 @@ import AutodepositoHeader from "components/Headers/AutodepositoHeader.js";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 
 function Autodeposito() {
+  const { t, i18n } = useTranslation("global");
   const [snackBarState, setSnackBarState] = React.useState({
     show: false,
     variant: "success",
@@ -135,53 +138,32 @@ function Autodeposito() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto" md="12">
-                  <h2 className="title">Colabora con nosotros</h2>
+                  <h2 className="title">{t("Autodeposito.Title")}</h2>
                   <p className="text-justify">
-                    El autodepósito es una herramienta que permite integrar a
-                    través del DOI, URL o dirección web, un artículo, capítulo,
-                    libro u otro tipo de documento de contenido académico que se
-                    encuentre previamente publicado con el objetivo de que sea
-                    consultado por los usuarios a partir de la interoperabilidad
-                    de repositorios.
+                    {t("Autodeposito.TitleDescription")}
                     <br></br>
                   </p>
 
-                  <h2 className="title">¿Cómo funciona?</h2>
+                  <h2 className="title">{t("Autodeposito.TitleHowWorks")}</h2>
                   <ol>
-                    <li>
-                      Llena el formulario con los datos correspondientes.
-                      Asegúrate de no dejar ningún espacio en blanco.
-                    </li>
+                    <li>{t("Autodeposito.DescriptionHowWorks-1")}</li>
                     <br></br>
-                    <li>
-                      Una vez completado el formulario, da click en contribuir.
-                    </li>
+                    <li>{t("Autodeposito.DescriptionHowWorks-2")}</li>
                     <br></br>
-                    <li>
-                      Se validará el contenido para determinar la pertinencia de
-                      su registro en el Repositorio.
-                    </li>
+                    <li>{t("Autodeposito.DescriptionHowWorks-3")}</li>
                     <br></br>
-                    <li>Recibirás un correo con el estatus de tu solicitud.</li>
+                    <li>{t("Autodeposito.DescriptionHowWorks-4")}</li>
                   </ol>
-                  <h2 className="title">Requisitos</h2>
+                  <h2 className="title">
+                    {t("Autodeposito.TitleRequirements")}
+                  </h2>
                   <p className="text-justify">
-                    El contenido académico debe abordar el estudio de la región
-                    de los valles.
+                    {t("Autodeposito.TitleRequirementsDescription")}
                     <br></br>
                   </p>
-                  <h2 className="title">Derechos de autor</h2>
+                  <h2 className="title">{t("Autodeposito.Copyright")}</h2>
                   <p className="text-justify">
-                    La publicación de los contenidos digitales se realiza
-                    principalmente bajo el esquema de acceso abierto, sin
-                    prejuicio de las disposiciones en materia de protección de
-                    los derechos de autor. Por lo tanto, se direccionará al
-                    sitio en el que se encuentre disponible para que los
-                    usuarios accedan libremente. En caso de que se trate de un
-                    documento de acceso cerrado únicamente se direccionará al
-                    sitio web en el que se encuentre para que los usuarios, de
-                    ser el caso realicen el pago correspondiente para su
-                    consulta si así lo desean.
+                    {t("Autodeposito.CopyrightDescription")}
                     <br></br>
                   </p>
                   <br></br>
