@@ -102,12 +102,13 @@
   "Coincidences": {
     "TableTitleV1": {
       "Link de acceso": "Access Link",
-      "Nombre de la revista/libro": "Nombre de la revista/libro",
-      "Título": "Título",
-      "Idioma": "Idioma",
-      "Año": "Año",
-      "Autores": "Autores",
-      "País de la Publicación": "País de la Publicación"
+      "Nombre de la revista/libro": "Name of the journal/book",
+      "Título": "Title",
+      "Idioma": "Language",
+      "Año": "Year",
+      "Autores": "Authors",
+      "Autor": "Author",
+      "País de la Publicación": "Country of Publication"
     }
   }
 }
