@@ -8,7 +8,7 @@ interface Props {
   data: any
 }
 
-export const JaliscoMap = ({ data,url }: Props) => {
+function JaliscoMap ({ data,url }: Props) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const dimensions = useResizeObserver(wrapperRef);
@@ -99,3 +99,5 @@ export const JaliscoMap = ({ data,url }: Props) => {
     </>
   );
 };
+
+export default JaliscoMap;

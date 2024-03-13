@@ -8,9 +8,10 @@ import cuvalles8 from "../../assets/img/cuvalles8.png";
 function PresentationHeader() {
   return (
     <>
-      <div className="page-header clear-filter">
+      <div className="page-header ">
         <div className="rellax-header" data-rellax-speed="-4">
-          <div
+          <img
+            loading="lazy"
             className="page-header-image"
             style={{
               backgroundImage:
@@ -18,14 +19,14 @@ function PresentationHeader() {
                 require("assets/img/presentation-page/udg-hero.jpg") +
                 ")",
             }}
-          ></div>
+          ></img>
         </div>
 
         <div
           className="rellax-header rellax-header-buildings"
           data-rellax-speed="0"
         >
-          <img src={cuvalles8} style={{ maxWidth: "25%", margin: "1rem" }} />
+          <img src={cuvalles8} style={{ maxWidth: "25%", margin: "1rem" }} loading="lazy"/>
         </div>
 
         <div className="rellax-text-container rellax-text">

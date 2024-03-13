@@ -26,14 +26,15 @@ function AboutUsHeader() {
   return (
     <>
       <div className="page-header page-header-medium">
-        <div
+        <img
+          loading="lazy"
           className="page-header-image"
           style={{
             backgroundImage: "url(" + require("assets/img/cuvalles-2.jpg") + ")",
             
           }}
           ref={pageHeader}
-        ></div>
+        ></img>
         <div className="content-center">
           <Row>
             <Col className="ml-auto mr-auto" md="8">

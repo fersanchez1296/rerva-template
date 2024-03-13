@@ -23,7 +23,7 @@ import { useGetBusquedaInfoSelectQuery } from "../../api/api.slice.js";
 //self components
 import { Spiner } from "../../components/spiner/Spiner";
 
-function SearchBoxSection() {
+const SearchBoxSection = React.memo(() => {
   const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
   const { t, i18n } = useTranslation("global");
   const [lastFocus, setLastFocus] = React.useState(false);
@@ -299,6 +299,6 @@ function SearchBoxSection() {
       </div>
     </>
   );
-}
+});
 
 export default SearchBoxSection;

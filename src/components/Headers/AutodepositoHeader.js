@@ -22,13 +22,14 @@ function AutodepositoHeader() {
   return (
     <>
       <div className="page-header page-header-small">
-        <div
+        <img
+        loading="lazy"
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/cuvalles-4.jpg") + ")"
+            backgroundImage: "url(" + require("assets/img/cuvalles-4_HD.jpg") + ")"
           }}
           ref={pageHeader}
-        ></div>
+        ></img>
       </div>
     </>
   );

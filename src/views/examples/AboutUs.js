@@ -4,8 +4,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 //react router domr
 import { NavLink } from "react-router-dom";
-//self components
-import { JaliscoMap } from "../../components/MapaMunicipios/JaliscoMap.tsx";
 // reactstrap components
 import {
   Card,
@@ -16,19 +14,20 @@ import {
   Row,
   Col,
 } from "reactstrap";
+//utilities
+import municipios from "../../utilities/json/municipios.utilities.json";
 
 // core components
 import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import AboutUsHeader from "components/Headers/AboutUsHeader.js";
 import FooterBlackSections from "components/Footers/FooterBlackSections.js";
-import { useGetVisualitationsDataQuery } from "../../api/api.slice.js";
-import { Spiner } from "components/spiner/Spiner";
+//self components
+const LazyJaliscoMap = React.lazy(() =>
+  import("../../components/MapaMunicipios/JaliscoMap.tsx")
+);
 
 function AboutUs() {
   const { t, i18n } = useTranslation("global");
-  const { data, isLoading } = useGetVisualitationsDataQuery(
-    "/countriesAndMunicipios"
-  );
   React.useEffect(() => {
     document.body.classList.add("about-us");
     document.body.classList.add("sidebar-collapse");
@@ -40,14 +39,6 @@ function AboutUs() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
-
-  if (isLoading) {
-    return (
-      <>
-        <Spiner showBool />
-      </>
-    );
-  }
 
   return (
     <>
@@ -76,7 +67,9 @@ function AboutUs() {
               </Row>
               <Row>
                 <Col className="ml-auto mr-auto" md="5">
-                  <JaliscoMap data={data[0]} />
+                  <React.Suspense fallback="Loading...">
+                    <LazyJaliscoMap data={municipios} />
+                  </React.Suspense>
                 </Col>
                 <Col className="ml-auto mr-auto" md="5">
                   <div className="info info-horizontal">
@@ -154,13 +147,14 @@ function AboutUs() {
                 <Col className="ml-auto mr-auto" md="8">
                   <h2 className="title">{t("About.TitleVision")}</h2>
                   <h4 className="text-justify">
-                  {t("About.VisionDescription")}
+                    {t("About.VisionDescription")}
                   </h4>
                 </Col>
               </Row>
               <Row>
                 <Col md="6">
                   <img
+                    loading="lazy"
                     alt="..."
                     className="rounded img-raised"
                     src={require("assets/img/cuvalles-3.jpg")}
@@ -169,6 +163,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/cuvalles-4.jpg")}
                   ></img>
@@ -176,6 +171,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/sanmartin.jpeg")}
                   ></img>
@@ -183,6 +179,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/teuchitlan.jpeg")}
                   ></img>
@@ -190,6 +187,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/guachinango.jpeg")}
                   ></img>
@@ -198,6 +196,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/etzatlan.jpeg")}
                   ></img>
@@ -205,6 +204,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/mixtlan.jpeg")}
                   ></img>
@@ -212,6 +212,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/atenguillo.jpeg")}
                   ></img>
@@ -219,6 +220,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/magdalena.jpeg")}
                   ></img>
@@ -226,6 +228,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/talpa.jpeg")}
                   ></img>
@@ -233,6 +236,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/mascota.jpeg")}
                   ></img>
@@ -240,6 +244,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/ameca.jpeg")}
                   ></img>
@@ -247,6 +252,7 @@ function AboutUs() {
                 <Col md="6">
                   <img
                     alt="..."
+                    loading="lazy"
                     className="rounded img-raised"
                     src={require("assets/img/sanmarcos.jpeg")}
                   ></img>
@@ -260,7 +266,7 @@ function AboutUs() {
                 <Col className="ml-auto mr-auto text-center" md="8">
                   <h2 className="title">{t("About.TitleWorkingTeam")}</h2>
                   <h4 className="text-justify">
-                  {t("About.WorkingTeamDescription")}
+                    {t("About.WorkingTeamDescription")}
                   </h4>
                 </Col>
               </Row>
@@ -272,9 +278,10 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-alvaro.jpeg")}
+                              src={require("assets/img/garcia_batiz_maria_luisa_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -283,11 +290,13 @@ function AboutUs() {
                         <CardBody>
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <CardTitle tag="h4">
-                              Alvaro Mora Maciel
+                              Dra. María Luisa García Bátiz
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">{t("About.GradeAlvaro")}</h6>
-                          <p className="">alvaro.mora@valles.udg.mx</p>
+                          <h6 className="category">
+                            {t("About.GradeRectora")}
+                          </h6>
+                          <p className="">mluisa.garcia@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
                       </Col>
@@ -301,9 +310,40 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-karla.jpeg")}
+                              src={require("assets/img/barrera_osuna_felix_alberto_350x450.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">
+                              Mtro. Félix Alberto Barrera Osuna
+                            </CardTitle>
+                          </NavLink>
+                          <h6 className="category">{t("About.GradeFelix")}</h6>
+                          <p className="">felix.barrera@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              loading="lazy"
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/gonzalez_valensuela_karla_viridaina_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -330,6 +370,36 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
+                              alt="..."
+                              className="img img-raised rounded"
+                              src={require("assets/img/mora_maciel_alvaro_350x450.jpg")}
+                            ></img>
+                          </NavLink>
+                        </div>
+                      </Col>
+                      <Col md="7">
+                        <CardBody>
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <CardTitle tag="h4">Alvaro Mora Maciel</CardTitle>
+                          </NavLink>
+                          <h6 className="category">{t("About.GradeAlvaro")}</h6>
+                          <p className="">alvaro.mora@valles.udg.mx</p>
+                          <CardFooter></CardFooter>
+                        </CardBody>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Col>
+
+                <Col className="ml-auto mr-auto" lg="7" xl="6">
+                  <Card className="card-profile card-plain">
+                    <Row>
+                      <Col md="5">
+                        <div className="card-image">
+                          <NavLink to={`/contacto-fernando`} target="blank">
+                            <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
                               src={require("assets/img/cuvalles-stefany.jpeg")}
@@ -342,7 +412,9 @@ function AboutUs() {
                           <CardTitle tag="h4">
                             Stefany Hernández Sánchez
                           </CardTitle>
-                          <h6 className="category">{t("About.GradeStefany")}</h6>
+                          <h6 className="category">
+                            {t("About.GradeStefany")}
+                          </h6>
                           <p className="">
                             stefany.hernandez6508@alumnos.udg.mx
                           </p>
@@ -359,6 +431,7 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
                               src={require("assets/img/cuvalles-fernando.jpeg")}
@@ -374,7 +447,7 @@ function AboutUs() {
                             </CardTitle>
                           </NavLink>
                           <h6 className="category">
-                          {t("About.GradeFernando")}
+                            {t("About.GradeFernando")}
                           </h6>
                           <p className="">
                             fernando.sanchez3411@alumnos.udg.mx
@@ -392,6 +465,7 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
                               src={require("assets/img/cuvalles-cesar.jpeg")}
@@ -421,6 +495,7 @@ function AboutUs() {
                         <div className="card-image">
                           <NavLink to={`/contacto-fernando`} target="blank">
                             <img
+                              loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
                               src={require("assets/img/michael.jpg")}
@@ -435,66 +510,10 @@ function AboutUs() {
                               Enrique Jesús Fregoso Gutiérrez
                             </CardTitle>
                           </NavLink>
-                          <h6 className="category">{t("About.GradeEnrique")}</h6>
+                          <h6 className="category">
+                            {t("About.GradeEnrique")}
+                          </h6>
                           <p className="">enrique.fregoso4189@alumnos.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <NavLink to={`/contacto-fernando`} target="blank">
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-felix.jpg")}
-                            ></img>
-                          </NavLink>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <NavLink to={`/contacto-fernando`} target="blank">
-                            <CardTitle tag="h4">
-                              Mtro. Félix Alberto Barrera Osuna
-                            </CardTitle>
-                          </NavLink>
-                          <h6 className="category">{t("About.GradeFelix")}</h6>
-                          <p className="">felix.barrera@valles.udg.mx</p>
-                          <CardFooter></CardFooter>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Col>
-                <Col className="ml-auto mr-auto" lg="7" xl="6">
-                  <Card className="card-profile card-plain">
-                    <Row>
-                      <Col md="5">
-                        <div className="card-image">
-                          <NavLink to={`/contacto-fernando`} target="blank">
-                            <img
-                              alt="..."
-                              className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-rectora.jpg")}
-                            ></img>
-                          </NavLink>
-                        </div>
-                      </Col>
-                      <Col md="7">
-                        <CardBody>
-                          <NavLink to={`/contacto-fernando`} target="blank">
-                            <CardTitle tag="h4">
-                              Dra. María Luisa García Bátiz
-                            </CardTitle>
-                          </NavLink>
-                          <h6 className="category">{t("About.GradeRectora")}</h6>
-                          <p className="">mluisa.garcia@valles.udg.mx</p>
                           <CardFooter></CardFooter>
                         </CardBody>
                       </Col>

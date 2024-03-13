@@ -1,3 +1,5 @@
+//React
+import React from "react";
 import { useRef, useEffect, useState } from "react";
 import { select, geoPath, geoMercator } from "d3";
 import useResizeObserver from "../useResizeObserver/useResizeObserver";
@@ -9,7 +11,8 @@ interface Props {
   url: string;
 }
 
-export const WorldMap = ({ data, countriesData, url }: Props) => {
+export const WorldMap = React.memo( ({ data, countriesData, url }: Props) => {
+  console.log("se renderiza el *******mapa*******")
   function quitarAcentos(texto) {
     return texto
       .replace(/[áäà]/gi, "a")
@@ -19,7 +22,6 @@ export const WorldMap = ({ data, countriesData, url }: Props) => {
       .replace(/[úüù]/gi, "u");
   }
   url = quitarAcentos(url);
-  console.log(url)
   const svgRef = useRef<SVGSVGElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const dimensions = useResizeObserver(wrapperRef);
@@ -105,4 +107,4 @@ export const WorldMap = ({ data, countriesData, url }: Props) => {
       </div>
     </>
   );
-};
+});

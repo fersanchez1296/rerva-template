@@ -14,7 +14,7 @@ import polity from "../assets/maps/jalisco.geo.json";
 //self components
 import { Visualitations } from "../components/visualitations/Visualitations";
 
-function Presentation() {
+export const Presentation =  React.memo(() => {
   React.useEffect(() => {
     document.body.classList.add("presentation-page");
     document.body.classList.add("sidebar-collapse");
@@ -70,6 +70,6 @@ function Presentation() {
       </div>
     </>
   );
-}
+});
 
 export default Presentation;
