@@ -1,9 +1,5 @@
 import React from "react";
 
-// reactstrap components
-
-// core components
-
 function AutodepositoHeader() {
   let pageHeader = React.createRef();
   React.useEffect(() => {
@@ -23,10 +19,11 @@ function AutodepositoHeader() {
     <>
       <div className="page-header page-header-small">
         <img
-        loading="lazy"
+          loading="lazy"
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/cuvalles-4_HD.jpg") + ")"
+            backgroundImage:
+              "url(" + require("assets/img/cuvalles/cuvalles-4_HD.jpg") + ")",
           }}
           ref={pageHeader}
         ></img>

@@ -12,8 +12,8 @@ import Switch from "@mui/material/Switch";
 import FormGroupS from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 //icon languages
-import mxicon from "assets/img/mx-icon.png";
-import usaicon from "assets/img/usa-icon.png";
+import mxicon from "assets/img/iconos/mx-icon.png";
+import usaicon from "assets/img/iconos/usa-icon.png";
 // reactstrap components
 import {
   Collapse,

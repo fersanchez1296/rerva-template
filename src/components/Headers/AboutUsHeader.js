@@ -30,7 +30,7 @@ function AboutUsHeader() {
           loading="lazy"
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/cuvalles-2.jpg") + ")",
+            backgroundImage: "url(" + require("assets/img/cuvalles/cuvalles-2_HD.jpg") + ")",
             
           }}
           ref={pageHeader}

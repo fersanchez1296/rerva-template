@@ -41,11 +41,12 @@ function Autodeposito() {
   const [titleFocus, setTitleFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [linkFocus, setLinkFocus] = React.useState(false);
+  const [doiFocus, setDoiFocus] = React.useState(false);
   const [nameValue, setNameValue] = React.useState("");
   const [titleValue, setTitleValue] = React.useState("");
   const [emailValue, setEmailValue] = React.useState("");
   const [linkValue, setLinkValue] = React.useState("");
-  const [sendAvailable, setSendAvailable] = React.useState(false);
+  const [doiValue, setDoiValue] = React.useState("");
   const [postSolicitud] = usePostSolicitudMutation();
   React.useEffect(() => {
     document.body.classList.add("contact-page");
@@ -119,6 +120,7 @@ function Autodeposito() {
       setTitleValue("");
       setLinkValue("");
       setEmailValue("");
+      setDoiValue("");
       setTimeout(() => {
         setSnackBarState({
           show: false,
@@ -218,7 +220,7 @@ function Autodeposito() {
                     >
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="now-ui-icons tech_mobile"></i>
+                          <i className="now-ui-icons text_caps-small"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
@@ -239,7 +241,7 @@ function Autodeposito() {
                     >
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="now-ui-icons tech_mobile"></i>
+                          <i className="now-ui-icons files_paper"></i>
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
@@ -252,6 +254,27 @@ function Autodeposito() {
                         }
                         onFocus={() => setLinkFocus(true)}
                         onBlur={() => setLinkFocus(false)}
+                      ></Input>
+                    </InputGroup>
+                    <label>DOI</label>
+                    <InputGroup
+                      className={doiFocus ? "input-group-focus" : ""}
+                    >
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="now-ui-icons objects_key-25"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        autoComplete="doi"
+                        placeholder="¿Cuál es el DOI documento?"
+                        type="text"
+                        value={doiValue}
+                        onChange={(e) =>
+                          handleChangeLink(e.target.value.toUpperCase())
+                        }
+                        onFocus={() => setDoiFocus(true)}
+                        onBlur={() => setDoiFocus(false)}
                       ></Input>
                     </InputGroup>
                     <div className="submit text-center">

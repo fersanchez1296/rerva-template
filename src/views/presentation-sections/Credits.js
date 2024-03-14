@@ -26,19 +26,19 @@ function Credits() {
             <Row className="justify-content-center">
                 <div className="our-clients">
                   <Row className="justify-content-center">
-                    <Col className="text-center ml-auto mr-auto" md="12">
+                    <Col className="text-center ml-auto mr-auto" sm="12">
                       <h3>Powered By:</h3>
                     </Col>
-                    <Col className="ml-auto mr-auto" md="3">
+                    <Col className="ml-auto mr-auto" s="3">
                     <i class="fa-brands fa-react fa-3x"></i>
                     </Col>
-                    <Col className="ml-auto mr-auto" md="3">
+                    <Col className="ml-auto mr-auto" s="3">
                     <i class="fa-brands fa-node fa-3x"></i>
                     </Col>
-                    <Col className="ml-auto mr-auto" md="3">
+                    <Col className="ml-auto mr-auto" s="3">
                     <i class="fa-brands fa-linux fa-3x"></i>
                     </Col>
-                    <Col className="ml-auto mr-auto" md="3">
+                    <Col className="ml-auto mr-auto" s="3">
                     <i class="fa-brands fa-invision fa-3x"></i>
                     </Col>
                   </Row>
@@ -48,12 +48,11 @@ function Credits() {
                 <Col md="8">
                   <img
                     alt="Logo Centro Universitario de los Valles"
-                    src={require("assets/img/cuvalles-logo-2.jpeg")}
+                    src={require("assets/img/logos/cuvalles-udg-negro.jpeg")}
                     className="img-fluid"
                   />
                 </Col>
               </Row>
-              
             </Container>
           </div>
           <Row>

@@ -157,7 +157,7 @@ function AboutUs() {
                     loading="lazy"
                     alt="..."
                     className="rounded img-raised"
-                    src={require("assets/img/cuvalles-3.jpg")}
+                    src={require("assets/img/cuvalles/cuvalles-3.jpg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -165,7 +165,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/cuvalles-4.jpg")}
+                    src={require("assets/img/cuvalles/cuvalles-4.jpg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -173,7 +173,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/sanmartin.jpeg")}
+                    src={require("assets/img/municipios/sanmartin.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -181,7 +181,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/teuchitlan.jpeg")}
+                    src={require("assets/img/municipios/teuchitlan.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -189,7 +189,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/guachinango.jpeg")}
+                    src={require("assets/img/municipios/guachinango.jpeg")}
                   ></img>
                 </Col>
 
@@ -198,7 +198,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/etzatlan.jpeg")}
+                    src={require("assets/img/municipios/etzatlan.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -206,7 +206,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/mixtlan.jpeg")}
+                    src={require("assets/img/municipios/mixtlan.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -214,7 +214,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/atenguillo.jpeg")}
+                    src={require("assets/img/municipios/atenguillo.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -222,7 +222,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/magdalena.jpeg")}
+                    src={require("assets/img/municipios/magdalena.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -230,7 +230,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/talpa.jpeg")}
+                    src={require("assets/img/municipios/talpa.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -238,7 +238,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/mascota.jpeg")}
+                    src={require("assets/img/municipios/mascota.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -246,7 +246,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/ameca.jpeg")}
+                    src={require("assets/img/municipios/ameca.jpeg")}
                   ></img>
                 </Col>
                 <Col md="6">
@@ -254,7 +254,7 @@ function AboutUs() {
                     alt="..."
                     loading="lazy"
                     className="rounded img-raised"
-                    src={require("assets/img/sanmarcos.jpeg")}
+                    src={require("assets/img/municipios/sanmarcos.jpeg")}
                   ></img>
                 </Col>
               </Row>
@@ -281,7 +281,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/garcia_batiz_maria_luisa_350x450.jpg")}
+                              src={require("assets/img/equipo/garcia_batiz_maria_luisa_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -313,7 +313,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/barrera_osuna_felix_alberto_350x450.jpg")}
+                              src={require("assets/img/equipo/barrera_osuna_felix_alberto_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -343,7 +343,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/gonzalez_valensuela_karla_viridaina_350x450.jpg")}
+                              src={require("assets/img/equipo/gonzalez_valensuela_karla_viridaina_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -373,7 +373,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/mora_maciel_alvaro_350x450.jpg")}
+                              src={require("assets/img/equipo/mora_maciel_alvaro_350x450.jpg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -391,7 +391,6 @@ function AboutUs() {
                     </Row>
                   </Card>
                 </Col>
-
                 <Col className="ml-auto mr-auto" lg="7" xl="6">
                   <Card className="card-profile card-plain">
                     <Row>
@@ -402,7 +401,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-stefany.jpeg")}
+                              src={require("assets/img/equipo/cuvalles-stefany.jpeg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -434,7 +433,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-fernando.jpeg")}
+                              src={require("assets/img/equipo/cuvalles-fernando.jpeg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -468,7 +467,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/cuvalles-cesar.jpeg")}
+                              src={require("assets/img/equipo/cuvalles-cesar.jpeg")}
                             ></img>
                           </NavLink>
                         </div>
@@ -498,7 +497,7 @@ function AboutUs() {
                               loading="lazy"
                               alt="..."
                               className="img img-raised rounded"
-                              src={require("assets/img/michael.jpg")}
+                              src={require("assets/img/equipo/michael.jpg")}
                             ></img>
                           </NavLink>
                         </div>

@@ -1,8 +1,4 @@
 import React from "react";
-import { useChartsBusquedasInfoQuery } from "../../api/api.slice";
-import { ServerError } from "../../components/serverError/ServerError";
-import { Spiner } from "../../components/spiner/Spiner";
-import { SnackBar } from "../../components/snackBar/SnackBar";
 import { useParams } from "react-router-dom";
 import {
   Row,
@@ -20,7 +16,8 @@ function generateChartData(dt) {
   const YLabels = Object.keys(dt);
   const labels = YLabels?.map((label, index) => {
     const percentage = (
-      (XLabels[index] / XLabels.reduce((a, b) => a + b, 0)) * 100
+      (XLabels[index] / XLabels.reduce((a, b) => a + b, 0)) *
+      100
     ).toFixed(2);
     return `${percentage}% : ${label}`;
   });
@@ -54,14 +51,12 @@ function generateChartData(dt) {
   return data;
 }
 
-function EcommerceHeader({ title, subtitle, cantidad,data }) {
+function EcommerceHeader({ title, subtitle, cantidad, data }) {
   const dt = data;
   const { url, request, busqueda } = useParams();
-  console.log(url,request,busqueda)
+  console.log(url, request, busqueda);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
-
-
 
   const chartData = dt.map((data) => generateChartData(data));
 
@@ -87,13 +82,6 @@ function EcommerceHeader({ title, subtitle, cantidad,data }) {
       },
     };
   }
-  
-  
-  
-  
-
-
-  
 
   const onExiting = () => {
     setAnimating(true);
@@ -122,7 +110,7 @@ function EcommerceHeader({ title, subtitle, cantidad,data }) {
 
   const items = [
     {
-      src: "url(" + require("assets/img/cuvalles.jpg") + ")",
+      src: "url(" + require("assets/img/cuvalles/cuvalles-8_HD.jpg") + ")",
       content: (
         <Row>
           <Col className="ml-auto mr-auto" md="12">
@@ -132,8 +120,21 @@ function EcommerceHeader({ title, subtitle, cantidad,data }) {
               className="ml-auto mr-auto d-flex justify-content-center"
               md="4"
             >
-              {chartData.map((data, index) => (
-                <Doughnut data={data} options={chartOptions(["País de origen", "Institución de origen", "ADS"], index)} />              ))}
+              <div className="d-flex flex-md-row flex-column">
+                {chartData.map((data, index) => (
+                  <div className="chart-container" key={index}>
+                    <Doughnut
+                      data={data}
+                      options={chartOptions(
+                        ["País de origen", "Institución de origen", "ADS"],
+                        index
+                      )}
+                      height={200} // Altura de la gráfica
+                      width={200} // Ancho de la gráfica
+                    />
+                  </div>
+                ))}
+              </div>
             </Col>
           </Col>
         </Row>
@@ -146,24 +147,20 @@ function EcommerceHeader({ title, subtitle, cantidad,data }) {
   return (
     <>
       <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-        
         {items.map((item) => (
-          <CarouselItem
-            
-            key={item.src}
-          >
+          <CarouselItem key={item.src}>
             <div className="page-header header-filter">
-              <div
+              <img
+                loading="lazy"
                 className="page-header-image"
                 style={{
                   backgroundImage: item.src,
                 }}
-              ></div>
+              ></img>
               <div className="content-center text-center">{item.content}</div>
             </div>
           </CarouselItem>
         ))}
-        
       </Carousel>
     </>
   );

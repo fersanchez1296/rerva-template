@@ -41,6 +41,28 @@ const SearchBoxSection = React.memo(() => {
     return <Spiner showSpiner />;
   }
 // **********Functions**********
+
+  const handleBuscar = () => {
+    if (busqueda != "") {
+      setBusqueda(busqueda.replace(/ /g, "+"));
+    }
+    const seccion = seccionSelect.label.replace(
+      / /g,
+      "-"
+    );
+    window.open(
+      `/${url}/${seccion}/${busqueda}`,
+      "_blank"
+    );
+    handleResetInputs();
+  }
+  
+  const keyPressed = (e) => {
+    if (e.key === 'Enter' && busqueda !== "") {
+      handleBuscar()
+    }
+  }
+
   const handleChange = (e) => {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
 
@@ -79,6 +101,7 @@ const SearchBoxSection = React.memo(() => {
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
+            onKeyPress={(e) => keyPressed(e)}
           />
         </InputGroup>
       );
@@ -271,20 +294,7 @@ const SearchBoxSection = React.memo(() => {
                         disabled={busqueda === "" ? true : false}
                         className="btn-round"
                         color="info"
-                        onClick={(e) => {
-                          if (busqueda != "") {
-                            setBusqueda(busqueda.replace(/ /g, "+"));
-                          }
-                          const seccion = seccionSelect.label.replace(
-                            / /g,
-                            "-"
-                          );
-                          window.open(
-                            `/${url}/${seccion}/${busqueda}`,
-                            "_blank"
-                          );
-                          handleResetInputs();
-                        }}
+                        onClick={() => handleBuscar()}
                         size="lg"
                       >
                         {t("searchBox.Container.Button")}

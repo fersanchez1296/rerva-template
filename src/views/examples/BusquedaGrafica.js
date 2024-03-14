@@ -15,11 +15,10 @@ import {
   Col,
   UncontrolledTooltip,
 } from "reactstrap";
-import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.js";
+import ScrollTransparentNavbarSections from "components/Navbars/ScrollTransparentNavbarSections.js";
 import EcommerceHeader from "components/Headers/EcommerceHeader.js";
 import {PaginationAlternative} from "../../components/pagination/PaginationAlternative"
-import Footer from "components/Footers/Footer.js";
-import { CardWithIcons } from "../../components/Card/CardWithIcons";
+import FooterBlackSections from "components/Footers/FooterBlackSections.js";
 import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
 import { SnackBar } from "../../components/snackBar/SnackBar";
@@ -179,8 +178,6 @@ function Ecommerce() {
     );
   }
 
-  console.log("ESTA ES LA INFO EN GRAFICA->",dt.resultados)
-
   const filterOptionsArea = Array.from(new Set(dt.resultados.map((el) => el["Área"])))
     .filter((area) => area !== undefined && area !== null)
     .map((area) => ({ key: area.trim(), label: area }));
@@ -250,7 +247,7 @@ function Ecommerce() {
 
   return (
     <>
-      <ScrollTransparentNavbar />
+      <ScrollTransparentNavbarSections />
       <div className="wrapper">
       <EcommerceHeader
           title={title}
@@ -639,7 +636,7 @@ function Ecommerce() {
             </Container>
           </div>
         </div>
-        <Footer />
+        <FooterBlackSections />
       </div>
     </>
   );

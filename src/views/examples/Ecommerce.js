@@ -9,6 +9,7 @@ import {
   tableTitlesV4,
 } from "../../utilities/tableTitles/tableTitles";
 import {
+  Button,
   Card,
   CardHeader,
   CardBody,
@@ -30,20 +31,17 @@ import { useGetBusquedaQuery } from "../../api/api.slice";
 
 function Ecommerce() {
   const { t, i18n } = useTranslation("global");
-  const params = useParams();
-  console.log(params);
   let { url, request, busqueda } = useParams();
   url = `${url}/${busqueda}`;
   request = request.replace(/-/g, "/");
   const title = url.replace(/-/g, " ");
   const subtitle = request.replace(/\+/g, " ");
-  const [selectedArea, setSelectedArea] = useState(null);
+  const [selectedArea, setSelectedArea] = useState("");
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
   const [selectedCampo, setSelectedCampo] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedIdiomas, setSelectedIdiomas] = useState([]);
   const [selectedPais, setSelectedPais] = useState("");
-
   const [collapses, setCollapses] = useState([1]);
   const changeCollapse = (collapse) => {
     if (collapses.includes(collapse)) {
@@ -52,7 +50,6 @@ function Ecommerce() {
       setCollapses([...collapses, collapse]);
     }
   };
-
   const [filters, setFilters] = useState({
     areaEstudio: "",
     disciplina: "",
@@ -120,6 +117,26 @@ function Ecommerce() {
       ...prevFilters,
       pais: prevFilters.pais === pais ? "" : pais,
     }));
+  };
+
+  const handleResetFilters = () => {
+      setSelectedArea("");
+      setSelectedDisciplina("");
+      setSelectedCampo("");
+      setSelectedYear("");
+      setSelectedIdiomas([]);
+      setSelectedPais("");
+    
+      setFilters({
+        areaEstudio: "",
+        disciplina: "",
+        campo: "",
+        clasificacion: "",
+        anio: "",
+        idioma: "",
+        pais: "",
+        tipo: "",
+      });
   };
 
   const {
@@ -224,6 +241,8 @@ function Ecommerce() {
               </h2>
               <Row>
                 <Col md="2">
+                  <h2>FILTROS</h2>
+                  <hr></hr>
                   <div className="collapse-panel">
                     <CardBody>
                       {/* Collapse para Área */}
@@ -487,6 +506,16 @@ function Ecommerce() {
                       </Card>
                     </CardBody>
                   </div>
+                  <hr></hr>
+                  <Button
+                    className="btn-raised btn-round"
+                    color="info"
+                    defaultValue="Contact Us"
+                    type="submit"
+                    onClick={() => handleResetFilters()}
+                  >
+                    Eliminar filtros
+                  </Button>
                 </Col>
                 <Col md="10">
                   <PaginationAlternative

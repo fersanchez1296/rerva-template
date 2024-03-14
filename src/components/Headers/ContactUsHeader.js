@@ -1,9 +1,7 @@
+//react
 import React from "react";
-
 // reactstrap components
-
-// core components
-
+import { Row, Col } from "reactstrap";
 function ContactUsHeader() {
   let pageHeader = React.createRef();
   React.useEffect(() => {
@@ -21,14 +19,23 @@ function ContactUsHeader() {
   });
   return (
     <>
-      <div className="page-header page-header-small">
-        <div
+      <div className="page-header page-header-medium">
+        <img
+          loading="lazy"
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/cuvalles-5.jpeg") + ")"
+            backgroundImage:
+              "url(" + require("assets/img/cuvalles/cuvalles-6_HD.jpg") + ")",
           }}
           ref={pageHeader}
-        ></div>
+        ></img>
+        <div className="content-center">
+          <Row>
+            <Col className="ml-auto mr-auto" md="8">
+              <h1 className="title">Contacto</h1>
+            </Col>
+          </Row>
+        </div>
       </div>
     </>
   );

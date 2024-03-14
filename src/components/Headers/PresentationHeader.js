@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import cuvalles8 from "../../assets/img/cuvalles8.png";
+import cuvalles8 from "../../assets/img/logos/cuvalles-udg-blanco.png";
 // reactstrap components
 
 // core components
@@ -16,7 +16,7 @@ function PresentationHeader() {
             style={{
               backgroundImage:
                 "url(" +
-                require("assets/img/presentation-page/udg-hero.jpg") +
+                require("assets/img/cuvalles/udg-hero.jpg") +
                 ")",
             }}
           ></img>
