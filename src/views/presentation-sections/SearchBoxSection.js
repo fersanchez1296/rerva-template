@@ -40,28 +40,22 @@ const SearchBoxSection = React.memo(() => {
   if (isLoading) {
     return <Spiner showSpiner />;
   }
-// **********Functions**********
+  // **********Functions**********
 
   const handleBuscar = () => {
     if (busqueda != "") {
       setBusqueda(busqueda.replace(/ /g, "+"));
     }
-    const seccion = seccionSelect.label.replace(
-      / /g,
-      "-"
-    );
-    window.open(
-      `/${url}/${seccion}/${busqueda}`,
-      "_blank"
-    );
+    const seccion = seccionSelect.label.replace(/ /g, "-");
+    window.open(`/${url}/${seccion}/${busqueda}`, "_self");
     handleResetInputs();
-  }
-  
+  };
+
   const keyPressed = (e) => {
-    if (e.key === 'Enter' && busqueda !== "") {
-      handleBuscar()
+    if (e.key === "Enter" && busqueda !== "") {
+      handleBuscar();
     }
-  }
+  };
 
   const handleChange = (e) => {
     const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
@@ -126,12 +120,14 @@ const SearchBoxSection = React.memo(() => {
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
+            onKeyPress={(e) => keyPressed(e)}
           />
         </InputGroup>
       );
     } else if (seccionSelect.value === "3") {
       return (
         <Select
+          onKeyPress={(e) => keyPressed(e)}
           className="react-select mr-0 w-100"
           classNamePrefix="react-select"
           name=""
@@ -172,6 +168,7 @@ const SearchBoxSection = React.memo(() => {
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
+            onKeyPress={(e) => keyPressed(e)}
           />
         </InputGroup>
       );
@@ -184,6 +181,7 @@ const SearchBoxSection = React.memo(() => {
           onChange={(value) => (
             setPaisPublicacionSelect(value), setBusqueda(value.label)
           )}
+          onKeyPress={(e) => keyPressed(e)}
           options={indicadores.paises.map((a) => {
             return { value: a.value, label: a.label };
           })}

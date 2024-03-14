@@ -36,6 +36,7 @@ const LazyEcommerce = React.lazy(() => import("views/examples/Ecommerce.js"));
 const LazyProfilePage = React.lazy(() =>
   import("views/examples/ProfilePage.js")
 );
+const LazyLibraries = React.lazy(() => import("views/examples/Bibliotecas.js"))
 
 //i18next initializer
 i18next.init({
@@ -90,6 +91,14 @@ root.render(
               element={
                 <React.Suspense fallback="Loading...">
                   <LazyAutodeposito />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/bibliotecas"
+              element={
+                <React.Suspense fallback="Loading...">
+                  <LazyLibraries />
                 </React.Suspense>
               }
             />

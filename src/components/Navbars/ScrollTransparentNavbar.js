@@ -200,7 +200,7 @@ function ScrollTransparentNavbar() {
                   id="navbarDropdownMenuLink"
                   nav
                   tag={Link}
-                  to="/contacto"
+                  to="/bibliotecas"
                 >
                   <i
                     aria-hidden={true}
