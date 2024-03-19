@@ -1,18 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.a74ea271.css",
-    "main.js": "/static/js/main.8a15ccbf.js",
-    "static/js/75.6692a5b8.chunk.js": "/static/js/75.6692a5b8.chunk.js",
-    "static/js/290.ec3daae0.chunk.js": "/static/js/290.ec3daae0.chunk.js",
-    "static/js/477.d213019e.chunk.js": "/static/js/477.d213019e.chunk.js",
-    "static/js/219.e93061ae.chunk.js": "/static/js/219.e93061ae.chunk.js",
-    "static/js/88.6201988b.chunk.js": "/static/js/88.6201988b.chunk.js",
-    "static/js/363.7719b112.chunk.js": "/static/js/363.7719b112.chunk.js",
+    "main.js": "/static/js/main.c50c5d18.js",
+    "static/js/75.7d180934.chunk.js": "/static/js/75.7d180934.chunk.js",
+    "static/js/290.24583764.chunk.js": "/static/js/290.24583764.chunk.js",
+    "static/js/477.e225aa8c.chunk.js": "/static/js/477.e225aa8c.chunk.js",
+    "static/js/219.15da63be.chunk.js": "/static/js/219.15da63be.chunk.js",
+    "static/js/88.9f0cead8.chunk.js": "/static/js/88.9f0cead8.chunk.js",
+    "static/js/724.3143be49.chunk.js": "/static/js/724.3143be49.chunk.js",
+    "static/js/451.bb5f04c6.chunk.js": "/static/js/451.bb5f04c6.chunk.js",
     "static/js/19.01a26b8a.chunk.js": "/static/js/19.01a26b8a.chunk.js",
     "static/js/602.95a72720.chunk.js": "/static/js/602.95a72720.chunk.js",
     "static/media/project8.jpg": "/static/media/project8.4e25d19482f3dea955f7.jpg",
     "static/media/cuvalles-4_HD.jpg": "/static/media/cuvalles-4_HD.43ec39b33dec20333245.jpg",
     "static/media/cuvalles-6_HD.jpg": "/static/media/cuvalles-6_HD.18097f560c8e7162d0f6.jpg",
+    "static/media/cuvalles-3_HD.jpg": "/static/media/cuvalles-3_HD.b34f306c346c3ea2b691.jpg",
     "static/media/cuvalles-2_HD.jpg": "/static/media/cuvalles-2_HD.c70d248689a9915c432e.jpg",
     "static/media/bg23.jpg": "/static/media/bg23.f39c472301a859409a14.jpg",
     "static/media/cuvalles-8_HD.jpg": "/static/media/cuvalles-8_HD.339743337b465d5a375e.jpg",
@@ -34,6 +36,7 @@
     "static/media/sanmartin.jpeg": "/static/media/sanmartin.10092aea82fb99a636f3.jpeg",
     "static/media/mixtlan.jpeg": "/static/media/mixtlan.adb5d5866c7faf8e0788.jpeg",
     "static/media/gonzalez_valensuela_karla_viridaina_350x450.jpg": "/static/media/gonzalez_valensuela_karla_viridaina_350x450.54ab3b49793aae07a132.jpg",
+    "static/media/mike.jpg": "/static/media/mike.db4353c59b045f410f45.jpg",
     "static/media/michael.jpg": "/static/media/michael.660d3e0427262a86a407.jpg",
     "static/media/garcia_batiz_maria_luisa_350x450.jpg": "/static/media/garcia_batiz_maria_luisa_350x450.aea137f3d9dd3ee8db89.jpg",
     "static/media/ryan.jpg": "/static/media/ryan.977a887c22b26468b6f4.jpg",
@@ -51,6 +54,6 @@
   },
   "entrypoints": [
     "static/css/main.a74ea271.css",
-    "static/js/main.8a15ccbf.js"
+    "static/js/main.c50c5d18.js"
   ]
 }

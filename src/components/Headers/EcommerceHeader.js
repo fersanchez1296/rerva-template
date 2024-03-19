@@ -54,7 +54,6 @@ function generateChartData(dt) {
 function EcommerceHeader({ title, subtitle, cantidad, data }) {
   const dt = data;
   const { url, request, busqueda } = useParams();
-  console.log(url, request, busqueda);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
 
@@ -129,8 +128,8 @@ function EcommerceHeader({ title, subtitle, cantidad, data }) {
                         ["País de origen", "Institución de origen", "ADS"],
                         index
                       )}
-                      height={200} // Altura de la gráfica
-                      width={200} // Ancho de la gráfica
+                      height={200} 
+                      width={200} 
                     />
                   </div>
                 ))}
