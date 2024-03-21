@@ -110,5 +110,10 @@
       "Autor": "Author",
       "País de la Publicación": "Country of Publication"
     }
+  },
+  "Librarys" : {
+    "Title" : "Municipal librarys",
+    "LibrarysTitle" : "Directory of municipal libraries",
+    "LibrarysDescription" : "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience."
   }
 }

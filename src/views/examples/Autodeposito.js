@@ -36,6 +36,7 @@ function Autodeposito() {
     Título: "",
     Email: "",
     Link: "",
+    DOI : "",
   });
   const [nameFocus, setNameFocus] = React.useState(false);
   const [titleFocus, setTitleFocus] = React.useState(false);
@@ -93,6 +94,14 @@ function Autodeposito() {
     setBody((prevBody) => ({
       ...prevBody,
       Link: value,
+    }));
+  };
+
+  const handleChangeDoi = (value) => {
+    setDoiValue(value);
+    setBody((prevBody) => ({
+      ...prevBody,
+      DOI: value,
     }));
   };
 
@@ -271,7 +280,7 @@ function Autodeposito() {
                         type="text"
                         value={doiValue}
                         onChange={(e) =>
-                          handleChangeLink(e.target.value.toUpperCase())
+                          handleChangeDoi(e.target.value.toUpperCase())
                         }
                         onFocus={() => setDoiFocus(true)}
                         onBlur={() => setDoiFocus(false)}
@@ -285,9 +294,10 @@ function Autodeposito() {
                         type="submit"
                         disabled={
                           nameValue === "" ||
-                          linkValue === "" ||
                           titleValue === "" ||
-                          emailValue === ""
+                          emailValue === "" ||
+                          (linkValue === "" &&
+                          doiValue === "")
                             ? true
                             : false
                         }

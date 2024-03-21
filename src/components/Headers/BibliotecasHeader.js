@@ -38,7 +38,7 @@ function BibliotecasHeader() {
         <div className="content-center">
           <Row>
             <Col className="ml-auto mr-auto" md="8">
-              <h1 className="title">Bibliotecas Municipales</h1>
+              <h1 className="title">{t("Librarys.Title")}</h1>
             </Col>
           </Row>
         </div>

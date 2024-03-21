@@ -110,5 +110,10 @@
       "Autor": "Autor",
       "País de la Publicación": "País de la Publicación"
     }
+  },
+  "Librarys" : {
+    "Title" : "Bibliotecas Municipales",
+    "LibrarysTitle" : "Directorio de bibliotecas municipales",
+    "LibrarysDescription" : "Explora nuestra selección de bibliotecas municipales, cada una con su propio encanto y recursos únicos. Encuentra la biblioteca más cercana a ti y descubre un mundo de conocimiento, entretenimiento y servicios comunitarios que enriquecerán tu experiencia de lectura y aprendizaje."
   }
 }
