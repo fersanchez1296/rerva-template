@@ -25,7 +25,21 @@
     "Container": {
       "Title": "Search on CUValles Data Base",
       "Subtitle": "Enter search criteria",
-      "Button": "Search"
+      "Button": "Search",
+      "Select": {
+        "General": "General",
+        "Author": "Author",
+        "Area": "Knowledge Area",
+        "Journal": "Journals",
+        "Country": "Country of publication"
+      },
+      "Input": {
+        "PlaceholderGeneral": "Title, Author name, Discipline...",
+        "PlaceholderAuthor": "Name or lastname...",
+        "PlaceholderArea": "Select knowledge area",
+        "PlaceholderJournal": "Journal name",
+        "PlaceholderCountry": "Select country of publication"
+      }
     }
   },
   "indexMapsLanguage": {
@@ -47,7 +61,20 @@
     "TitleRequirements": "Requirements",
     "TitleRequirementsDescription": "Academic content must address the study of the \"región de los valles\".",
     "Copyright": "Copyright",
-    "CopyrightDescription": "The publication of digital content is primarily carried out under the open access scheme, without prejudice to copyright protection provisions. Therefore, it will be directed to the site where it is available for users to access freely. In case it is a closed access document, it will only be directed to the website where it is located so that users, if necessary, can make the corresponding payment for consultation if they wish."
+    "CopyrightDescription": "The publication of digital content is primarily carried out under the open access scheme, without prejudice to copyright protection provisions. Therefore, it will be directed to the site where it is available for users to access freely. In case it is a closed access document, it will only be directed to the website where it is located so that users, if necessary, can make the corresponding payment for consultation if they wish.",
+    "Input" : {
+      "InputName" : "Name",
+      "InputNamePlaceholder" : "What is your name?",
+      "InputEmail": "Email",
+      "InputEmailPlaceholder": "What is your email?",
+      "InputTitle": "Title document",
+      "InputTitlePlaceholder": "What is the title of the document?",
+      "InputLink": "Link",
+      "InputLinkPlaceholder": "What is the link of the document?",
+      "InputDoi": "DOI",
+      "InputDoiPlaceholder": "What is the DOI of the document?",
+      "Button" : "Collaborate"
+    }
   },
   "About": {
     "Title": "About...",
@@ -88,7 +115,15 @@
     "ContactDescription": "Do you need to contact us? Enter your information and we will be in contact with you shortly.",
     "Location": "Where are we located?",
     "Call": "Call us",
-    "LegalInformation": "Legal Information"
+    "LegalInformation": "Legal Information",
+    "Input": {
+      "InputName": "Name",
+      "InputNamePlaceholder": "What is your name?",
+      "InputEmail":"Email",
+      "InputEmailPlaceholder":"What is your email?",
+      "InputSubject": "Subject",
+      "Button": "Contact"
+    }
   },
   "IndexFooter": {
     "About": "About",
@@ -100,6 +135,8 @@
     "Contact": "Contact"
   },
   "Coincidences": {
+    "CoincidencesHeader" : "Coincidences",
+    "Coincidences" : "Coincidences",
     "TableTitleV1": {
       "Link de acceso": "Access Link",
       "Nombre de la revista/libro": "Name of the journal/book",
@@ -109,11 +146,29 @@
       "Autores": "Authors",
       "Autor": "Author",
       "País de la Publicación": "Country of Publication"
+    },
+    "Filters" : {
+      "Filter" : "Filters",
+      "FilterArea": "Area of study",
+      "FilterDiscipline": "Discipline of study",
+      "FilterFieldStudy": "Field of study",
+      "FilterCountry": "Country",
+      "FilterLanguage": "Language",
+      "FilterYear": "Year",
+      "ClearFilters": "Clear filters"
     }
   },
-  "Librarys" : {
-    "Title" : "Municipal librarys",
-    "LibrarysTitle" : "Directory of municipal libraries",
-    "LibrarysDescription" : "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience."
+  "Librarys": {
+    "Title": "Municipal libraries",
+    "LibrarysTitle": "Directory of municipal libraries",
+    "LibrarysDescription": "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience."
+  },
+  "Graphics": {
+    "BarGraphic": {
+      "Close": "Close",
+      "GraphicTitle": "Academic Production",
+      "NumberPublications": "Number of Publications",
+      "PercentagePublications": "Percentage of Publications"
+    }
   }
 }

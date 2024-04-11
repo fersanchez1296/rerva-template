@@ -89,7 +89,7 @@ const SearchBoxSection = React.memo(() => {
           </InputGroupAddon>
           <Input
             autoComplete="name"
-            placeholder="Título, área de conocimiento..."
+            placeholder={t("searchBox.Container.Input.PlaceholderGeneral")}
             type="text"
             value={inputValue}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
@@ -114,7 +114,7 @@ const SearchBoxSection = React.memo(() => {
           </InputGroupAddon>
           <Input
             autoComplete="name"
-            placeholder="Nombre o Apellido..."
+            placeholder={t("searchBox.Container.Input.PlaceholderAuthor")}
             type="text"
             value={inputValue}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
@@ -135,7 +135,7 @@ const SearchBoxSection = React.memo(() => {
           options={indicadores.areas.map((a) => {
             return { value: a.value, label: a.label };
           })}
-          placeholder="Selecciona el área de conocimiento"
+          placeholder={t("searchBox.Container.Input.PlaceholderArea")}
           value={areaSelect}
           styles={{
             control: (provided) => ({
@@ -162,7 +162,7 @@ const SearchBoxSection = React.memo(() => {
           </InputGroupAddon>
           <Input
             autoComplete="name"
-            placeholder="Nombre de la revista..."
+            placeholder={t("searchBox.Container.Input.PlaceholderJournal")}
             type="text"
             value={inputValue}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
@@ -185,7 +185,7 @@ const SearchBoxSection = React.memo(() => {
           options={indicadores.paises.map((a) => {
             return { value: a.value, label: a.label };
           })}
-          placeholder="Selecciona el país de publicación"
+          placeholder={t("searchBox.Container.Input.PlaceholderCountry")}
           value={paisPublicacionSelect}
           styles={{
             control: (provided) => ({
@@ -257,11 +257,11 @@ const SearchBoxSection = React.memo(() => {
                             name=""
                             onChange={(value) => setSeccionSelect(value)}
                             options={[
-                              { value: "1", label: "General" },
-                              { value: "2", label: "Autor" },
-                              { value: "3", label: "Area de conocimiento" },
-                              { value: "4", label: "Revista" },
-                              { value: "5", label: "Pais de publicacion" },
+                              { value: "1", label: t("searchBox.Container.Select.General") },
+                              { value: "2", label: t("searchBox.Container.Select.Author") },
+                              { value: "3", label: t("searchBox.Container.Select.Area") },
+                              { value: "4", label: t("searchBox.Container.Select.Journal") },
+                              { value: "5", label: t("searchBox.Container.Select.Country") },
                             ]}
                             placeholder="Selecciona la sección"
                             value={seccionSelect}

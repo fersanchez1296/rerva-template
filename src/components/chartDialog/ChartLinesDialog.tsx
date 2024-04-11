@@ -14,6 +14,8 @@ import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
 import { Graphics } from "../graphics/Graphics";
 import Container from "@mui/material/Container";
+//translations
+import { useTranslation } from "react-i18next";
 
 interface Props {
   XLabels: any;
@@ -37,6 +39,7 @@ export const ChartLinesDialog = ({
   open,
   handleCloseDialog,
 }: Props) => {
+  const { t } = useTranslation("global");
   return (
     <div>
       <Dialog
@@ -56,7 +59,7 @@ export const ChartLinesDialog = ({
               <CloseIcon />
             </IconButton>
             <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-              Cerrar
+            {t("Graphics.BarGraphic.Close")}
             </Typography>
           </Toolbar>
         </AppBar>

@@ -1,5 +1,10 @@
+//react
 import React from "react";
+//react router dom
 import { useParams } from "react-router-dom";
+//translations
+import { useTranslation } from "react-i18next";
+//reactstrap
 import {
   Row,
   Col,
@@ -7,6 +12,7 @@ import {
   CarouselItem,
   CarouselIndicators,
 } from "reactstrap";
+//react charts
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -52,6 +58,7 @@ function generateChartData(dt) {
 }
 
 function EcommerceHeader({ title, subtitle, cantidad, data }) {
+  const { t, i18n } = useTranslation("global");
   const dt = data;
   const { url, request, busqueda } = useParams();
   const [activeIndex, setActiveIndex] = React.useState(0);
@@ -114,7 +121,7 @@ function EcommerceHeader({ title, subtitle, cantidad, data }) {
         <Row>
           <Col className="ml-auto mr-auto" md="12">
             <h1 className="title">{subtitle}</h1>
-            <h2 className="description">{cantidad} Coincidencias</h2>
+            <h2 className="description">{cantidad} {t("Coincidences.CoincidencesHeader")}</h2>
             <Col
               className="ml-auto mr-auto d-flex justify-content-center"
               md="4"

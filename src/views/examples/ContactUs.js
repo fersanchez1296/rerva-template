@@ -55,7 +55,7 @@ function ContactUs() {
                     <br></br>
                   </p>
                   <Form id="contact-form" method="post" role="form">
-                    <label>Nombre</label>
+                    <label>{t("Contact.Input.InputName")}</label>
                     <InputGroup
                       className={nameFocus ? "input-group-focus" : ""}
                     >
@@ -67,13 +67,13 @@ function ContactUs() {
                       <Input
                         aria-label="nombre"
                         autoComplete="nombre"
-                        placeholder="¿Cuál es tu nombre?"
+                        placeholder={t("Contact.Input.InputNamePlaceholder")}
                         type="text"
                         onFocus={() => setNameFocus(true)}
                         onBlur={() => setNameFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Correo electrónico</label>
+                    <label>{t("Contact.Input.InputEmail")}</label>
                     <InputGroup
                       className={emailFocus ? "input-group-focus" : ""}
                     >
@@ -85,14 +85,14 @@ function ContactUs() {
                       <Input
                         aria-label="Correo"
                         autoComplete="correo"
-                        placeholder="¿Cuál es tu correo?"
+                        placeholder={t("Contact.Input.InputEmailPlaceholder")}
                         type="email"
                         onFocus={() => setEmailFocus(true)}
                         onBlur={() => setEmailFocus(false)}
                       ></Input>
                     </InputGroup>
                     <FormGroup>
-                      <label>Motivo de contacto</label>
+                      <label>{t("Contact.Input.InputSubject")}</label>
                       <Input
                         id="message"
                         name="message"
@@ -104,10 +104,10 @@ function ContactUs() {
                       <Button
                         className="btn-raised btn-round"
                         color="info"
-                        defaultValue="Contact Us"
+                        defaultValue=""
                         type="submit"
                       >
-                        Contactar
+                        {t("Contact.Input.Button")}
                       </Button>
                     </div>
                   </Form>

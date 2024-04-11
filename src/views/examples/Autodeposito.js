@@ -179,7 +179,7 @@ function Autodeposito() {
                   </p>
                   <br></br>
                   <Form id="contact-form" method="post" role="form">
-                    <label>Nombre</label>
+                    <label>{t("Autodeposito.Input.InputName")}</label>
                     <InputGroup
                       className={nameFocus ? "input-group-focus" : ""}
                     >
@@ -191,7 +191,7 @@ function Autodeposito() {
                       <Input
                         aria-label="¿Cuál es tu nombre?"
                         autoComplete="nombre"
-                        placeholder="¿Cuál es tu nombre?"
+                        placeholder={t("Autodeposito.Input.InputNamePlaceholder")}
                         type="text"
                         value={nameValue}
                         onChange={(e) =>
@@ -201,7 +201,7 @@ function Autodeposito() {
                         onBlur={() => setNameFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Email</label>
+                    <label>{t("Autodeposito.Input.InputEmail")}</label>
                     <InputGroup
                       className={emailFocus ? "input-group-focus" : ""}
                     >
@@ -213,7 +213,7 @@ function Autodeposito() {
                       <Input
                         aria-label="¿Cuál es tu email?"
                         autoComplete="email"
-                        placeholder="¿Cuál es tu email?"
+                        placeholder={t("Autodeposito.Input.InputEmailPlaceholder")}
                         type="email"
                         value={emailValue}
                         onChange={(e) =>
@@ -223,7 +223,7 @@ function Autodeposito() {
                         onBlur={() => setEmailFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Título</label>
+                    <label>{t("Autodeposito.Input.InputTitle")}</label>
                     <InputGroup
                       className={titleFocus ? "input-group-focus" : ""}
                     >
@@ -234,7 +234,7 @@ function Autodeposito() {
                       </InputGroupAddon>
                       <Input
                         autoComplete="titulo"
-                        placeholder="¿Cuál es título del documento?"
+                        placeholder={t("Autodeposito.Input.InputTitlePlaceholder")}
                         type="text"
                         value={titleValue}
                         onChange={(e) =>
@@ -244,7 +244,7 @@ function Autodeposito() {
                         onBlur={() => setTitleFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>Link</label>
+                    <label>{t("Autodeposito.Input.InputLink")}</label>
                     <InputGroup
                       className={linkFocus ? "input-group-focus" : ""}
                     >
@@ -255,7 +255,7 @@ function Autodeposito() {
                       </InputGroupAddon>
                       <Input
                         autoComplete="link"
-                        placeholder="¿Cuál es link dónde se encuentra el documento?"
+                        placeholder={t("Autodeposito.Input.InputLinkPlaceholder")}
                         type="text"
                         value={linkValue}
                         onChange={(e) =>
@@ -265,7 +265,7 @@ function Autodeposito() {
                         onBlur={() => setLinkFocus(false)}
                       ></Input>
                     </InputGroup>
-                    <label>DOI</label>
+                    <label>{t("Autodeposito.Input.InputDoi")}</label>
                     <InputGroup
                       className={doiFocus ? "input-group-focus" : ""}
                     >
@@ -276,7 +276,7 @@ function Autodeposito() {
                       </InputGroupAddon>
                       <Input
                         autoComplete="doi"
-                        placeholder="¿Cuál es el DOI documento?"
+                        placeholder={t("Autodeposito.Input.InputDoiPlaceholder")}
                         type="text"
                         value={doiValue}
                         onChange={(e) =>
@@ -303,7 +303,7 @@ function Autodeposito() {
                         }
                         onClick={handlePostSolicitud}
                       >
-                        Contriubuir
+                        {t("Autodeposito.Input.Button")}
                       </Button>
                     </div>
                   </Form>

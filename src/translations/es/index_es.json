@@ -25,7 +25,21 @@
     "Container": {
       "Title": "Buscar en la Base de Datos de CUValles",
       "Subtitle": "Ingresa el criterio de búsqueda",
-      "Button": "Buscar"
+      "Button": "Buscar",
+      "Select": {
+        "General": "General",
+        "Author": "Autor",
+        "Area": "Area de conocimiento",
+        "Journal": "Revista",
+        "Country": "Pais de publicacion"
+      },
+      "Input": {
+        "PlaceholderGeneral": "Título, Nombre de Autor, Disciplina...",
+        "PlaceholderAuthor": "Nombre o Apellido...",
+        "PlaceholderArea": "Selecciona el área de conocmiento",
+        "PlaceholderJournal": "Nombre de la revista",
+        "PlaceholderCountry": "Selecciona el país de publicación"
+      }
     }
   },
   "indexMapsLanguage": {
@@ -47,7 +61,20 @@
     "TitleRequirements": "Requisitos",
     "TitleRequirementsDescription": "El contenido académico debe abordar el estudio de la región de los valles.",
     "Copyright": "Derechos de autor",
-    "CopyrightDescription": "La publicación de los contenidos digitales se realiza principalmente bajo el esquema de acceso abierto, sin prejuicio de las disposiciones en materia de protección de los derechos de autor. Por lo tanto, se direccionará al sitio en el que se encuentre disponible para que los usuarios accedan libremente. En caso de que se trate de un documento de acceso cerrado únicamente se direccionará al sitio web en el que se encuentre para que los usuarios, de ser el caso realicen el pago correspondiente para su consulta si así lo desean."
+    "CopyrightDescription": "La publicación de los contenidos digitales se realiza principalmente bajo el esquema de acceso abierto, sin prejuicio de las disposiciones en materia de protección de los derechos de autor. Por lo tanto, se direccionará al sitio en el que se encuentre disponible para que los usuarios accedan libremente. En caso de que se trate de un documento de acceso cerrado únicamente se direccionará al sitio web en el que se encuentre para que los usuarios, de ser el caso realicen el pago correspondiente para su consulta si así lo desean.",
+    "Input" : {
+      "InputName" : "Nombre",
+      "InputNamePlaceholder" : "¿Cuál es tu nombre?",
+      "InputEmail": "Correo electrónico",
+      "InputEmailPlaceholder": "¿Cuál es tu correo electrónico?",
+      "InputTitle": "Título del documento",
+      "InputTitlePlaceholder": "¿Cuál es el título del documento?",
+      "InputLink": "Link",
+      "InputLinkPlaceholder": "¿Cuál el link dónde se encuentra el documento?",
+      "InputDoi": "DOI",
+      "InputDoiPlaceholder": "¿Cuál es el DOI del documento?",
+      "Button" : "Contribuir"
+    }
   },
   "About": {
     "Title": "Acerca de...",
@@ -88,7 +115,15 @@
     "ContactDescription": "¿Necesitas ponerte en contacto con nosotros? Introduce tu información y a la brevedad estaremos en contacto contigo.",
     "Location": "¿Dónde nos ubicamos?",
     "Call": "Llamanos",
-    "LegalInformation": "Información Legal"
+    "LegalInformation": "Información Legal",
+    "Input": {
+      "InputName": "Nombre",
+      "InputNamePlaceholder": "¿Cuál es tu nombre?",
+      "InputEmail":"Correo electrónico",
+      "InputEmailPlaceholder":"¿Cuál es tu correo electrónico?",
+      "InputSubject": "Asunto",
+      "Button": "Contactar"
+    }
   },
   "IndexFooter": {
     "About": "Acerca de Nosotros",
@@ -100,6 +135,8 @@
     "Contact": "Contacto"
   },
   "Coincidences": {
+    "CoincidencesHeader" : "Coincidencias",
+    "Coincidences" : "Coincidencias",
     "TableTitleV1": {
       "Link de acceso": "Link de acceso",
       "Nombre de la revista/libro": "Nombre de la revista/libro",
@@ -109,11 +146,29 @@
       "Autores": "Autores",
       "Autor": "Autor",
       "País de la Publicación": "País de la Publicación"
+    },
+    "Filters" : {
+      "Filter" : "Filtros",
+      "FilterArea": "Área",
+      "FilterDiscipline": "Disciplina",
+      "FilterFieldStudy": "Campo",
+      "FilterCountry": "País",
+      "FilterLanguage": "Idioma",
+      "FilterYear": "Año",
+      "ClearFilters": "Eliminar filtros"
     }
   },
-  "Librarys" : {
-    "Title" : "Bibliotecas Municipales",
-    "LibrarysTitle" : "Directorio de bibliotecas municipales",
-    "LibrarysDescription" : "Explora nuestra selección de bibliotecas municipales, cada una con su propio encanto y recursos únicos. Encuentra la biblioteca más cercana a ti y descubre un mundo de conocimiento, entretenimiento y servicios comunitarios que enriquecerán tu experiencia de lectura y aprendizaje."
+  "Librarys": {
+    "Title": "Bibliotecas Municipales",
+    "LibrarysTitle": "Directorio de bibliotecas municipales",
+    "LibrarysDescription": "Explora nuestra selección de bibliotecas municipales, cada una con su propio encanto y recursos únicos. Encuentra la biblioteca más cercana a ti y descubre un mundo de conocimiento, entretenimiento y servicios comunitarios que enriquecerán tu experiencia de lectura y aprendizaje."
+  },
+  "Graphics": {
+    "BarGraphic": {
+      "Close": "Cerrar",
+      "GraphicTitle": "Producción Académica",
+      "NumberPublications": "Cantidad de Publicaciones",
+      "PercentagePublications": "Porcentaje de Publicaciones"
+    }
   }
 }

@@ -120,23 +120,23 @@ function Ecommerce() {
   };
 
   const handleResetFilters = () => {
-      setSelectedArea("");
-      setSelectedDisciplina("");
-      setSelectedCampo("");
-      setSelectedYear("");
-      setSelectedIdiomas([]);
-      setSelectedPais("");
-    
-      setFilters({
-        areaEstudio: "",
-        disciplina: "",
-        campo: "",
-        clasificacion: "",
-        anio: "",
-        idioma: "",
-        pais: "",
-        tipo: "",
-      });
+    setSelectedArea("");
+    setSelectedDisciplina("");
+    setSelectedCampo("");
+    setSelectedYear("");
+    setSelectedIdiomas([]);
+    setSelectedPais("");
+
+    setFilters({
+      areaEstudio: "",
+      disciplina: "",
+      campo: "",
+      clasificacion: "",
+      anio: "",
+      idioma: "",
+      pais: "",
+      tipo: "",
+    });
   };
 
   const {
@@ -237,11 +237,11 @@ function Ecommerce() {
           <div className="section">
             <Container>
               <h2 className="section-title">
-                Coincidencias : {cantidadFiltrada}
+                {t("Coincidences.Coincidences")} : {cantidadFiltrada}
               </h2>
               <Row>
                 <Col md="2">
-                  <h2>FILTROS</h2>
+                  <h2>{t("Coincidences.Filters.Filter")}</h2>
                   <hr></hr>
                   <div className="collapse-panel">
                     <CardBody>
@@ -259,7 +259,7 @@ function Ecommerce() {
                                 changeCollapse(1);
                               }}
                             >
-                              Área{" "}
+                              {t("Coincidences.Filters.FilterArea")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -302,7 +302,7 @@ function Ecommerce() {
                                 changeCollapse(2);
                               }}
                             >
-                              Disciplina{" "}
+                              {t("Coincidences.Filters.FilterDiscipline")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -345,7 +345,7 @@ function Ecommerce() {
                                 changeCollapse(3);
                               }}
                             >
-                              Campo{" "}
+                              {t("Coincidences.Filters.FilterFieldStudy")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -388,7 +388,7 @@ function Ecommerce() {
                                 changeCollapse(5);
                               }}
                             >
-                              País{" "}
+                              {t("Coincidences.Filters.FilterCountry")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -431,7 +431,7 @@ function Ecommerce() {
                                 changeCollapse(7);
                               }}
                             >
-                              Idioma{" "}
+                              {t("Coincidences.Filters.FilterLanguage")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -476,7 +476,7 @@ function Ecommerce() {
                                 changeCollapse(8);
                               }}
                             >
-                              Año{" "}
+                              {t("Coincidences.Filters.FilterYear")}{" "}
                               <i className="now-ui-icons arrows-1_minimal-down"></i>
                             </a>
                           </h6>
@@ -510,11 +510,10 @@ function Ecommerce() {
                   <Button
                     className="btn-raised btn-round"
                     color="info"
-                    defaultValue="Contact Us"
                     type="submit"
                     onClick={() => handleResetFilters()}
                   >
-                    Eliminar filtros
+                    {t("Coincidences.Filters.ClearFilters")}
                   </Button>
                 </Col>
                 <Col md="10">
