@@ -7,8 +7,9 @@ import ScrollTransparentNavbar from "components/Navbars/ScrollTransparentNavbar.
 import PresentationHeader from "components/Headers/PresentationHeader.js";
 import FooterBlack from "components/Footers/FooterBlack.js";
 // sections for this page
-import SearchBoxSection from "./presentation-sections/SearchBoxSection.js";
-import Credits from "./presentation-sections/Credits.js";
+import SearchBoxSection from "./SearchBox/SearchBoxSection.js";
+import Credits from "./Credits/Credits.js";
+//json maps
 import country from "../assets/maps/world.geo.json";
 import polity from "../assets/maps/jalisco.geo.json";
 //self components
@@ -55,14 +56,14 @@ export const Presentation =  React.memo(() => {
         <SearchBoxSection />
         <Visualitations
           title={"Municipio"}
-          redirectTo={"Publicaciones por municipio"}
-          endpoint={"countriesAndMunicipios"}
+          redirectTo={"busqueda/municipio"}
+          endpoint={"graficos/municipios"}
           mapa={polity}
         />
         <Visualitations
           title={"Pais"}
-          redirectTo={"Publicaciones por país"}
-          endpoint={"countriesDataCount"}
+          redirectTo={"busqueda/pais"}
+          endpoint={"graficos/paises"}
           mapa={country}
         />
         <Credits />

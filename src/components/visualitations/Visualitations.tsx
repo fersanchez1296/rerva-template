@@ -29,14 +29,13 @@ export const Visualitations = ({
   endpoint,
   mapa,
 }: Props) => {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const {
     data: dt,
     isError,
     isLoading,
     error,
   } = useGetVisualitationsDataQuery(endpoint);
-  const redirect = redirectTo.replace(/\s+/g, "-");
   if (isLoading)
     return (
       <>
@@ -56,7 +55,6 @@ export const Visualitations = ({
         <ServerError />
       </>
     );
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -90,14 +88,14 @@ export const Visualitations = ({
         xs={12}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <Charts YLabels={dt[2]} XLabels={dt[3]} />
+        <Charts YLabels={dt.labels.YLabels} XLabels={dt.labels.XLabels} />
       </Grid>
       <Grid item xs={12}>
         <Divider />
       </Grid>
       <Grid item xs={12} md={6}>
         <div className="wrapper">
-          <WorldMap data={mapa} countriesData={dt[0]} url={redirect} />
+          <WorldMap data={mapa} countriesData={dt.finalResult} url={redirectTo} />
         </div>
       </Grid>
       <Grid
@@ -106,7 +104,7 @@ export const Visualitations = ({
         md={6}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <Pagination url={redirect} data={dt[1]} />
+        <Pagination url={redirectTo} data={dt.finalResult} />
       </Grid>
     </Grid>
   );

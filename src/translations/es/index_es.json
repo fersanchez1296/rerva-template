@@ -29,9 +29,9 @@
       "Select": {
         "General": "General",
         "Author": "Autor",
-        "Area": "Area de conocimiento",
+        "Area": "Área de conocimiento",
         "Journal": "Revista",
-        "Country": "Pais de publicacion"
+        "Country": "País de publicación"
       },
       "Input": {
         "PlaceholderGeneral": "Título, Nombre de Autor, Disciplina...",

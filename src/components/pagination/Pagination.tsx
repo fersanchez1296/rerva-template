@@ -119,7 +119,7 @@ function quitarAcentos(texto) {
 }
 
 export const Pagination = ({ url, data }: Props) => {
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   url = quitarAcentos(url);

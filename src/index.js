@@ -12,7 +12,7 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/react-demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages
-import Presentation from "views/Presentation.js";
+import Index from "views/Index.js";
 //api provider
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
 import { apiSlice } from "./api/api.slice";
@@ -24,19 +24,19 @@ import index_es from "./translations/es/index_es.json";
 import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
 //lazy imports
-const LazyAbout = React.lazy(() => import("views/examples/AboutUs.js"));
+const LazyAbout = React.lazy(() => import("views/AboutUs/AboutUs.js"));
 const LazyAutodeposito = React.lazy(() =>
-  import("views/examples/Autodeposito.js")
+  import("views/Autodeposito/Autodeposito.js")
 );
-const LazyContact = React.lazy(() => import("views/examples/ContactUs.js"));
+const LazyContact = React.lazy(() => import("views/ContactUs/ContactUs.js"));
 const LazyBusquedaGrafica = React.lazy(() =>
   import("views/examples/BusquedaGrafica.js")
 );
-const LazyEcommerce = React.lazy(() => import("views/examples/Ecommerce.js"));
+const LazyEcommerce = React.lazy(() => import("views/Ecommerce/Ecommerce.js"));
 const LazyProfilePage = React.lazy(() =>
-  import("views/examples/ProfilePage.js")
+  import("views/ProfilePage/ProfilePage.js")
 );
-const LazyLibraries = React.lazy(() => import("views/examples/Bibliotecas.js"))
+const LazyLibraries = React.lazy(() => import("views/Bibliotecas/Bibliotecas.js"))
 
 //i18next initializer
 i18next.init({
@@ -61,7 +61,7 @@ root.render(
       <ApiProvider api={apiSlice}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Presentation />} />
+            <Route path="/" element={<Index />} />
             <Route
               path="/nosotros"
               element={
@@ -118,7 +118,6 @@ root.render(
                 </React.Suspense>
               }
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
             <Route
               path="/:busqueda/:documentos/:request"
               element={
@@ -127,6 +126,7 @@ root.render(
                 </React.Suspense>
               }
             />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </ApiProvider>

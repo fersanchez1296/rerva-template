@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+//zustand store
+import { filtersStore } from "../../context/filters.store";
 //translations
 import { useTranslation } from "react-i18next";
 import {
@@ -29,123 +31,27 @@ import { ServerError } from "../../components/serverError/ServerError";
 import { Spiner } from "../../components/spiner/Spiner";
 import { useGetBusquedaQuery } from "../../api/api.slice";
 
+function filterAndMapOptions(data, key) {
+  return Array.from(new Set(data.map((el) => (el[key] ? el[key] : null))))
+    .filter((option) => option !== undefined && option !== null)
+    .map((option) =>
+      key === "Año"
+        ? { key: option, label: option }
+        : { key: option.trim(), label: option }
+    );
+}
+
 function Ecommerce() {
-  const { t, i18n } = useTranslation("global");
+  const { filterFields } = filtersStore();
+  const { t } = useTranslation("global");
   let { url, request, busqueda } = useParams();
+  const [collapses, setCollapses] = useState([0]);
+  const [filters, setFilters] = useState({});
   url = `${url}/${busqueda}`;
   request = request.replace(/-/g, "/");
   const title = url.replace(/-/g, " ");
   const subtitle = request.replace(/\+/g, " ");
-  const [selectedArea, setSelectedArea] = useState("");
-  const [selectedDisciplina, setSelectedDisciplina] = useState("");
-  const [selectedCampo, setSelectedCampo] = useState("");
-  const [selectedYear, setSelectedYear] = useState("");
-  const [selectedIdiomas, setSelectedIdiomas] = useState([]);
-  const [selectedPais, setSelectedPais] = useState("");
-  const [collapses, setCollapses] = useState([1]);
-  const changeCollapse = (collapse) => {
-    if (collapses.includes(collapse)) {
-      setCollapses(collapses.filter((prop) => prop !== collapse));
-    } else {
-      setCollapses([...collapses, collapse]);
-    }
-  };
-  const [filters, setFilters] = useState({
-    areaEstudio: "",
-    disciplina: "",
-    campo: "",
-    clasificacion: "",
-    anio: "",
-    idioma: "",
-    pais: "",
-    tipo: "",
-  });
-
-  const handleCheckboxChange = (area) => {
-    setSelectedArea(selectedArea === area ? null : area);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      areaEstudio: selectedArea === area ? "" : area,
-    }));
-  };
-
-  const handleCheckboxChangeDisciplina = (disciplina) => {
-    setSelectedDisciplina(
-      selectedDisciplina === disciplina ? null : disciplina
-    );
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      disciplina: prevFilters.disciplina === disciplina ? "" : disciplina,
-    }));
-  };
-
-  const handleCheckboxChangeCampo = (campo) => {
-    setSelectedCampo(selectedCampo === campo ? null : campo);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      campo: prevFilters.campo === campo ? "" : campo,
-    }));
-  };
-
-  const handleCheckboxChangeYear = (year) => {
-    setSelectedYear(selectedYear === year ? null : year);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      year: prevFilters.year === year ? "" : year,
-    }));
-  };
-
-  const handleCheckboxChangeIdioma = (idioma) => {
-    const updatedIdiomas = [...selectedIdiomas];
-    const index = updatedIdiomas.indexOf(idioma);
-    if (index === -1) {
-      updatedIdiomas.push(idioma);
-    } else {
-      updatedIdiomas.splice(index, 1);
-    }
-    setSelectedIdiomas(updatedIdiomas);
-
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      idioma: updatedIdiomas.join(","),
-    }));
-  };
-
-  const handleCheckboxChangePais = (pais) => {
-    setSelectedPais(selectedPais === pais ? null : pais);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      pais: prevFilters.pais === pais ? "" : pais,
-    }));
-  };
-
-  const handleResetFilters = () => {
-    setSelectedArea("");
-    setSelectedDisciplina("");
-    setSelectedCampo("");
-    setSelectedYear("");
-    setSelectedIdiomas([]);
-    setSelectedPais("");
-
-    setFilters({
-      areaEstudio: "",
-      disciplina: "",
-      campo: "",
-      clasificacion: "",
-      anio: "",
-      idioma: "",
-      pais: "",
-      tipo: "",
-    });
-  };
-
-  const {
-    data: dt,
-    isError,
-    isLoading,
-    error,
-  } = useGetBusquedaQuery({ url, request });
-
+  
   useEffect(() => {
     document.body.classList.add("ecommerce-page");
     document.body.classList.add("sidebar-collapse");
@@ -157,6 +63,47 @@ function Ecommerce() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+  
+  const {
+    data: dt,
+    isError,
+    isLoading,
+  } = useGetBusquedaQuery({ url, request });
+
+  const changeCollapse = (collapse) => {
+    if (collapses.includes(collapse)) {
+      setCollapses(collapses.filter((prop) => prop !== collapse));
+    } else {
+      setCollapses([...collapses, collapse]);
+    }
+  };
+
+  const handleCheckboxChange = (value,field,filterKey) => {
+    const updatedValue = [...filterFields[field]];
+    const index = updatedValue.indexOf(value);
+    if (index === -1) {
+      updatedValue.push(value);
+    } else {
+      updatedValue.splice(index, 1);
+    }
+    filterFields.setField(field, updatedValue);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterKey]: updatedValue.join(","),
+    }));
+  };
+
+  const handleResetFilters = () => {
+    filterFields.resetValues()
+    setFilters({
+      area: "",
+      disciplina: "",
+      campo: "",
+      year: "",
+      idioma: "",
+      pais: "",
+    });
+  };
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -169,55 +116,31 @@ function Ecommerce() {
       </>
     );
   }
-  const filterOptionsArea = Array.from(
-    new Set(dt.resultados.map((el) => el["Área"]))
-  )
-    .filter((area) => area !== undefined && area !== null)
-    .map((area) => ({ key: area.trim(), label: area }));
 
-  const filterOptionsDisciplina = Array.from(
-    new Set(dt.resultados.map((el) => el["Disciplina"]))
-  )
-    .filter((disciplina) => disciplina !== undefined && disciplina !== null)
-    .map((disciplina) => ({ key: disciplina.trim(), label: disciplina }));
-
-  const filterOptionsCampo = Array.from(
-    new Set(dt.resultados.map((el) => el["Campo"]))
-  )
-    .filter((campo) => campo !== undefined && campo !== null)
-    .map((campo) => ({ key: campo.trim(), label: campo }));
-
-  const filterOptionsYear = Array.from(
-    new Set(dt.resultados.map((el) => el["Año"]))
-  )
-    .filter((year) => year !== undefined && year !== null)
-    .map((year) => ({ key: year, label: year }))
-    .sort((a, b) => b.key - a.key);
-
-  const filterOptionsIdioma = Array.from(
-    new Set(dt.resultados.map((el) => (el["Idioma"] ? el["Idioma"][0] : null)))
-  )
-    .filter((idioma) => idioma !== undefined && idioma !== null)
-    .map((idioma) => ({ key: idioma.trim(), label: idioma }));
-
-  const filterOptionsPais = Array.from(
-    new Set(dt.resultados.map((el) => el["País de la Publicación"]))
-  )
-    .filter((pais) => pais !== undefined && pais !== null)
-    .map((pais) => ({ key: pais.trim(), label: pais }));
+  const filterOptionsArea = filterAndMapOptions(dt.resultados, "Área");
+  const filterOptionsDisciplina = filterAndMapOptions(dt.resultados,"Disciplina");
+  const filterOptionsCampo = filterAndMapOptions(dt.resultados, "Campo");
+  const filterOptionsYear = filterAndMapOptions(dt.resultados, "Año");
+  const filterOptionsIdioma = filterAndMapOptions(dt.resultados, "Idioma");
+  const filterOptionsPais = filterAndMapOptions(
+    dt.resultados,
+    "País de la Publicación"
+  );
 
   const filteredData = dt.resultados.filter((item) => {
     return (
-      (!selectedArea || item["Área"] === selectedArea) &&
-      (!filters.disciplina || item["Disciplina"] === filters.disciplina) &&
-      (!filters.campo || item["Campo"] === filters.campo) &&
+      (!filters.area || filters.area.includes(item["Área"])) &&
+      (!filters.disciplina ||
+        filters.disciplina.includes(item["Disciplina"])) &&
+      (!filters.campo || filters.campo.includes(item["Campo"])) &&
       (!filters.clasificacion ||
-        item["Clasificación"] === filters.clasificacion) &&
-      (!filters.pais || item["País de la Publicación"] === filters.pais) &&
-      (!filters.tipo || item["Tipo de documento"] === filters.tipo) &&
-      (!filters.idioma || filters.idioma.includes(item["Idioma"])) && // Modificación aquí
-      (!filters.pClave || item["Palabras Clave"] === filters.pClave) &&
-      (!filters.year || item["Año"] === filters.year)
+        filters.clasificacion.includes(item["Clasificación"])) &&
+      (!filters.pais ||
+        filters.pais.includes(item["País de la Publicación"])) &&
+      (!filters.tipo ||
+        filters.disciplina.includes(item["Tipo de Documento"])) &&
+      (!filters.idioma || filters.idioma.includes(item["Idioma"])) &&
+      (!filters.year || filters.year.includes(item["Año"]))
     );
   });
 
@@ -274,9 +197,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedArea === option.key}
+                                    checked={filterFields.selectedArea.includes(
+                                      option.key
+                                    )}
                                     onChange={() =>
-                                      handleCheckboxChange(option.key)
+                                      handleCheckboxChange(option.key,"selectedArea","area")
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -287,7 +212,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
                       {/* Collapse para Disciplina */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -317,9 +241,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedDisciplina === option.key}
+                                    checked={filterFields.selectedDisciplina.includes(
+                                      option.key
+                                    )}
                                     onChange={() =>
-                                      handleCheckboxChangeDisciplina(option.key)
+                                      handleCheckboxChange(option.key, "selectedDisciplina","disciplina")
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -330,7 +256,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
                       {/* Collapse para Campo */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -360,9 +285,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedCampo === option.key}
+                                    checked={filterFields.selectedCampo.includes(
+                                      option.key
+                                    )}
                                     onChange={() =>
-                                      handleCheckboxChangeCampo(option.key)
+                                      handleCheckboxChange(option.key, "selectedCampo", "campo")
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -373,7 +300,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
                       {/* Collapse para País */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -403,9 +329,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedPais === option.key}
+                                    checked={filterFields.selectedPais.includes(
+                                      option.key
+                                    )}
                                     onChange={() =>
-                                      handleCheckboxChangePais(option.key)
+                                      handleCheckboxChange(option.key, "selectedPais","pais")
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -416,7 +344,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
                       {/* Collapse para Idioma */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -446,11 +373,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedIdiomas.includes(
+                                    checked={filterFields.selectedIdiomas.includes(
                                       option.key
                                     )}
                                     onChange={() =>
-                                      handleCheckboxChangeIdioma(option.key)
+                                      handleCheckboxChange(option.key,"selectedIdiomas","idioma")
                                     }
                                   />
                                   <span className="form-check-sign"></span>
@@ -461,7 +388,6 @@ function Ecommerce() {
                           </CardBody>
                         </Collapse>
                       </Card>
-
                       {/* Collapse para Año */}
                       <Card className="card-refine card-plain">
                         <CardHeader id="headingOne" role="tab">
@@ -491,9 +417,11 @@ function Ecommerce() {
                                 <Label check>
                                   <Input
                                     type="checkbox"
-                                    checked={selectedYear === option.key}
+                                    checked={filterFields[
+                                      "selectedAño"
+                                    ].includes(option.key)}
                                     onChange={() =>
-                                      handleCheckboxChangeYear(option.key)
+                                      handleCheckboxChange(option.key,"selectedAño", "year")
                                     }
                                   />
                                   <span className="form-check-sign"></span>

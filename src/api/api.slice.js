@@ -16,6 +16,7 @@ export const apiSlice = createApi({
         method: "GET",
       }),
     }),
+    //este si se usa
     getVisualitationsData: builder.query({
       query: (endpoint) => ({
         url: `${endpoint}`,
@@ -60,7 +61,7 @@ export const apiSlice = createApi({
     }),
     getBusquedaInfoSelect: builder.query({
       query: () => ({
-        url: `/busqueda/seccionesSelect`,
+        url: `/secciones-busqueda`,
         method: "GET",
       }),
     }),

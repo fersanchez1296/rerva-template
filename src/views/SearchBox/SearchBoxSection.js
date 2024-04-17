@@ -25,17 +25,15 @@ import { Spiner } from "../../components/spiner/Spiner";
 
 const SearchBoxSection = React.memo(() => {
   const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [lastFocus, setLastFocus] = React.useState(false);
   const [busqueda, setBusqueda] = React.useState("");
-  const [inputValue, setInputValue] = React.useState("");
   const [paisPublicacionSelect, setPaisPublicacionSelect] = React.useState("");
   const [areaSelect, setAreaSelect] = React.useState("");
   const [seccionSelect, setSeccionSelect] = React.useState({
     value: "1",
     label: "General",
   });
-  const url = "busqueda";
 
   if (isLoading) {
     return <Spiner showSpiner />;
@@ -43,11 +41,14 @@ const SearchBoxSection = React.memo(() => {
   // **********Functions**********
 
   const handleBuscar = () => {
-    if (busqueda != "") {
-      setBusqueda(busqueda.replace(/ /g, "+"));
-    }
-    const seccion = seccionSelect.label.replace(/ /g, "-");
-    window.open(`/${url}/${seccion}/${busqueda}`, "_self");
+    const seccion = seccionSelect.label
+      .replace(/ /g, "-")
+      .replace(/[áäà]/gi, "a")
+      .replace(/[éëè]/gi, "e")
+      .replace(/[íïì]/gi, "i")
+      .replace(/[óöò]/gi, "o")
+      .replace(/[úüù]/gi, "u");
+    window.open(`/busqueda/${seccion}/${busqueda.replace(/ /g, "+")}`, "_self");
     handleResetInputs();
   };
 
@@ -58,19 +59,17 @@ const SearchBoxSection = React.memo(() => {
   };
 
   const handleChange = (e) => {
-    const regex = /^[a-zA-ZÀ-ÿ\s]*$/;
-
-    if (regex.test(e) || e === "") {
-      setInputValue(e);
+    // console.log(e);
+    // const regex = /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]+$/u;
+    // if (regex.test(e) || e === "") {
       setBusqueda(e);
-    }
+    // }
   };
 
   const handleResetInputs = () => {
     setBusqueda("");
     setAreaSelect("");
     setPaisPublicacionSelect("");
-    setInputValue("");
   };
 
   const renderInputGroup = () => {
@@ -91,7 +90,7 @@ const SearchBoxSection = React.memo(() => {
             autoComplete="name"
             placeholder={t("searchBox.Container.Input.PlaceholderGeneral")}
             type="text"
-            value={inputValue}
+            value={busqueda}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -116,7 +115,7 @@ const SearchBoxSection = React.memo(() => {
             autoComplete="name"
             placeholder={t("searchBox.Container.Input.PlaceholderAuthor")}
             type="text"
-            value={inputValue}
+            value={busqueda}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -164,7 +163,7 @@ const SearchBoxSection = React.memo(() => {
             autoComplete="name"
             placeholder={t("searchBox.Container.Input.PlaceholderJournal")}
             type="text"
-            value={inputValue}
+            value={busqueda}
             onChange={(e) => handleChange(e.target.value.toUpperCase())}
             onFocus={() => setLastFocus(true)}
             onBlur={() => setLastFocus(false)}
@@ -257,11 +256,26 @@ const SearchBoxSection = React.memo(() => {
                             name=""
                             onChange={(value) => setSeccionSelect(value)}
                             options={[
-                              { value: "1", label: t("searchBox.Container.Select.General") },
-                              { value: "2", label: t("searchBox.Container.Select.Author") },
-                              { value: "3", label: t("searchBox.Container.Select.Area") },
-                              { value: "4", label: t("searchBox.Container.Select.Journal") },
-                              { value: "5", label: t("searchBox.Container.Select.Country") },
+                              {
+                                value: "1",
+                                label: t("searchBox.Container.Select.General"),
+                              },
+                              {
+                                value: "2",
+                                label: t("searchBox.Container.Select.Author"),
+                              },
+                              {
+                                value: "3",
+                                label: t("searchBox.Container.Select.Area"),
+                              },
+                              {
+                                value: "4",
+                                label: t("searchBox.Container.Select.Journal"),
+                              },
+                              {
+                                value: "5",
+                                label: t("searchBox.Container.Select.Country"),
+                              },
                             ]}
                             placeholder="Selecciona la sección"
                             value={seccionSelect}

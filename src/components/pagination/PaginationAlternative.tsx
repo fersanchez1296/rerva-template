@@ -107,8 +107,8 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
+  console.log(data);
   const { t, i18n } = useTranslation("global");
-  console.log(tableTitles)
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -143,7 +143,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
       if (title === "Nombre de la revista/libro") {
         return (
           <TableCell style={{ width: 100 }} align="left" key={title}>
-            <a href={`/revista/documentos/${encodeURIComponent(row[title])}`}>
+            <a href={`/busqueda/documentos-revista/${encodeURIComponent(row[title])}`}>
               {row[title]}
             </a>
           </TableCell>
