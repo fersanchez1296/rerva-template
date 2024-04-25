@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const WorldMap = React.memo( ({ data, countriesData, url }: Props) => {
-  console.log("se renderiza el *******mapa*******")
   function quitarAcentos(texto) {
     return texto
       .replace(/[áäà]/gi, "a")

@@ -162,7 +162,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
       } else if (title === "País de la Publicación") {
         return (
           <TableCell style={{ width: 100 }} align="left" key={title}>
-            <a href={`/publicaciones-por-pais/${row[title]}`}>{row[title]}</a>
+            <a href={`/busqueda/pais-de-publicacion/${row[title]}`}>{row[title]}</a>
           </TableCell>
         );
       } else if (title === "Autor" || title === "Autores") {
@@ -171,7 +171,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
           <TableCell style={{ width: 100 }} align="left" key={title}>
             {autoresArray.map((autor, index) => (
               <span key={index}>
-                <a href={`/busqueda/documentos-autor/${autor}`}>{autor}</a>
+                <a href={`/busqueda/documentos-autor${autor}`}>{autor}</a>
                 {index < autoresArray.length - 1 && ", "}
               </span>
             ))}

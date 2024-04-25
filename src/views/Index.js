@@ -62,7 +62,7 @@ export const Presentation =  React.memo(() => {
         />
         <Visualitations
           title={"Pais"}
-          redirectTo={"busqueda/pais"}
+          redirectTo={"busqueda/Pais-de-publicacion"}
           endpoint={"graficos/paises"}
           mapa={country}
         />
