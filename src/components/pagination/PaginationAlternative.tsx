@@ -171,7 +171,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
           <TableCell style={{ width: 100 }} align="left" key={title}>
             {autoresArray.map((autor, index) => (
               <span key={index}>
-                <a href={`/busqueda/documentos-autor${autor}`}>{autor}</a>
+                <a href={`/busqueda/documentos-autor/${autor}`}>{autor}</a>
                 {index < autoresArray.length - 1 && ", "}
               </span>
             ))}
