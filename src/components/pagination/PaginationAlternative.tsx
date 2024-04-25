@@ -107,8 +107,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
-  console.log(data);
-  const { t, i18n } = useTranslation("global");
+  const { t } = useTranslation("global");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -166,7 +165,21 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
             <a href={`/publicaciones-por-pais/${row[title]}`}>{row[title]}</a>
           </TableCell>
         );
-      } else {
+      } else if (title === "Autor" || title === "Autores") {
+        const autoresArray = row[title].split(", ");
+        return (
+          <TableCell style={{ width: 100 }} align="left" key={title}>
+            {autoresArray.map((autor, index) => (
+              <span key={index}>
+                <a href={`/busqueda/documentos-autor/${autor}`}>{autor}</a>
+                {index < autoresArray.length - 1 && ", "}
+              </span>
+            ))}
+          </TableCell>
+        );
+      }
+      
+      else {
         return (
           <TableCell style={{ width: 100 }} align="left" key={title}>
             {row[title]}

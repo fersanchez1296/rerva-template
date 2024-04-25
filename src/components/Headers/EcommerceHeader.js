@@ -121,25 +121,29 @@ function EcommerceHeader({ title, subtitle, cantidad, data }) {
         <Row>
           <Col className="ml-auto mr-auto" md="12">
             <h1 className="title">{subtitle}</h1>
-            <h2 className="description">{cantidad} {t("Coincidences.CoincidencesHeader")}</h2>
+            <h2 className="description">
+              {cantidad} {t("Coincidences.CoincidencesHeader")}
+            </h2>
             <Col
               className="ml-auto mr-auto d-flex justify-content-center"
               md="4"
             >
               <div className="d-flex flex-md-row flex-column">
-                {chartData.map((data, index) => (
-                  <div className="chart-container" key={index}>
-                    <Doughnut
-                      data={data}
-                      options={chartOptions(
-                        ["País de origen", "Institución de origen", "ADS"],
-                        index
-                      )}
-                      height={200} 
-                      width={200} 
-                    />
-                  </div>
-                ))}
+                {busqueda === "Autor"
+                  ? ""
+                  : chartData.map((data, index) => (
+                      <div className="chart-container" key={index}>
+                        <Doughnut
+                          data={data}
+                          options={chartOptions(
+                            ["País de origen", "Institución de origen", "ADS"],
+                            index
+                          )}
+                          height={200}
+                          width={200}
+                        />
+                      </div>
+                    ))}
               </div>
             </Col>
           </Col>

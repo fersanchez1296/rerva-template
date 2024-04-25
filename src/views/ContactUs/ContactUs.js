@@ -133,13 +133,13 @@ function ContactUs() {
                     <div className="description">
                       <h4 className="info-title">{t("Contact.Call")}</h4>
                       <p>
-                        Michael Jordan <br></br>
-                        +40 762 321 762 <br></br>
-                        Mon - Fri, 8:00-22:00
+                        Dr. Alvaro Mora Maciel<br></br>Dra. Karla Viridiana Rosales Valenzuela <br></br>
+                        +52 375 758 0500 Ext. 47455 <br></br>
+                        Mon - Fri, 8:00-18:00
                       </p>
                     </div>
                   </div>
-                  <div className="info info-horizontal">
+                  {/* <div className="info info-horizontal">
                     <div className="icon icon-info">
                       <i className="business_briefcase-24 now-ui-icons"></i>
                     </div>
@@ -152,7 +152,7 @@ function ContactUs() {
                         Bank · Great Britain Bank
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </Col>
               </Row>
             </Container>
