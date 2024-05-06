@@ -107,6 +107,7 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
 }
 
 export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
+  console.log(tableTitles)
   const { t } = useTranslation("global");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -150,7 +151,7 @@ export const PaginationAlternative = ({ url, data, tableTitles }: Props) => {
       } else if (title === "Link de acceso") {
         return (
           <TableCell style={{ width: 100 }} align="center" key={title}>
-            {row[title] === "No aplica" ? "Consulta Física" : (
+            {row[title] === "No Aplica" || "" ? "Consulta Física" : (
             <a href={row[title]} target={"blank"}>
               <Icon>
                 <OpenInNewIcon />

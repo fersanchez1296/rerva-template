@@ -8,23 +8,23 @@ export const filtersStore = create((set) => ({
     selectedAño: [],
     selectedPais: [],
     selectedIdiomas: [],
-    setField: (field: string, value: string) =>
-        set((state) => ({
-        filterFields: {
-          ...state.filterFields,
-          [field]: value,
-        },
-      })),
-    resetValues: () =>
-      set({
-        filterFields: {
-          selectedArea: [],
-          selectedCampo: [],
-          selectedDisciplina: [],
-          selectedAño: [],
-          selectedPais: [],
-          selectedIdiomas: [],
-        },
-      }),
   },
+  setField: (field, value) =>
+    set((state) => ({
+      filterFields: {
+        ...state.filterFields,
+        [field]: value,
+      },
+    })),
+  resetValues: () =>
+    set({
+      filterFields: {
+        selectedArea: [],
+        selectedCampo: [],
+        selectedDisciplina: [],
+        selectedAño: [],
+        selectedPais: [],
+        selectedIdiomas: [],
+      },
+    }),
 }));

@@ -42,7 +42,7 @@ function filterAndMapOptions(data, key) {
 }
 
 function Ecommerce() {
-  const { filterFields } = filtersStore();
+  const { filterFields, setField, resetValues } = filtersStore();
   const { t } = useTranslation("global");
   let { url, request, busqueda } = useParams();
   const [collapses, setCollapses] = useState([0]);
@@ -79,6 +79,7 @@ function Ecommerce() {
   };
 
   const handleCheckboxChange = (value, field, filterKey) => {
+    console.log(value, field,filterKey);
     const updatedValue = [...filterFields[field]];
     const index = updatedValue.indexOf(value);
     if (index === -1) {
@@ -86,7 +87,7 @@ function Ecommerce() {
     } else {
       updatedValue.splice(index, 1);
     }
-    filterFields.setField(field, updatedValue);
+    setField(field, updatedValue);
     setFilters((prevFilters) => ({
       ...prevFilters,
       [filterKey]: updatedValue.join(","),
@@ -94,7 +95,7 @@ function Ecommerce() {
   };
 
   const handleResetFilters = () => {
-    filterFields.resetValues();
+    resetValues();
     setFilters({
       area: "",
       disciplina: "",
