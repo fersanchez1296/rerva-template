@@ -169,7 +169,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/ameca.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -241,7 +241,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/ahualulco.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -311,7 +311,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/amatitan.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -381,7 +381,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/atenguillo.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -447,7 +447,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/cocula.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -789,7 +789,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/hostotipaquillo.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -985,7 +985,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/mixtlan.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -1207,7 +1207,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/san-marcos.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -1273,7 +1273,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/tala.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -1344,7 +1344,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/talpa.jpeg")}
                               ></img>
                             </NavLink>
                           </div>
@@ -1481,7 +1481,7 @@ function Bibliotecas() {
                                 loading="lazy"
                                 alt="..."
                                 className="img img-raised rounded"
-                                src={require("assets/img/bibliotecas/biblioteca-cuvalles.jpg")}
+                                src={require("assets/img/bibliotecas/teuchitlan.jpeg")}
                               ></img>
                             </a>
                           </div>
