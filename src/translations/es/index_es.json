@@ -6,14 +6,14 @@
     "autodeposito": "Autodeposito",
     "aboutUs": "Acerca de...",
     "contact": "Contacto",
-    "library": "Bibliotecas regionales"
+    "library": "Bibliotecas de la región"
   },
   "navSections": {
     "home": "Inicio",
     "autodeposito": "Autodeposito",
     "aboutUs": "Acerca de...",
     "contact": "Contacto",
-    "library": "Bibliotecas regionales"
+    "library": "Bibliotecas de la región"
   },
   "searchBox": {
     "Description": {
@@ -114,7 +114,7 @@
     "TitleContact": "Envianos un mensaje",
     "ContactDescription": "¿Necesitas ponerte en contacto con nosotros? Introduce tu información y a la brevedad estaremos en contacto contigo.",
     "Location": "¿Dónde nos ubicamos?",
-    "Call": "Llamanos",
+    "Call": "Llámanos",
     "LegalInformation": "Información Legal",
     "Input": {
       "InputName": "Nombre",
@@ -159,7 +159,7 @@
     }
   },
   "Librarys": {
-    "Title": "Bibliotecas Municipales",
+    "Title": "Bibliotecas de la Región",
     "LibrarysTitle": "Directorio de bibliotecas municipales",
     "LibrarysDescription": "Explora nuestra selección de bibliotecas municipales, cada una con su propio encanto y recursos únicos. Encuentra la biblioteca más cercana a ti y descubre un mundo de conocimiento, entretenimiento y servicios comunitarios que enriquecerán tu experiencia de lectura y aprendizaje."
   },

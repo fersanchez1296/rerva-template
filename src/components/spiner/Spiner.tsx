@@ -15,7 +15,7 @@ export const Spiner = ({ showSpiner }: { showSpiner: boolean }) => {
   return (
     <div>
       <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{ color: '#00f', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
         onClick={handleClose}
       >

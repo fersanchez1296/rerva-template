@@ -3,17 +3,17 @@
     "language": "English"
   },
   "indexNav": {
-    "autodeposito": "Autodeposito",
+    "autodeposito": "Self Deposit",
     "aboutUs": "About...",
     "contact": "Contact",
-    "library": "Regional Librarys"
+    "library": "Regional Libraries"
   },
   "navSections": {
     "home": "Home",
-    "autodeposito": "Autodeposito",
+    "autodeposito": "Self Deposit",
     "aboutUs": "About...",
     "contact": "Contact",
-    "library": "Regional Librarys"
+    "library": "Regional Libraries"
   },
   "searchBox": {
     "Description": {
@@ -159,8 +159,8 @@
     }
   },
   "Librarys": {
-    "Title": "Municipal libraries",
-    "LibrarysTitle": "Directory of municipal libraries",
+    "Title": "Regional libraries",
+    "LibrarysTitle": "Directory of regional libraries",
     "LibrarysDescription": "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience."
   },
   "Graphics": {

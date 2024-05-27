@@ -1,5 +1,5 @@
 //react
-import React from "react";
+import React,{useRef} from "react";
 // reactstrap components
 import { Row, Col } from "reactstrap";
 //translations
@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 function BibliotecasHeader() {
   const { t, i18n } = useTranslation("global");
-  let pageHeader = React.createRef();
+  const pageHeader = useRef(null);
   React.useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {

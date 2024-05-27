@@ -5,7 +5,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://148.202.89.67:4000/api/',
     //baseUrl: "https://rerva-backend-104f4d2354cf.herokuapp.com/api/",
-    //baseUrl: 'http://localhost:4000/api/',
+    //baseUrl: "http://localhost:4000/api/",
   }),
   // baseUrl: 'https://localhost:4000/api/'}),
 
@@ -66,8 +66,15 @@ export const apiSlice = createApi({
       }),
     }),
     postSolicitud: builder.mutation({
-      query: ({body}) => ({
+      query: ({ body }) => ({
         url: `/postSolicitud`,
+        body,
+        method: "POST",
+      }),
+    }),
+    contacto: builder.mutation({
+      query: ({ body }) => ({
+        url: `/contacto`,
         body,
         method: "POST",
       }),
@@ -87,4 +94,5 @@ export const {
   useChartsBusquedasInfoQuery,
   useGetBusquedaInfoSelectQuery,
   usePostSolicitudMutation,
+  useContactoMutation,
 } = apiSlice;

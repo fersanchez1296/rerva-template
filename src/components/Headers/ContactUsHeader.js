@@ -1,9 +1,9 @@
 //react
-import React from "react";
+import React,{useRef} from "react";
 // reactstrap components
 import { Row, Col } from "reactstrap";
 function ContactUsHeader() {
-  let pageHeader = React.createRef();
+  const pageHeader = useRef(null);
   React.useEffect(() => {
     if (window.innerWidth > 991) {
       const updateScroll = () => {

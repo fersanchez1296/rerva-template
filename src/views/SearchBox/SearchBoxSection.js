@@ -2,6 +2,8 @@
 import React from "react";
 //translations
 import { useTranslation } from "react-i18next";
+//zustand store
+import { useApiRequestStore } from "../../context/apiRequest.store"
 //react-strap
 import Select from "react-select";
 import {
@@ -18,13 +20,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
-//api
-import { useGetBusquedaInfoSelectQuery } from "../../api/api.slice.js";
-//self components
-import { Spiner } from "../../components/spiner/Spiner";
 
 const SearchBoxSection = React.memo(() => {
-  const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
+  const indicadores = useApiRequestStore((state) => state.data);
+  //const { data: indicadores, isLoading } = useGetBusquedaInfoSelectQuery();
   const { t } = useTranslation("global");
   const [lastFocus, setLastFocus] = React.useState(false);
   const [busqueda, setBusqueda] = React.useState("");
@@ -35,9 +34,9 @@ const SearchBoxSection = React.memo(() => {
     label: "General",
   });
 
-  if (isLoading) {
-    return <Spiner showSpiner />;
-  }
+  // if (isLoading) {
+  //   return <Spiner showSpiner />;
+  // }
   // **********Functions**********
 
   const handleBuscar = () => {
@@ -71,7 +70,7 @@ const SearchBoxSection = React.memo(() => {
     setAreaSelect("");
     setPaisPublicacionSelect("");
   };
-
+  console.log(indicadores);
   const renderInputGroup = () => {
     if (seccionSelect.value === "1") {
       return (
