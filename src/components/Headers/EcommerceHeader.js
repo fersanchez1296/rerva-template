@@ -136,7 +136,7 @@ function EcommerceHeader({ title, subtitle, cantidad, data }) {
                         <Doughnut
                           data={data}
                           options={chartOptions(
-                            ["País de origen", "Institución de origen", "ADS"],
+                            ["País de origen", "Área de estudio", "Tipo de documento"],
                             index
                           )}
                           height={200}

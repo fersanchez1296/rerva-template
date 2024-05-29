@@ -9,20 +9,6 @@ import { useTranslation } from "react-i18next";
 
 function BibliotecasHeader() {
   const { t, i18n } = useTranslation("global");
-  const pageHeader = useRef(null);
-  React.useEffect(() => {
-    if (window.innerWidth > 991) {
-      const updateScroll = () => {
-        let windowScrollTop = window.pageYOffset / 3;
-        pageHeader.current.style.transform =
-          "translate3d(0," + windowScrollTop + "px,0)";
-      };
-      window.addEventListener("scroll", updateScroll);
-      return function cleanup() {
-        window.removeEventListener("scroll", updateScroll);
-      };
-    }
-  });
   return (
     <>
       <div className="page-header page-header-medium">
@@ -33,7 +19,7 @@ function BibliotecasHeader() {
             backgroundImage: "url(" + require("assets/img/cuvalles/cuvalles-3_HD.jpg") + ")",
             
           }}
-          ref={pageHeader}
+          
         ></img>
         <div className="content-center">
           <Row>
