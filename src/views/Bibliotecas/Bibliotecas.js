@@ -200,7 +200,7 @@ function Bibliotecas() {
                               </div>
 
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Ameca</p>
                                 <a
                                   href="https://maps.app.goo.gl/4UAtMsKADV3uWRh7A"
@@ -273,7 +273,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">
                                   Ahualulco de Mercado
                                 </p>
@@ -341,7 +341,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Amatitan</p>
                                 <a
                                   href="https://maps.app.goo.gl/U83hnEjRXvk27vtaA"
@@ -411,7 +411,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Atenguillo</p>
                                 <a
                                   href="https://maps.app.goo.gl/QfvFWimvh1RAXBGr6"
@@ -477,7 +477,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Cocula</p>
                                 <a
                                   href="https://maps.app.goo.gl/HhT6SVbwnCbukVfV9"
@@ -542,7 +542,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">
                                   Universidad de Guadalajara
                                 </p>
@@ -613,7 +613,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">El Arenal</p>
                                 <a
                                   href="https://maps.app.goo.gl/UdZkceuvA4zmK2hb6"
@@ -679,7 +679,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Etzatlán</p>
                                 <a
                                   href="https://maps.app.goo.gl/zfcgRKUnXeQUgyg9A"
@@ -749,7 +749,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Guachinango</p>
                                 <a
                                   href="https://maps.app.goo.gl/7btUB5jZZG3nrsQ66"
@@ -819,7 +819,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Hostotipaquillo</p>
                                 <a
                                   href="https://maps.app.goo.gl/xj9YZJMZNPRbT7Mi7"
@@ -885,7 +885,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Magdalena</p>
                                 <a
                                   href="https://maps.app.goo.gl/MQZgZziMGmpFmPXa8"
@@ -950,7 +950,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Mascota</p>
                                 <a
                                   href="https://maps.app.goo.gl/q1Bije9zcMt8FKiD6"
@@ -1015,7 +1015,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Mixtlan</p>
                                 <a
                                   href="https://maps.app.goo.gl/aTs2fsfyDHVPEPXL8"
@@ -1089,7 +1089,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">
                                   San Martín de Hidalgo
                                 </p>
@@ -1164,7 +1164,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">
                                   San Juanito Escobedo
                                 </p>
@@ -1237,7 +1237,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">San Marcos</p>
                                 <a
                                   href="https://maps.app.goo.gl/hFKpxvgk1sL37e2ZA"
@@ -1303,7 +1303,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Tala</p>
                                 <a
                                   href="https://maps.app.goo.gl/nXKw4mb4cFra5HvF6"
@@ -1374,7 +1374,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Talpa de Allende</p>
                                 <a
                                   href="https://maps.app.goo.gl/Ns9UPfrXkafdsKEw9"
@@ -1440,7 +1440,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Tequila</p>
                                 <a
                                   href="https://maps.app.goo.gl/4iztYPUFsS6Pp4aR7"
@@ -1511,7 +1511,7 @@ function Bibliotecas() {
                                 <i className="now-ui-icons location_pin"></i>
                               </div>
                               <div className="description">
-                                <h4 className="info-title">Ubicación</h4>
+                                <h4 className="info-title">{t("Librarys.Ubicacion")}</h4>
                                 <p className="description">Teuchitlan</p>
                                 <a
                                   href="https://maps.app.goo.gl/HqXsfNR9xT7gQBJs8"

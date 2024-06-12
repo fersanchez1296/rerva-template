@@ -161,7 +161,8 @@
   "Librarys": {
     "Title": "Regional libraries",
     "LibrarysTitle": "Directory of regional libraries",
-    "LibrarysDescription": "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience."
+    "LibrarysDescription": "Explore our selection of municipal libraries, each with its own charm and unique resources. Find the library nearest to you and discover a world of knowledge, entertainment, and community services that will enrich your reading and learning experience.",
+    "Ubicacion": "Location"
   },
   "Graphics": {
     "BarGraphic": {
