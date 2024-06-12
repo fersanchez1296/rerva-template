@@ -186,7 +186,7 @@ function ContactUs() {
                         Dr. Alvaro Mora Maciel<br></br>Dra. Karla Viridiana
                         Rosales Valenzuela <br></br>
                         +52 375 758 0500 Ext. 47455 <br></br>
-                        Mon - Fri, 8:00-18:00
+                        Lun - Vie, 8:00-18:00
                       </p>
                     </div>
                   </div>
