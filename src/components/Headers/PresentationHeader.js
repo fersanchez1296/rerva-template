@@ -31,11 +31,11 @@ function PresentationHeader() {
 
         <div className="rellax-text-container rellax-text">
           <h1 className="h1-seo" data-rellax-speed="-1">
-            RECUV
+            REV-CUVALLES
           </h1>
         </div>
         <h3 className="h3-description rellax-text" data-rellax-speed="-1">
-          Repositorio de Estudios de la Región en el Centro Universitario de los
+          Repositorio de Estudios de la Región del Centro Universitario de los
           Valles{" "}
           <hr
             style={{
